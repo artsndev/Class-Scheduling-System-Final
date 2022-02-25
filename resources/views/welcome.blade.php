@@ -44,6 +44,10 @@
                         <li class="nav-item mx-3 mx-auto">
                             <a class="nav-link text-white" href="{{ url('/') }}">{{ __(' Home') }}</a>
                         </li>
+                        <li class="nav-item mx-
+                         mx-auto">
+                            <a class="nav-link text-white" href="#about">{{ __('About') }}</a>
+                        </li>
                         <li class="nav-item mx-4 mx-auto">
                             <a class="nav-link text-white" href="#contact">{{ __('Contact') }}</a>
                         </li>
@@ -121,7 +125,7 @@
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                 magna aliqua.
               </p>
-              <ul>
+              <ul class="nav">
                 <li><i class="bi bi-check-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
                 <li><i class="bi bi-check-all"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
                 <li><i class="bi bi-check-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
@@ -133,86 +137,89 @@
                 velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
                 culpa qui officia deserunt mollit anim id est laborum.
               </p>
-              <a href="#" class="btn-learn-more">Learn More</a>
             </div>
           </div>
-
-          {{-- <section>
-            <div class="col py-3">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-md-4 mb-3">
-                                    <div class="card  bg-primary bg-gradient text-white">
-                                        <div class="card-body py-5">
-                                            <div class="row">
-                                                <div class="col-sm-7">
-                                                    <h2>{{ App\Models\User::all()->count() }}</h2>
-                                                    <h5>{{ __('Student Data') }}</h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <div class="card bg-warning bg-gradient text-dark h-100">
-                                        <div class="card-body py-5">
-                                            <div class="row">
-                                                <div class="col-sm-7">
-                                                    <h2>{{ App\Models\Teacher::all()->count() }}</h2>
-                                                    <h5>{{ __('Teacher') }}</h5>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-md-4 mb-3">
-                                    <div class="card bg-success text-white h-100">
-                                        <div class="card-body py-5">
-                                            <div class="row">
-                                                <div class="col-sm-7">
-                                                    <h2>{{ App\Models\Schedule::all()->count() }}</h2>
-                                                    <h5>{{ __('Schedule\'s') }}</h5>
-                                                </div>
-                                                <div class="col-sm-5">
-                                                    <lord-icon
-                                                        src="https://cdn.lordicon.com/bbnkwdur.json"
-                                                        trigger="hover"
-                                                        colors="primary:#ffffff,secondary:#ffffff"
-                                                        stroke="60"
-                                                        style="width:100px;height:100px">
-                                                    </lord-icon>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 mb-3">
-                                    <div class="card shadow-lg bg-danger text-white h-100">
-                                        <div class="card-body py-5">
-                                            <h2>1</h2>
-                                            <h5>{{ __('Admin') }}</h5>
-                                        </div>
-                                        <a href="#" class="card-footer d-flex text-white">
-                                            {{ __('View Details') }}
-                                            <span class="ms-auto">
-                                                <i class="bi bi-chevron-right"></i>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                    </div>
-                        </div>
-                        </div>
-                </div>
-            </div>
-          </section> --}}
-
-        </div>
       </section><!-- End About Section -->
+
+       <section class="icons py-5">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-md-4">
+            <div class="icon gradient mb-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-layers"
+              >
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+            <h3>Built for CTechEd</h3>
+            <p>
+              Our customizable, block-based build system makes creating your
+              next project fast and easy!
+            </p>
+          </div>
+          <div class="col-md-4">
+            <div class="icon gradient mb-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-smartphone"
+              >
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+              </svg>
+            </div>
+            <h3>Modern responsive design</h3>
+            <p class="mb-0">
+              Featuring carefully crafted, mobile-first components, your end
+              product will function beautifully on any device!
+            </p>
+          </div>
+          <div class="col-md-4">
+            <div class="icon gradient mb-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-code"
+              >
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
+            <h3>Complete documentation</h3>
+            <p class="mb-0">
+              All of the layouts, page sections, components, and utilities are
+              fully covered in this products docs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
         {{-- <section class="py-4" style="height:540px">
             <div class="container">
@@ -269,7 +276,18 @@
                 </div> --}}
             </div>
         </section>
-        <footer class="footer bg-black text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Your Website 2021</div></footer>
+        <footer class="footer bg-black text-center text-white-50">
+        <div class="footer-copyright text-center text-white-50 py-2 container-fluid">© 2021 Made with a
+            <lord-icon
+                src="https://cdn.lordicon.com/rjzlnunf.json"
+                trigger="loop"
+                colors="primary:#ffffff,secondary:#ffffff"
+                stroke="90"
+                style="width:25px;height:25px">
+            </lord-icon>by
+            <a href="{{ url('/') }}">{{ __('Invincible\'s') }} </a>. All rights reserved.
+        </div>
+        </footer>
     </div>
 <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
 </body>
