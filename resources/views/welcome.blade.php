@@ -41,22 +41,25 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 
-                        <li class="nav-item mx-3">
+                        <li class="nav-item mx-3 mx-auto">
                             <a class="nav-link text-white" href="{{ url('/') }}">{{ __(' Home') }}</a>
                         </li>
-                        <li class="nav-item mx-3">
-                            <a class="nav-link text-white" href="{{ route('admin.home') }}">{{ __(' Admin') }}</a>
-                        </li>
-                        <li class="nav-item mx-auto">
-                            <a class="nav-link text-white" href="{{ route('teacher.home') }}">{{ __('Teacher') }}</a>
+                        <li class="nav-item mx-4 mx-auto">
+                            <a class="nav-link text-white" href="#contact">{{ __('Contact') }}</a>
                         </li>
                     </ul>
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
+                        <li class="nav-item mx-3 mx-auto">
+                            <a class="nav-link text-white" href="{{ route('admin.home') }}">{{ __(' Admin') }}</a>
+                        </li>
+                        <li class="nav-item mx-3 mx-auto">
+                            <a class="nav-link text-white" href="{{ route('teacher.home') }}">{{ __('Teacher') }}</a>
+                        </li>
                         @guest
                             @if (Route::has('login'))
-                                <li class="nav-item">
+                                <li class="nav-item mx-3 mx-auto">
                                     <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Student') }}</a>
                                 </li>
                             @endif
@@ -91,7 +94,127 @@
             </div>
         </nav>
 
-        <section class="py-4" style="height:540px">
+        <header class="masthead py-4">
+            <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+                <div class="d-flex justify-content-center py-5">
+                    <div class="text-center">
+                        <h1 class="mx-auto my-0 text-uppercase">{{ __('Welcome') }}</h1>
+                        <h2 class="text-black-100 mx-auto mt-2 mb-5">{{ __('A free, secured, Class Scheduling theme created by Start Bootstrap.') }}</h2>
+                        <a class="btn btn-primary" href="#about">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+
+          <div class="section-title text-center">
+            <h2>About Us</h2>
+            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. </p>
+          </div>
+
+          <div class="row content">
+            <div class="col-lg-6">
+              <p class="fs-4">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua.
+              </p>
+              <ul>
+                <li><i class="bi bi-check-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
+                <li><i class="bi bi-check-all"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
+                <li><i class="bi bi-check-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
+              </ul>
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0">
+              <p class="fs-4">
+                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                culpa qui officia deserunt mollit anim id est laborum.
+              </p>
+              <a href="#" class="btn-learn-more">Learn More</a>
+            </div>
+          </div>
+
+          {{-- <section>
+            <div class="col py-3">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <div class="card  bg-primary bg-gradient text-white">
+                                        <div class="card-body py-5">
+                                            <div class="row">
+                                                <div class="col-sm-7">
+                                                    <h2>{{ App\Models\User::all()->count() }}</h2>
+                                                    <h5>{{ __('Student Data') }}</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card bg-warning bg-gradient text-dark h-100">
+                                        <div class="card-body py-5">
+                                            <div class="row">
+                                                <div class="col-sm-7">
+                                                    <h2>{{ App\Models\Teacher::all()->count() }}</h2>
+                                                    <h5>{{ __('Teacher') }}</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-4 mb-3">
+                                    <div class="card bg-success text-white h-100">
+                                        <div class="card-body py-5">
+                                            <div class="row">
+                                                <div class="col-sm-7">
+                                                    <h2>{{ App\Models\Schedule::all()->count() }}</h2>
+                                                    <h5>{{ __('Schedule\'s') }}</h5>
+                                                </div>
+                                                <div class="col-sm-5">
+                                                    <lord-icon
+                                                        src="https://cdn.lordicon.com/bbnkwdur.json"
+                                                        trigger="hover"
+                                                        colors="primary:#ffffff,secondary:#ffffff"
+                                                        stroke="60"
+                                                        style="width:100px;height:100px">
+                                                    </lord-icon>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <div class="card shadow-lg bg-danger text-white h-100">
+                                        <div class="card-body py-5">
+                                            <h2>1</h2>
+                                            <h5>{{ __('Admin') }}</h5>
+                                        </div>
+                                        <a href="#" class="card-footer d-flex text-white">
+                                            {{ __('View Details') }}
+                                            <span class="ms-auto">
+                                                <i class="bi bi-chevron-right"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                    </div>
+                        </div>
+                        </div>
+                </div>
+            </div>
+          </section> --}}
+
+        </div>
+      </section><!-- End About Section -->
+
+        {{-- <section class="py-4" style="height:540px">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-12">
@@ -103,7 +226,50 @@
                     </div>
                 </div>
             </div>
+        </section> --}}
+
+        <section class="contact-section bg-black" id="contact">
+            <div class="container px-4 py-3 px-lg-5">
+                <div class="row gx-4 gx-lg-5">
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center ">
+                                <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+                                <h4 class="text-uppercase m-0">{{ __('Address') }}</h4>
+                                <hr class="my-4 mx-auto" />
+                                <div class="small text-black-100">{{ __('R.T. Lim Boulevard, Baliwasan, Zamboanga City') }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-envelope text-primary mb-2"></i>
+                                <h4 class="text-uppercase m-0">{{ __('Email') }}</h4>
+                                <hr class="my-4 mx-auto" />
+                                <div class="small text-black-50"><a href="#!">{{ __('bimbimxerep@gmail.com') }}</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="card py-4 h-100">
+                            <div class="card-body text-center">
+                                <i class="fas fa-mobile-alt text-primary mb-2"></i>
+                                <h4 class="text-uppercase m-0">{{ __('Phone') }}</h4>
+                                <hr class="my-4 mx-auto" />
+                                <div class="small text-black-50">{{ __('0955-567-8017') }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{-- <div class="social d-flex justify-content-center">
+                    <a class="mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                    <a class="mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                    <a class="mx-2" href="#!"><i class="fab fa-github"></i></a>
+                </div> --}}
+            </div>
         </section>
+        <footer class="footer bg-black text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Your Website 2021</div></footer>
     </div>
 <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
 </body>

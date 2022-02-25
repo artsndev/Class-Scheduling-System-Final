@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
 
 class Authenticate extends Middleware
@@ -26,6 +27,7 @@ class Authenticate extends Middleware
             }
         }
         else if (!Auth::guard('web')->check()){
+            Alert::toast('Please Login or Sign Up an account first!', 'info');
             return route('login');
         }
     }

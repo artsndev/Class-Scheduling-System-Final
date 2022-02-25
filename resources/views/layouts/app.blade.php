@@ -39,6 +39,15 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto ">
 
+                        <li class="nav-item mx-3">
+                            <a class="nav-link text-white" href="{{ url('/') }}">{{ __(' Home') }}</a>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link text-white" href="{{ route('admin.home') }}">{{ __(' Admin') }}</a>
+                        </li>
+                        <li class="nav-item mx-auto">
+                            <a class="nav-link text-white" href="{{ route('teacher.home') }}">{{ __('Teacher') }}</a>
+                        {{-- </li> --}}
                     </ul>
 
                     <!-- Right Side Of Navbar -->
