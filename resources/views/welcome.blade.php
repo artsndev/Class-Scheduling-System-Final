@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>ZPPSU Guidance Complaint Management system</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel = "icon" href ="{{ asset('storage/images/logo.png') }}" type = "image/x-icon">
 
     <!-- Scripts -->
@@ -44,8 +44,7 @@
                         <li class="nav-item mx-3 mx-auto">
                             <a class="nav-link text-white" href="{{ url('/') }}">{{ __(' Home') }}</a>
                         </li>
-                        <li class="nav-item mx-
-                         mx-auto">
+                        <li class="nav-item mx-3 mx-auto">
                             <a class="nav-link text-white" href="#about">{{ __('About') }}</a>
                         </li>
                         <li class="nav-item mx-4 mx-auto">
@@ -103,7 +102,7 @@
                 <div class="d-flex justify-content-center py-5">
                     <div class="text-center">
                         <h1 class="mx-auto my-0 text-uppercase">{{ __('Welcome') }}</h1>
-                        <h2 class="text-black-100 mx-auto mt-2 mb-5">{{ __('A free, secured, Class Scheduling theme created by Start Bootstrap.') }}</h2>
+                        <h2 class="text-black-100 mx-auto mt-2 mb-5">{{ __('A free, secured, Class Scheduling theme created by Invincibles.') }}</h2>
                         <a class="btn btn-primary" href="#about">Get Started</a>
                     </div>
                 </div>
@@ -111,7 +110,7 @@
         </header>
 
         <!-- ======= About Section ======= -->
-    <section id="about" class="about">
+    {{-- <section id="about" class="about">
         <div class="container" data-aos="fade-up">
 
           <div class="section-title text-center">
@@ -139,9 +138,9 @@
               </p>
             </div>
           </div>
-      </section><!-- End About Section -->
+      </section><!-- End About Section --> --}}
 
-       <section class="icons py-5">
+       <section class="icons py-5" id="about">
       <div class="container">
         <div class="row text-center">
           <div class="col-md-4">
