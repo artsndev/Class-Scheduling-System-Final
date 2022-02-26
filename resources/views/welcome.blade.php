@@ -30,7 +30,7 @@
 <body>
     @include('sweetalert::alert')
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm ">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm  sticky-top">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img class="d-inline-block align-top" src="{{asset('/storage/images/logo.png')}}" height="40" width="40">
@@ -105,7 +105,10 @@
                 <div class="container-fluid container-fluid-max">
                   <div class="row">
                     <div class="col-12 text-center">
-                      <h1 class="text-white text-grey-100 text-uppercase display-4">{{ __('Welcome to Class Scheduling System') }}</h1>
+                        {{-- <h1 class="text-white text-grey-100 text-uppercase display-4">{{ __('Welcome to Class Scheduling System') }}</h1> --}}
+                      <h1 class="text-white text-grey-100 text-uppercase display-4">{{ __('Welcome') }}</h1>
+                      <h1 class="text-white text-grey-100 text-uppercase display-4">{{ __('to') }}</h1>
+                      <h1 class="text-white text-grey-100 text-uppercase display-4">{{ __('Class Scheduling System') }}</h1>
                       <div class="mt-3">
                         <a class="btn btn-primary text-white mr-2" href="#about" role="button" style="border-radius:20px">{{ __('Get Started') }}</a>
                       </div>
