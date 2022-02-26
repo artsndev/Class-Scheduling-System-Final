@@ -42,10 +42,13 @@
                     <ul class="navbar-nav mr-auto">
 
                         <li class="nav-item mx-3 mx-auto">
-                            <a class="nav-link text-white" href="{{ url('/') }}">{{ __(' Home') }}</a>
+                            <a class="nav-link text-white" href="#home">{{ __(' Home') }}</a>
                         </li>
                         <li class="nav-item mx-3 mx-auto">
                             <a class="nav-link text-white" href="#about">{{ __('About') }}</a>
+                        </li>
+                        <li class="nav-item mx-4 mx-auto">
+                            <a class="nav-link text-white" href="#team">{{ __('Team') }}</a>
                         </li>
                         <li class="nav-item mx-4 mx-auto">
                             <a class="nav-link text-white" href="#contact">{{ __('Contact') }}</a>
@@ -74,8 +77,8 @@
                         @endauth
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ url('home') }}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{--  {{ Auth::user()->name }}  --}}
-                                    @if(Auth::user()->image)
+                                     {{-- {{ Auth::user()->name }} --}}
+                                     @if(Auth::user()->image)
                                         <img class="rounded-circle" src="{{asset('/storage/images/'.Auth::user()->image)}}" alt="image" style="width: 30px;height: 30px; ">
                                     @endif
                                 </a>
@@ -97,144 +100,173 @@
             </div>
         </nav>
 
-        <header class="masthead py-4">
-            <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
-                <div class="d-flex justify-content-center py-5">
-                    <div class="text-center">
-                        <h1 class="mx-auto my-0 text-uppercase">{{ __('Welcome') }}</h1>
-                        <h2 class="text-black-100 mx-auto mt-2 mb-5">{{ __('A free, secured, Class Scheduling theme created by Invincibles.') }}</h2>
-                        <a class="btn btn-primary" href="#about">Get Started</a>
+        <main>
+            <!-- Banner Section -->
+            <section id="home" class="d-flex align-items-center position-relative vh-100 cover hero" style="background-image:url({{asset('/storage/images/zppsu.jpg')}}); background-repeat: no-repeat; background-size: cover;">
+                <div class="container-fluid container-fluid-max">
+                  <div class="row">
+                    <div class="col-12 text-center">
+                      <h1 class="text-white text-grey-100 text-uppercase display-4">{{ __('Welcome to Class Scheduling System') }}</h1>
+                      <div class="mt-3">
+                        <a class="btn btn-primary text-white mr-2" href="#about" role="button">{{ __('Get Started') }}</a>
+                        <a class="btn bg-red text-white" href="" role="button">...</a>
+                      </div>
                     </div>
+                  </div>
                 </div>
-            </div>
-        </header>
+              </section
 
-        <!-- ======= About Section ======= -->
-    {{-- <section id="about" class="about">
-        <div class="container" data-aos="fade-up">
+              <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
 
-          <div class="section-title text-center">
-            <h2>About Us</h2>
-            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. </p>
-          </div>
+        <div class="section-title">
+          <h2>About Us</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. </p>
+        </div>
 
-          <div class="row content">
-            <div class="col-lg-6">
-              <p class="fs-4">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua.
-              </p>
-              <ul class="nav">
-                <li><i class="bi bi-check-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
-                <li><i class="bi bi-check-all"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
-                <li><i class="bi bi-check-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
-              </ul>
-            </div>
-            <div class="col-lg-6 pt-4 pt-lg-0">
-              <p class="fs-4">
-                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-            </div>
-          </div>
-      </section><!-- End About Section --> --}}
-
-       <section class="icons py-5" id="about">
-      <div class="container">
-        <div class="row text-center">
-          <div class="col-md-4">
-            <div class="icon gradient mb-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="feather feather-layers"
-              >
-                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                <polyline points="2 17 12 22 22 17"></polyline>
-                <polyline points="2 12 12 17 22 12"></polyline>
-              </svg>
-            </div>
-            <h3>Built for CTechEd</h3>
+        <div class="row content">
+          <div class="col-lg-6">
             <p>
-              Our customizable, block-based build system makes creating your
-              next project fast and easy!
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua.
             </p>
+            <ul>
+              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
+              <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
+              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
+            </ul>
           </div>
-          <div class="col-md-4">
-            <div class="icon gradient mb-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="feather feather-smartphone"
-              >
-                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                <line x1="12" y1="18" x2="12.01" y2="18"></line>
-              </svg>
-            </div>
-            <h3>Modern responsive design</h3>
-            <p class="mb-0">
-              Featuring carefully crafted, mobile-first components, your end
-              product will function beautifully on any device!
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <p>
+              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+              culpa qui officia deserunt mollit anim id est laborum.
             </p>
-          </div>
-          <div class="col-md-4">
-            <div class="icon gradient mb-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="feather feather-code"
-              >
-                <polyline points="16 18 22 12 16 6"></polyline>
-                <polyline points="8 6 2 12 8 18"></polyline>
-              </svg>
-            </div>
-            <h3>Complete documentation</h3>
-            <p class="mb-0">
-              All of the layouts, page sections, components, and utilities are
-              fully covered in this products docs.
-            </p>
+            <a href="#" class="btn-learn-more">Learn More</a>
           </div>
         </div>
-      </div>
-    </section>
 
-        {{-- <section class="py-4" style="height:540px">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-12">
-                        <div class="text-center">
-                            <img class="image rounded-circle" src="{{asset('/storage/images/logo.png')}}" alt="image" style="width: 150px;height: 150px; ">
-                            <h1>{{ __('Welcome to ZPPSU Class Scheduling System') }}</h2>
-                            <h5 class="text-primary">This system is 100% work <strong>from scratch</strong> using <strong>PHP Laravel</strong> v.8 and <strong>Bootstrap </strong>5.1.3 </h5>
-                        </div>
+      </div>
+    </section><!-- End About Section -->
+
+    <section class="features-icons bg-light text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 fs-5">
+                    <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                        <div class="features-icons-icon d-flex"><i class="bi-window m-auto text-primary"></i></div>
+                        <h3>Fully Responsive</h3>
+                        <p class="lead mb-0">This theme will look great on any device, no matter the size!</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                        <div class="features-icons-icon d-flex"><i class="bi-layers m-auto text-primary"></i></div>
+                        <h3>Bootstrap 5 Ready</h3>
+                        <p class="lead mb-0">Featuring the latest build of the new Bootstrap 5 framework!</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+                        <div class="features-icons-icon d-flex"><i class="bi-terminal m-auto text-primary"></i></div>
+                        <h3>Easy to Use</h3>
+                        <p class="lead mb-0">Ready to use with your own content, or customize the source files!</p>
                     </div>
                 </div>
             </div>
-        </section> --}}
+        </div>
+    </section>
+            <!-- ======= Team Section ======= -->
+    <section id="team" class="team section-bg">
+        <div class="container" data-aos="fade-up">
 
-        <section class="contact-section bg-black" id="contact">
+          <div class="section-title">
+            <h1 class="display-5 text-center">Team</h1>
+            <p class="h2 text-center">{{ __('We are the Invincibles Team of CTechEd') }}</p>
+          </div>
+
+          <div class="row">
+
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+              <div class="card">
+                <div class="card-body">
+                  <img src="{{ asset('storage/images/pic1.jpg') }}" class="img-fluid" alt="">
+                  <div class="social">
+                    <a href=""><i class="fa-2x bi bi-twitter"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100007949627143"><i class="fa-2x bi bi-facebook"></i></a>
+                    <a href=""><i class=" fa-2x bi bi-instagram"></i></a>
+                    <a href=""><i class="fa-2x bi bi-linkedin"></i></a>
+                  </div>
+                <div class="member-info">
+                  <h4>{{ __('Al-jhaihar Hadjula') }}</h4>
+                </div>
+            </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+              <div class="card">
+                <div class="card-body">
+                  <img src="{{ asset('storage/images/pic2.jpg') }}" class="img-fluid" alt="">
+                  <div class="social">
+                    <a href=""><i class="fa-2x bi bi-twitter"></i></a>
+                    <a href=""><i class="fa-2x bi bi-facebook"></i></a>
+                    <a href=""><i class=" fa-2x bi bi-instagram"></i></a>
+                    <a href=""><i class="fa-2x bi bi-linkedin"></i></a>
+                  </div>
+
+                <div class="member-info">
+                  <h4>{{ __('Will May Sugano') }}</h4>
+                  <span>Product Manager</span>
+                </div>
+             </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+              <div class="card">
+                <div class="card-body">
+                  <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
+                  <div class="social">
+                    <a href=""><i class="fa-2x bi bi-twitter"></i></a>
+                    <a href=""><i class="fa-2x bi bi-facebook"></i></a>
+                    <a href=""><i class=" fa-2x bi bi-instagram"></i></a>
+                    <a href=""><i class="fa-2x bi bi-linkedin"></i></a>
+                  </div>
+
+                <div class="member-info">
+                  <h4>{{ __('Radzmil Jawharan') }}</h4>
+                </div>
+            </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+              <div class="member">
+                <div class="member-img">
+                  <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
+                  <div class="social">
+                    <a href=""><i class="fa-2x bi bi-twitter"></i></a>
+                    <a href=""><i class="fa-2x bi bi-facebook"></i></a>
+                    <a href=""><i class=" fa-2x bi bi-instagram"></i></a>
+                    <a href=""><i class="fa-2x bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+                <div class="member-info">
+                  <h4>{{ __('Bilita Abdulkalim') }}</h4>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section><!-- End Team Section -->
+            <!-- Request a Quote Section -->
+            <section>...</section>
+          </main>
+        {{-- <section class="contact-section bg-black" id="contact">
             <div class="container px-4 py-3 px-lg-5">
                 <div class="row gx-4 gx-lg-5">
                     <div class="col-md-4 mb-3 mb-md-0">
@@ -268,13 +300,8 @@
                         </div>
                     </div>
                 </div>
-                {{-- <div class="social d-flex justify-content-center">
-                    <a class="mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                    <a class="mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
-                    <a class="mx-2" href="#!"><i class="fab fa-github"></i></a>
-                </div> --}}
             </div>
-        </section>
+        </section> --}}
         <footer class="footer bg-black text-center text-white-50">
         <div class="footer-copyright text-center text-white-50 py-2 container-fluid">© 2021 Made with a
             <lord-icon
