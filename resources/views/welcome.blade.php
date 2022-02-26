@@ -58,12 +58,17 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ __('Sign Up') }}</a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                         @guest
                             @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
+                                <li><a class="dropdown-item text-white" href="{{ route('login') }}">{{ __('Student') }}</a></li>
                             @endif
+                                <li><a class="dropdown-item text-white" href="{{ route('admin.home') }}">{{ __(' Admin') }}</a></li>
+                                <li><a class="dropdown-item text-white" href="{{ route('teacher.home') }}">{{ __('Teacher') }}</a></li>
+                            </ul>
+                        </li>
                         @else
                         @auth
                             <li class="nav-item">
