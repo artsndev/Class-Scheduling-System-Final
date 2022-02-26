@@ -59,29 +59,29 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ __('Sign Up') }}</a>
-                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                        @guest
+                            @guest
                             @if (Route::has('login'))
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ __('Sign In') }}</a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                                 <li><a class="dropdown-item text-white" href="{{ route('login') }}">{{ __('Student') }}</a></li>
-                            @endif
                                 <li><a class="dropdown-item text-white" href="{{ route('admin.home') }}">{{ __(' Admin') }}</a></li>
                                 <li><a class="dropdown-item text-white" href="{{ route('teacher.home') }}">{{ __('Teacher') }}</a></li>
                             </ul>
                         </li>
+                        @endif
                         @else
                         @auth
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('home') }}">{{ Auth::user()->name }}</a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('home') }}">{{ Auth::user()->name }}</a>
+                        </li>
                         @endauth
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ url('home') }}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                     @if(Auth::user()->image)
-                                        <img class="rounded-circle" src="{{asset('/storage/images/'.Auth::user()->image)}}" alt="image" style="width: 30px;height: 30px; ">
-                                    @endif
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ url('home') }}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                @if(Auth::user()->image)
+                                    <img class="rounded-circle" src="{{asset('/storage/images/'.Auth::user()->image)}}" alt="image" style="width: 30px;height: 30px; ">
+                                @endif
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick ="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
