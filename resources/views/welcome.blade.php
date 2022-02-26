@@ -110,7 +110,7 @@
                       <h1 class="text-white text-grey-100 text-uppercase display-4">{{ __('to') }}</h1>
                       <h1 class="text-white text-grey-100 text-uppercase display-4">{{ __('Class Scheduling System') }}</h1>
                       <div class="mt-3">
-                        <a class="btn btn-primary text-white mr-2" href="#about" role="button" style="border-radius:20px">{{ __('Get Started') }}</a>
+                        <a class="btn btn-danger text-white mr-2" href="#about" role="button" style="border-radius:20px">{{ __('Get Started') }}</a>
                       </div>
                     </div>
                   </div>
@@ -118,39 +118,93 @@
               </section>
 
 
-              <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>About Us</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. </p>
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about py-5 bg-light">
+        <div class="container">
+            <h1 class="text-center text-uppercase display-5">About Us</h1>
+            <p class="text-center">Some text about who we are and what we do.</p>
+            <p class="text-center">Resize the browser window to see that this page is responsive by the way.</p>
         </div>
+    </section>
+    <!-- End About Section -->
 
-        <div class="row content">
-          <div class="col-lg-6">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
-            </p>
-            <ul>
-              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
-              <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
-              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
-            </ul>
-          </div>
-          <div class="col-lg-6 pt-4 pt-lg-0">
-            <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <a href="#" class="btn-learn-more">Learn More</a>
-          </div>
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team section-bg py-5 bg-light">
+        <div class="container" data-aos="fade-up">
+            <div class="section-title">
+                <h1 class="display-5 text-center">Team</h1>
+                <p class="h2 text-center">{{ __('We are the Invincibles Team of CTechEd') }}</p>
+            </div>
+            <div class="row">
+                <div class="col-md-3 py-3 h-100 align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card shadow" style="border-radius:20px;">
+                        <div class="card-body text-center">
+                            <img src="{{ asset('storage/images/pic1.jpg') }}" class="img-fluid card-img-top hover-zoom" alt="">
+                            <div class="social">
+                                <a href=""><i class="fa-2x bi bi-twitter"></i></a>
+                                <a href="https://www.facebook.com/profile.php?id=100007949627143"><i class="fa-2x bi bi-facebook"></i></a>
+                                <a href=""><i class=" fa-2x bi bi-instagram"></i></a>
+                                <a href=""><i class="fa-2x bi bi-linkedin"></i></a>
+                            </div>
+                            <div class="member-info">
+                                <h4 class="card-title ">{{ __('Al-jhaihar Hadjula') }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 py-3 h-100 align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card shadow" style="border-radius:20px">
+                        <div class="card-body text-center">
+                            <img src="{{ asset('storage/images/pic2.jpg') }}" class="img-fluid" alt="">
+                            <div class="social">
+                                <a href=""><i class="fa-2x bi bi-twitter"></i></a>
+                                <a href=""><i class="fa-2x bi bi-facebook"></i></a>
+                                <a href=""><i class=" fa-2x bi bi-instagram"></i></a>
+                                <a href=""><i class="fa-2x bi bi-linkedin"></i></a>
+                            </div>
+                            <div class="member-info">
+                                <h4>{{ __('Will May Sugano') }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 py-3 h-100 align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card shadow" style="border-radius:20px">
+                        <div class="card-body text-center">
+                            <img src="{{ asset('storage/images/pic3.jpg') }}" class="img-fluid" alt="">
+                            <div class="social">
+                                <a href=""><i class="fa-2x bi bi-twitter"></i></a>
+                                <a href="https://www.facebook.com/profile.php?id=100070121239682"><i class="fa-2x bi bi-facebook"></i></a>
+                                <a href=""><i class=" fa-2x bi bi-instagram"></i></a>
+                                <a href=""><i class="fa-2x bi bi-linkedin"></i></a>
+                            </div>
+                            <div class="member-info">
+                                <h4>{{ __('Radzmil Jawharan') }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 py-3 h-100 align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card shadow" style="border-radius:20px">
+                        <div class="card-body text-center">
+                            <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
+                            <div class="social">
+                                <a href=""><i class="fa-2x bi bi-twitter"></i></a>
+                                <a href="https://www.facebook.com/profile.php?id=100021443349570"><i class="fa-2x bi bi-facebook"></i></a>
+                                <a href=""><i class=" fa-2x bi bi-instagram"></i></a>
+                                <a href=""><i class="fa-2x bi bi-linkedin"></i></a>
+                            </div>
+                            <div class="member-info">
+                                <h4>{{ __('Bilita Abdulkalim') }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
+    <!-- End Team Section -->
 
-      </div>
-    </section><!-- End About Section -->
 
     <section class="features-icons bg-light text-center py-5" >
         <div class="container">
@@ -159,14 +213,14 @@
                     <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3 ">
                         <div class="features-icons-icon d-flex"><i class="fa-4x bi-window m-auto text-primary"></i></div>
                         <h3>Fully Responsive</h3>
-                        <p class="lead mb-0">This theme will look great on any device, no matter the size!</p>
+                        <p class="lead mb-0">Our design will look great on any device, no matter the size!</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                         <div class="features-icons-icon d-flex"><i class="fa-4x bi-layers m-auto text-primary"></i></div>
                         <h3>Bootstrap 5 Ready</h3>
-                        <p class="lead mb-0">Featuring the latest build of the new Bootstrap 5 framework!</p>
+                        <p class="lead mb-0">Featuring the latest build of the new Bootstrap 5.1 CSS framework!</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -179,131 +233,46 @@
             </div>
         </div>
     </section>
-            <!-- ======= Team Section ======= -->
-    <section id="team" class="team section-bg py-5">
-        <div class="container" data-aos="fade-up">
 
-          <div class="section-title">
-            <h1 class="display-5 text-center">Team</h1>
-            <p class="h2 text-center">{{ __('We are the Invincibles Team of CTechEd') }}</p>
-          </div>
-
-          <div class="row">
-
-            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-              <div class="card shadow" style="border-radius:20px">
-                <div class="card-body text-center">
-                  <img src="{{ asset('storage/images/pic1.jpg') }}" class="img-fluid card-img-top hover-zoom" alt="" >
-                  <div class="social">
-                    <a href=""><i class="fa-2x bi bi-twitter"></i></a>
-                    <a href="https://www.facebook.com/profile.php?id=100007949627143"><i class="fa-2x bi bi-facebook"></i></a>
-                    <a href=""><i class=" fa-2x bi bi-instagram"></i></a>
-                    <a href=""><i class="fa-2x bi bi-linkedin"></i></a>
-                  </div>
-                <div class="member-info">
-                  <h4 class="card-title ">{{ __('Al-jhaihar Hadjula') }}</h4>
-                </div>
-            </div>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-              <div class="card shadow" style="border-radius:20px">
-                <div class="card-body text-center">
-                  <img src="{{ asset('storage/images/pic2.jpg') }}" class="img-fluid" alt="">
-                  <div class="social">
-                    <a href=""><i class="fa-2x bi bi-twitter"></i></a>
-                    <a href=""><i class="fa-2x bi bi-facebook"></i></a>
-                    <a href=""><i class=" fa-2x bi bi-instagram"></i></a>
-                    <a href=""><i class="fa-2x bi bi-linkedin"></i></a>
-                  </div>
-
-                <div class="member-info">
-                  <h4>{{ __('Will May Sugano') }}</h4>
-                </div>
-             </div>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-              <div class="card shadow" style="border-radius:20px">
-                <div class="card-body text-center">
-                  <img src="{{ asset('storage/images/pic3.jpg') }}" class="img-fluid" alt="">
-                  <div class="social">
-                    <a href=""><i class="fa-2x bi bi-twitter"></i></a>
-                    <a href="https://www.facebook.com/profile.php?id=100070121239682"><i class="fa-2x bi bi-facebook"></i></a>
-                    <a href=""><i class=" fa-2x bi bi-instagram"></i></a>
-                    <a href=""><i class="fa-2x bi bi-linkedin"></i></a>
-                  </div>
-
-                <div class="member-info">
-                  <h4>{{ __('Radzmil Jawharan') }}</h4>
-                </div>
-            </div>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-              <div class="card shadow" style="border-radius:20px">
-                <div class="card-body text-center">
-                  <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
-                  <div class="social">
-                    <a href=""><i class="fa-2x bi bi-twitter"></i></a>
-                    <a href="https://www.facebook.com/profile.php?id=100021443349570"><i class="fa-2x bi bi-facebook"></i></a>
-                    <a href=""><i class=" fa-2x bi bi-instagram"></i></a>
-                    <a href=""><i class="fa-2x bi bi-linkedin"></i></a>
-                  </div>
-
-                <div class="member-info">
-                  <h4>{{ __('Bilita Abdulkalim') }}</h4>
-                </div>
-              </div>
-            </div>
-            </div>
-
-          </div>
-
-        </div>
-      </section><!-- End Team Section -->
+    >
             <!-- Request a Quote Section -->
-            <section>...</section>
-          </main>
-        {{-- <section class="contact-section bg-black" id="contact">
-            <div class="container px-4 py-3 px-lg-5">
-                <div class="row gx-4 gx-lg-5">
-                    <div class="col-md-4 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center ">
-                                <i class="fas fa-map-marked-alt text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">{{ __('Address') }}</h4>
-                                <hr class="my-4 mx-auto" />
-                                <div class="small text-black-100">{{ __('R.T. Lim Boulevard, Baliwasan, Zamboanga City') }}</div>
+            <section class="contact-section bg-black" id="contact">
+                <div class="container px-4 py-3 px-lg-5">
+                    <div class="row gx-4 gx-lg-5">
+                        <div class="col-md-4 mb-3 mb-md-0">
+                            <div class="card py-4 h-100">
+                                <div class="card-body text-center ">
+                                    <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+                                    <h4 class="text-uppercase m-0">{{ __('Address') }}</h4>
+                                    <hr class="my-4 mx-auto" />
+                                    <div class="small text-black-100">{{ __('R.T. Lim Boulevard, Baliwasan, Zamboanga City') }}</div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-envelope text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">{{ __('Email') }}</h4>
-                                <hr class="my-4 mx-auto" />
-                                <div class="small text-black-50"><a href="#!">{{ __('bimbimxerep@gmail.com') }}</a></div>
+                        <div class="col-md-4 mb-3 mb-md-0">
+                            <div class="card py-4 h-100">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-envelope text-primary mb-2"></i>
+                                    <h4 class="text-uppercase m-0">{{ __('Email') }}</h4>
+                                    <hr class="my-4 mx-auto" />
+                                    <div class="small text-black-50"><a href="#!">{{ __('bimbimxerep@gmail.com') }}</a></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-mobile-alt text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">{{ __('Phone') }}</h4>
-                                <hr class="my-4 mx-auto" />
-                                <div class="small text-black-50">{{ __('0955-567-8017') }}</div>
+                        <div class="col-md-4 mb-3 mb-md-0">
+                            <div class="card py-4 h-100">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-mobile-alt text-primary mb-2"></i>
+                                    <h4 class="text-uppercase m-0">{{ __('Phone') }}</h4>
+                                    <hr class="my-4 mx-auto" />
+                                    <div class="small text-black-50">{{ __('0955-567-8017') }}</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section> --}}
+            </section>
+        </main>
         <footer class="footer bg-black text-center text-white-50">
         <div class="footer-copyright text-center text-white-50 py-2 container-fluid">© 2021 Made with a
             <lord-icon
