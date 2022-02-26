@@ -58,13 +58,6 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
-                        {{-- <li class="nav-item mx-3 mx-auto">
-                            <a class="nav-link text-white" href="{{ route('admin.home') }}">{{ __(' Admin') }}</a>
-                        </li>
-                        <li class="nav-item mx-3 mx-auto">
-                            <a class="nav-link text-white" href="{{ route('teacher.home') }}">{{ __('Teacher') }}</a>
-                        </li> --}}
-
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
