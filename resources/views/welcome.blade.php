@@ -22,6 +22,7 @@
     <link href="{{ asset('css/bootstrap-icons.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
 </head>
@@ -39,34 +40,35 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav ms-auto">
 
-                        <li class="nav-item mx-3 mx-auto">
+                        <li class="nav-item px-4 mx-auto">
                             <a class="nav-link text-white" href="#home">{{ __(' Home') }}</a>
                         </li>
-                        <li class="nav-item mx-3 mx-auto">
+                        <li class="nav-item px-4 mx-auto">
                             <a class="nav-link text-white" href="#about">{{ __('About') }}</a>
                         </li>
-                        <li class="nav-item mx-4 mx-auto">
+                        <li class="nav-item px-4 mx-auto">
                             <a class="nav-link text-white" href="#team">{{ __('Team') }}</a>
                         </li>
-                        <li class="nav-item mx-4 mx-auto">
+                        <li class="nav-item px-4 mx-auto">
                             <a class="nav-link text-white" href="#contact">{{ __('Contact') }}</a>
                         </li>
                     </ul>
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
-                        <li class="nav-item mx-3 mx-auto">
+                        {{-- <li class="nav-item mx-3 mx-auto">
                             <a class="nav-link text-white" href="{{ route('admin.home') }}">{{ __(' Admin') }}</a>
                         </li>
                         <li class="nav-item mx-3 mx-auto">
                             <a class="nav-link text-white" href="{{ route('teacher.home') }}">{{ __('Teacher') }}</a>
-                        </li>
+                        </li> --}}
+
                         @guest
                             @if (Route::has('login'))
-                                <li class="nav-item mx-3 mx-auto">
-                                    <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Student') }}</a>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
                         @else
@@ -77,7 +79,6 @@
                         @endauth
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ url('home') }}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                     {{-- {{ Auth::user()->name }} --}}
                                      @if(Auth::user()->image)
                                         <img class="rounded-circle" src="{{asset('/storage/images/'.Auth::user()->image)}}" alt="image" style="width: 30px;height: 30px; ">
                                     @endif
@@ -108,13 +109,13 @@
                     <div class="col-12 text-center">
                       <h1 class="text-white text-grey-100 text-uppercase display-4">{{ __('Welcome to Class Scheduling System') }}</h1>
                       <div class="mt-3">
-                        <a class="btn btn-primary text-white mr-2" href="#about" role="button">{{ __('Get Started') }}</a>
-                        <a class="btn bg-red text-white" href="" role="button">...</a>
+                        <a class="btn btn-primary text-white mr-2" href="#about" role="button" style="border-radius:20px">{{ __('Get Started') }}</a>
                       </div>
                     </div>
                   </div>
                 </div>
-              </section
+              </section>
+
 
               <!-- ======= About Section ======= -->
     <section id="about" class="about">
@@ -150,35 +151,35 @@
       </div>
     </section><!-- End About Section -->
 
-    <section class="features-icons bg-light text-center">
+    <section class="features-icons bg-light text-center py-5" >
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4 fs-5">
-                    <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                        <div class="features-icons-icon d-flex"><i class="bi-window m-auto text-primary"></i></div>
+            <div class="row ">
+                <div class="col-md-4">
+                    <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3 ">
+                        <div class="features-icons-icon d-flex"><i class="fa-4x bi-window m-auto text-primary"></i></div>
                         <h3>Fully Responsive</h3>
                         <p class="lead mb-0">This theme will look great on any device, no matter the size!</p>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-md-4">
                     <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                        <div class="features-icons-icon d-flex"><i class="bi-layers m-auto text-primary"></i></div>
+                        <div class="features-icons-icon d-flex"><i class="fa-4x bi-layers m-auto text-primary"></i></div>
                         <h3>Bootstrap 5 Ready</h3>
                         <p class="lead mb-0">Featuring the latest build of the new Bootstrap 5 framework!</p>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-md-4">
                     <div class="features-icons-item mx-auto mb-0 mb-lg-3">
-                        <div class="features-icons-icon d-flex"><i class="bi-terminal m-auto text-primary"></i></div>
+                        <div class="features-icons-icon d-flex"><i class="fa-4x bi-terminal m-auto text-primary"></i></div>
                         <h3>Easy to Use</h3>
-                        <p class="lead mb-0">Ready to use with your own content, or customize the source files!</p>
+                        <p class="lead mb-0">Ready to use with your own content, or customize the design!</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
             <!-- ======= Team Section ======= -->
-    <section id="team" class="team section-bg">
+    <section id="team" class="team section-bg py-5">
         <div class="container" data-aos="fade-up">
 
           <div class="section-title">
@@ -189,9 +190,9 @@
           <div class="row">
 
             <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-              <div class="card">
-                <div class="card-body">
-                  <img src="{{ asset('storage/images/pic1.jpg') }}" class="img-fluid" alt="">
+              <div class="card shadow" style="border-radius:20px">
+                <div class="card-body text-center">
+                  <img src="{{ asset('storage/images/pic1.jpg') }}" class="img-fluid card-img-top hover-zoom" alt="" >
                   <div class="social">
                     <a href=""><i class="fa-2x bi bi-twitter"></i></a>
                     <a href="https://www.facebook.com/profile.php?id=100007949627143"><i class="fa-2x bi bi-facebook"></i></a>
@@ -199,15 +200,15 @@
                     <a href=""><i class="fa-2x bi bi-linkedin"></i></a>
                   </div>
                 <div class="member-info">
-                  <h4>{{ __('Al-jhaihar Hadjula') }}</h4>
+                  <h4 class="card-title ">{{ __('Al-jhaihar Hadjula') }}</h4>
                 </div>
             </div>
               </div>
             </div>
 
             <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-              <div class="card">
-                <div class="card-body">
+              <div class="card shadow" style="border-radius:20px">
+                <div class="card-body text-center">
                   <img src="{{ asset('storage/images/pic2.jpg') }}" class="img-fluid" alt="">
                   <div class="social">
                     <a href=""><i class="fa-2x bi bi-twitter"></i></a>
@@ -218,19 +219,18 @@
 
                 <div class="member-info">
                   <h4>{{ __('Will May Sugano') }}</h4>
-                  <span>Product Manager</span>
                 </div>
              </div>
               </div>
             </div>
 
             <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-              <div class="card">
-                <div class="card-body">
-                  <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
+              <div class="card shadow" style="border-radius:20px">
+                <div class="card-body text-center">
+                  <img src="{{ asset('storage/images/pic3.jpg') }}" class="img-fluid" alt="">
                   <div class="social">
                     <a href=""><i class="fa-2x bi bi-twitter"></i></a>
-                    <a href=""><i class="fa-2x bi bi-facebook"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100070121239682"><i class="fa-2x bi bi-facebook"></i></a>
                     <a href=""><i class=" fa-2x bi bi-instagram"></i></a>
                     <a href=""><i class="fa-2x bi bi-linkedin"></i></a>
                   </div>
@@ -243,20 +243,21 @@
             </div>
 
             <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-              <div class="member">
-                <div class="member-img">
+              <div class="card shadow" style="border-radius:20px">
+                <div class="card-body text-center">
                   <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
                   <div class="social">
                     <a href=""><i class="fa-2x bi bi-twitter"></i></a>
-                    <a href=""><i class="fa-2x bi bi-facebook"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100021443349570"><i class="fa-2x bi bi-facebook"></i></a>
                     <a href=""><i class=" fa-2x bi bi-instagram"></i></a>
                     <a href=""><i class="fa-2x bi bi-linkedin"></i></a>
                   </div>
-                </div>
+
                 <div class="member-info">
                   <h4>{{ __('Bilita Abdulkalim') }}</h4>
                 </div>
               </div>
+            </div>
             </div>
 
           </div>
@@ -316,5 +317,7 @@
         </footer>
     </div>
 <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+
 </body>
 </html>
