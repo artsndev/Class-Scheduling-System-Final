@@ -133,7 +133,7 @@
         <div class="container" data-aos="fade-up">
             <div class="section-title">
                 <h1 class="display-5 text-center">Team</h1>
-                <p class="h2 text-center">{{ __('We are the Invincibles Team of CTechEd') }}</p>
+                <p class="h2 text-center fw-bolder">{{ __('We are the Invincibles Team of CTechEd') }}</p>
             </div>
             <div class="row">
                 <div class="col-md-3 py-3 h-100 align-items-stretch" data-aos="fade-up" data-aos-delay="100">
@@ -141,10 +141,7 @@
                         <div class="card-body text-center">
                             <img src="{{ asset('storage/images/pic1.jpg') }}" class="img-fluid card-img-top hover-zoom" alt="">
                             <div class="social">
-                                <a href=""><i class="fa-2x bi bi-twitter"></i></a>
                                 <a href="https://www.facebook.com/profile.php?id=100007949627143"><i class="fa-2x bi bi-facebook"></i></a>
-                                <a href=""><i class=" fa-2x bi bi-instagram"></i></a>
-                                <a href=""><i class="fa-2x bi bi-linkedin"></i></a>
                             </div>
                             <div class="member-info">
                                 <h4 class="card-title ">{{ __('Al-jhaihar Hadjula') }}</h4>
@@ -157,10 +154,7 @@
                         <div class="card-body text-center">
                             <img src="{{ asset('storage/images/pic2.jpg') }}" class="img-fluid" alt="">
                             <div class="social">
-                                <a href=""><i class="fa-2x bi bi-twitter"></i></a>
-                                <a href=""><i class="fa-2x bi bi-facebook"></i></a>
-                                <a href=""><i class=" fa-2x bi bi-instagram"></i></a>
-                                <a href=""><i class="fa-2x bi bi-linkedin"></i></a>
+                                <a href="https://www.facebook.com/maeyang.sugano"><i class="fa-2x bi bi-facebook"></i></a>
                             </div>
                             <div class="member-info">
                                 <h4>{{ __('Will May Sugano') }}</h4>
@@ -173,10 +167,7 @@
                         <div class="card-body text-center">
                             <img src="{{ asset('storage/images/pic3.jpg') }}" class="img-fluid" alt="">
                             <div class="social">
-                                <a href=""><i class="fa-2x bi bi-twitter"></i></a>
                                 <a href="https://www.facebook.com/profile.php?id=100070121239682"><i class="fa-2x bi bi-facebook"></i></a>
-                                <a href=""><i class=" fa-2x bi bi-instagram"></i></a>
-                                <a href=""><i class="fa-2x bi bi-linkedin"></i></a>
                             </div>
                             <div class="member-info">
                                 <h4>{{ __('Radzmil Jawharan') }}</h4>
@@ -187,12 +178,9 @@
                 <div class="col-md-3 py-3 h-100 align-items-stretch" data-aos="fade-up" data-aos-delay="400">
                     <div class="card shadow" style="border-radius:20px">
                         <div class="card-body text-center">
-                            <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
+                            <img src="{{ asset('storage/images/pic4.jpg') }}" class="img-fluid" alt="">
                             <div class="social">
-                                <a href=""><i class="fa-2x bi bi-twitter"></i></a>
                                 <a href="https://www.facebook.com/profile.php?id=100021443349570"><i class="fa-2x bi bi-facebook"></i></a>
-                                <a href=""><i class=" fa-2x bi bi-instagram"></i></a>
-                                <a href=""><i class="fa-2x bi bi-linkedin"></i></a>
                             </div>
                             <div class="member-info">
                                 <h4>{{ __('Bilita Abdulkalim') }}</h4>
@@ -234,7 +222,6 @@
         </div>
     </section>
 
-    >
             <!-- Request a Quote Section -->
             <section class="contact-section bg-black" id="contact">
                 <div class="container px-4 py-3 px-lg-5">

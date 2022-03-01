@@ -39,7 +39,6 @@ class DashboardController extends Controller
         $sched = Schedule::create([
             'teacher_id' => Auth::user()->id,
             'user_id' => $user->id,
-            'proffessor' => $request['proffessor'],
             'department' => $request['department'],
             'semester' => $request['semester'],
             'curriculum_year' => $request['curriculum_year'],
@@ -79,7 +78,6 @@ class DashboardController extends Controller
         //     'room'=>'required|string',
         // ]);
         $sched = Schedule::find($id);
-        $sched->proffessor = $request['proffessor'];
         $sched->department = $request['department'];
         $sched->semester = $request['semester'];
         $sched->curriculum_year = $request['curriculum_year'];

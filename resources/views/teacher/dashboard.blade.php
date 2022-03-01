@@ -18,7 +18,7 @@
                             <th class="header text-start text-dark filter-select filter-exact" scope="col">{{ __('Email') }}</th>
                             <th class="header text-center" scope="col">{{ __('Gender') }}</th>
                             <th class="header text-center" scope="col">{{ __('Actions') }}</th>
-                            <th class="header text-center" scope="col">{{ __('upload') }}</th>
+                            <th class="header text-center" scope="col">{{ __('Upload') }}</th>
                             <th class="header text-center" scope="col">{{ __('Enrolled') }}</th>
                         </tr>
                     </thead>
@@ -146,31 +146,22 @@
                                     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalCenterTitles">{{ __('Edit Students Profile') }}</h5>
+                                                <h5 class="modal-title" id="exampleModalCenterTitles">{{ __('Edit Students Schedule') }}</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
                                                 <div class="row text-center">
                                                     <div class="col-md-12">
                                                         <img src="{{asset('/storage/images/avatars.png')}}" alt="avatar" class="rounded-circle img-thumbnail" style="width: 100px;">
-                                                        <h2>{{ __('Student\'s Update Profile Form') }}</h2>
+                                                        <h2>{{ __('Student\'s Update Schedule Form') }}</h2>
                                                     </div>
                                                 </div>
                                                 <form action="{{ url('teacher/dashboard/store/'.$user->id) }}" method="POST">
                                                 @csrf
                                                 <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label for="proffessor" class="form-label">{{ __('Instructor') }}</label>
-                                                            <input id="proffessor" type="text" placeholder="{{ __('Write Something') }}" class="form-control @error('proffessor') is-invalid @enderror" name="proffessor" value="{{ old('proffessor') }}">
-                                                            @error('proffessor')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
-                                                            @enderror
-                                                    </div>
 
                                                     <div class="col-md-6">
-                                                        <label for="department" class="form-label ">{{ __('Department') }}</label>
+                                                        <label for="department" class="col-form-label ">{{ __('Department') }}</label>
                                                             <select name="department" id="department" class="form-control form-select my-select @error('department') is-invalid @enderror" name="department" value="{{ old('department') }}">
                                                                 <option disabled selected>Choose...</option>
                                                                 <option value="CET">College of Engineering & Technology</option>
@@ -189,7 +180,7 @@
                                                             @enderror
                                                     </div>
 
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-6">
                                                         <label for="semester" class="col-form-label">{{ __('Semester') }}</label>
                                                         <select name="semester" id="semester" class="form-control form-select my-select @error('semester') is-invalid @enderror" name="semester" value="{{ old('semester') }}">
                                                             <option disabled selected>Choose...</option>
@@ -313,7 +304,7 @@
                                                             @enderror
                                                     </div>
 
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-6">
                                                         <label for="section" class="col-form-label">{{ __('Section') }}</label>
                                                         <select name="section" id="section" class="form-control form-select my-select @error('section') is-invalid @enderror" name="section" value="{{ old('section') }}">
                                                             <option disabled selected>Choose...</option>
@@ -329,7 +320,7 @@
                                                             @enderror
                                                     </div>
 
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-6">
                                                         <label for="room" class="col-form-label">{{ __('Room') }}</label>
                                                             <input id="room" type="text" class="form-control @error('room') is-invalid @enderror" name="room" value="{{ old('room') }}">
                                                             @error('room')
@@ -367,18 +358,9 @@
                                                         </div>
                                                     </div>
                                                         <div class="row">
-                                                            <div class="col-md-6">
-                                                                <label for="proffessor" class="form-label">{{ __('Instructor') }}</label>
-                                                                    <input id="proffessor" type="text" placeholder="{{ __('Write Something') }}" class="form-control @error('proffessor') is-invalid @enderror" name="proffessor" value="{{ old('proffessor') }}">
-                                                                    @error('proffessor')
-                                                                        <span class="invalid-feedback" role="alert">
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </span>
-                                                                    @enderror
-                                                            </div>
 
                                                             <div class="col-md-6">
-                                                                <label for="department" class="form-label ">{{ __('Department') }}</label>
+                                                                <label for="department" class="col-form-label ">{{ __('Department') }}</label>
                                                                     <select name="department" id="department" class="form-control form-select my-select @error('department') is-invalid @enderror" name="department" value="{{ old('department') }}">
                                                                         <option disabled selected>Choose...</option>
                                                                         <option value="CET">College of Engineering & Technology</option>
@@ -397,7 +379,7 @@
                                                                     @enderror
                                                             </div>
 
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-6">
                                                                 <label for="semester" class="col-form-label">{{ __('Semester') }}</label>
                                                                 <select name="semester" id="semester" class="form-control form-select my-select @error('semester') is-invalid @enderror" name="semester" value="{{ old('semester') }}">
                                                                     <option disabled selected>Choose...</option>
@@ -521,7 +503,7 @@
                                                                     @enderror
                                                             </div>
 
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-6">
                                                                 <label for="section" class="col-form-label">{{ __('Section') }}</label>
                                                                 <select name="section" id="section" class="form-control form-select my-select @error('section') is-invalid @enderror" name="section" value="{{ old('section') }}">
                                                                     <option disabled selected>Choose...</option>
@@ -537,7 +519,7 @@
                                                                     @enderror
                                                             </div>
 
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-6">
                                                                 <label for="room" class="col-form-label">{{ __('Room') }}</label>
                                                                     <input id="room" type="text" class="form-control @error('room') is-invalid @enderror" name="room" value="{{ old('room') }}">
                                                                     @error('room')

@@ -27,7 +27,7 @@ class Authenticate extends Middleware
             }
         }
         else if (!Auth::guard('web')->check()){
-            Alert::toast('Please Login or Sign Up an account first!', 'info');
+            Alert::toast('Please Login an account first!', 'info');
             return route('login');
         }
     }

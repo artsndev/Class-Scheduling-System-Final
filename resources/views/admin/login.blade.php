@@ -4,11 +4,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card shadow bg-danger p-5">
+            <div class="card shadow p-5" style="background-image:url({{asset('/storage/images/zppsu.jpg')}}); background-repeat: no-repeat; background-size: cover;">
                 <div class="row text-center">
                     <div class="col-md-12">
                         <img src="{{asset('/storage/images/avatars.png')}}" alt="avatar" class="rounded-circle img-thumbnail" style="width: 100px;">
-                        <h1>{{ __('Administrator\'s Login Form') }}</h1>
+                        <h1 class="text-white">{{ __('Administrator\'s Login Form') }}</h1>
                     </div>
                 </div>
 
@@ -55,16 +55,16 @@
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="remember" id="remember"
                                             {{ old('remember') ? 'checked' : '' }}>
-                                        <label class="form-check-label" for="remember">
+                                        <label class="form-check-label text-white" for="remember">
                                             {{ __('Remember Me') }}
                                         </label>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="mb-3 row">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-dark">
+                            <div class="row mb-0">
+                                <div class="col-md-8 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
                                         {{ __('Login') }}
                                     </button>
                                 </div>
