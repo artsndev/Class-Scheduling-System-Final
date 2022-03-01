@@ -122,7 +122,7 @@
     <section id="about" class="about py-5 bg-light">
         <div class="container">
             <h1 class="text-center text-uppercase display-5">About Us</h1>
-            <p class="text-center">Some text about who we are and what we do.</p>
+            <p class="text-center fs-1">We are the Invincibles Group of DT-IT</p>
             <p class="text-center">Resize the browser window to see that this page is responsive by the way.</p>
         </div>
     </section>

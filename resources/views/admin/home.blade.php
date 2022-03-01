@@ -30,7 +30,7 @@
                                 @if($user->image)
                                     <img src="{{ asset('/storage/images/'.$user->image)}}" class="img-fluid" alt="">
                                 @else
-                                    <img src="{{ asset('/storage/images/avatar.png')}}" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                                    <img src="{{ asset('/storage/images/avatars.png')}}" alt="hugenerd" width="30" height="30" class="rounded-circle">
                                 @endif
                             </td>
                             <td class="text-start" scope="row">{{ $user->name }}</th>
