@@ -252,7 +252,7 @@
                                     <i class="fas fa-mobile-alt text-primary mb-2"></i>
                                     <h4 class="text-uppercase m-0">{{ __('Phone') }}</h4>
                                     <hr class="my-4 mx-auto" />
-                                    <div class="small text-black-50">{{ __('0955-567-8017') }}</div>
+                                    <div class="small text-black-50">{{ __('0955-567-8107') }}</div>
                                 </div>
                             </div>
                         </div>
