@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <link rel = "icon" href ="{{ asset('storage/images/logo.png') }}" type = "image/x-icon">
+    <link rel = "icon" href ="https://scontent.fdvo2-1.fna.fbcdn.net/v/t1.15752-9/273848780_358074252868275_495595769331892939_n.png?_nc_cat=108&ccb=1-5&_nc_sid=ae9488&_nc_eui2=AeF6awHRo1da3H59FxReSYWhgBMjZJfx6rmAEyNkl_HquUSw6GlLcZ15ceMWwooFyMd95tYCPrfMDW_Kc0dQWijI&_nc_ohc=jdHTqCyaJxsAX_ZRCPy&_nc_ht=scontent.fdvo2-1.fna&oh=03_AVK_CGUJ0XRythnZtO1PsTNVX1UEGLkveXbCPNsSz5Ezbw&oe=624DE311" type = "image/x-icon">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -33,7 +33,7 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm  sticky-top">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img class="d-inline-block align-top" src="{{asset('/storage/images/logo.png')}}" height="40" width="40">
+                    <img class="d-inline-block align-top" src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t1.15752-9/273848780_358074252868275_495595769331892939_n.png?_nc_cat=108&ccb=1-5&_nc_sid=ae9488&_nc_eui2=AeF6awHRo1da3H59FxReSYWhgBMjZJfx6rmAEyNkl_HquUSw6GlLcZ15ceMWwooFyMd95tYCPrfMDW_Kc0dQWijI&_nc_ohc=jdHTqCyaJxsAX_ZRCPy&_nc_ht=scontent.fdvo2-1.fna&oh=03_AVK_CGUJ0XRythnZtO1PsTNVX1UEGLkveXbCPNsSz5Ezbw&oe=624DE311" height="40" width="40">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -101,7 +101,7 @@
 
         <main>
             <!-- Banner Section -->
-            <section id="home" class="d-flex align-items-center position-relative vh-100 cover hero" style="background-image:url({{asset('/storage/images/zppsu.jpg')}}); background-repeat: no-repeat; background-size: cover;">
+            <section id="home" class="d-flex align-items-center position-relative vh-100 cover hero" style="background-image:url('https://scontent.fdvo2-1.fna.fbcdn.net/v/t1.15752-9/274073470_357052402953519_1714017086604552809_n.jpg?_nc_cat=108&ccb=1-5&_nc_sid=ae9488&_nc_eui2=AeFyDxk6yK8JKQR3lpzKE4-xVGtu9U_82gNUa271T_zaAxCydfkAGXOkZS22bqogrFpFve4qEBVmNnd26xUjyeIt&_nc_ohc=Cs93BJaukiEAX-DFeOC&_nc_ht=scontent.fdvo2-1.fna&oh=03_AVIf2mULDMPgFyHPmJTQQwF9kS8Su9L3JciAtNse3i8Apw&oe=624E5AE6'); background-repeat: no-repeat; background-size: cover;">
                 <div class="container-fluid container-fluid-max">
                   <div class="row">
                     <div class="col-12 text-center">
@@ -139,7 +139,7 @@
                 <div class="col-md-3 py-3 h-100 align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                     <div class="card shadow" style="border-radius:20px;">
                         <div class="card-body text-center">
-                            <img src="{{ asset('storage/images/pic1.jpg') }}" class="img-fluid card-img-top hover-zoom" alt="">
+                            <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t1.15752-9/274043816_513924906824242_7993796847207418571_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=ae9488&_nc_eui2=AeH4bIpp4soNcG59P_C2bwhgTKOPaFxNpZhMo49oXE2lmBXZdaRpwge-_fJHpTbwUoR_OG1TmMHarGCGfxpelRxV&_nc_ohc=KxPUOOYNe2QAX--qCfr&tn=vnziavkFyf_io4Jr&_nc_ht=scontent.fdvo2-1.fna&oh=03_AVIukXSKh1_8kxoQiXD-038aH7avK4LMm3zb8G9nX0JgiA&oe=624C720B" class="img-fluid card-img-top hover-zoom" alt="">
                             <div class="social">
                                 <a href="https://www.facebook.com/profile.php?id=100007949627143"><i class="fa-2x bi bi-facebook"></i></a>
                             </div>
@@ -165,7 +165,7 @@
                 <div class="col-md-3 py-3 h-100 align-items-stretch" data-aos="fade-up" data-aos-delay="300">
                     <div class="card shadow" style="border-radius:20px">
                         <div class="card-body text-center">
-                            <img src="{{ asset('storage/images/pic3.jpg') }}" class="img-fluid" alt="">
+                            <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t1.15752-9/273600847_1170691327033047_5271888279077922885_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=ae9488&_nc_eui2=AeHtpxohKL97qnt-oE9hSehV-jg87HNzRAD6ODzsc3NEAL8kmi_iXgVrFwJCa-WXBMKqkuAu8XJkBx0oOrg7rFIX&_nc_ohc=wmXq32wMmLoAX_dtmPO&_nc_ht=scontent.fdvo2-1.fna&oh=03_AVLn5AOiHJXT49Kv7wOieCHXDndp4LPsLn5qHgTbo2DjlA&oe=624EBD66" class="img-fluid" alt="">
                             <div class="social">
                                 <a href="https://www.facebook.com/profile.php?id=100070121239682"><i class="fa-2x bi bi-facebook"></i></a>
                             </div>
@@ -178,7 +178,7 @@
                 <div class="col-md-3 py-3 h-100 align-items-stretch" data-aos="fade-up" data-aos-delay="400">
                     <div class="card shadow" style="border-radius:20px">
                         <div class="card-body text-center">
-                            <img src="{{ asset('storage/images/pic4.jpg') }}" class="img-fluid" alt="">
+                            <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t1.15752-9/272255552_537877930884567_9154508148407993914_n.jpg?_nc_cat=108&ccb=1-5&_nc_sid=ae9488&_nc_eui2=AeHwO74_vZeWeP7N4TFchQC_hphHf-aXhRaGmEd_5peFFvaVTbhSke5HFMQtC_1uDpyJcue3o8p1j2_imA7-emD_&_nc_ohc=pet9YnUPoIYAX9P1t-a&_nc_ht=scontent.fdvo2-1.fna&oh=03_AVLyzqmbirhAlPcvCXJ5OJlmn_DyxJutlFEfzCdKuUmmjQ&oe=624F626F" class="img-fluid" alt="">
                             <div class="social">
                                 <a href="https://www.facebook.com/profile.php?id=100021443349570"><i class="fa-2x bi bi-facebook"></i></a>
                             </div>
