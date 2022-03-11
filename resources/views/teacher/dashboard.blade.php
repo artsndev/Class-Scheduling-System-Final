@@ -358,111 +358,6 @@
                                                         </div>
                                                     </div>
                                                         <div class="row">
-
-                                                            <div class="col-md-6">
-                                                                <label for="department" class="col-form-label ">{{ __('Department') }}</label>
-                                                                    <select name="department" id="department" class="form-control form-select my-select @error('department') is-invalid @enderror" name="department" value="{{ old('department') }}">
-                                                                        <option disabled selected>Choose...</option>
-                                                                        <option value="CET">College of Engineering & Technology</option>
-                                                                        <option value="CAHSS">College of Arts, Humanities & Social Sciences</option>
-                                                                        <option value="CTE">College of Teacher Education</option>
-                                                                        <option value="CME">College of Maritime Education</option>
-                                                                        <option value="CTechEd">College of Technical Education</option>
-                                                                        <option value="CICS">College of Information and Computing Sciences</option>
-                                                                        <option value="Senior High School">Senior High School</option>
-                                                                        <option value="Graduate School">Graduate School</option>
-                                                                    </select>
-                                                                    @error('department')
-                                                                        <span class="invalid-feedback" role="alert">
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </span>
-                                                                    @enderror
-                                                            </div>
-
-                                                            <div class="col-md-6">
-                                                                <label for="semester" class="col-form-label">{{ __('Semester') }}</label>
-                                                                <select name="semester" id="semester" class="form-control form-select my-select @error('semester') is-invalid @enderror" name="semester" value="{{ old('semester') }}">
-                                                                    <option disabled selected>Choose...</option>
-                                                                    <option value="1st Semester">{{ __('1st Semester') }}</option>
-                                                                    <option value="2nd Semester">{{ __('2nd Semester') }}</option>
-                                                                </select>
-                                                                    @error('semester')
-                                                                        <span class="invalid-feedback" role="alert">
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </span>
-                                                                    @enderror
-                                                            </div>
-
-                                                            <div class="col-md-4">
-                                                                <label for="curriculum_year" class="col-form-label">{{ __('Year Level') }}</label>
-                                                                <select name="curriculum_year" id="curriculum_year" class="form-control form-select my-select @error('curriculum_year') is-invalid @enderror" name="curriculum_year" value="{{ old('curriculum_year') }}">
-                                                                    <option disabled selected>Choose...</option>
-                                                                    <option value="1st year">{{ __('1st year') }}</option>
-                                                                    <option value="2nd year">{{ __('2nd year') }}</option>
-                                                                    <option value="3rd year">{{ __('3rd year') }}</option>
-                                                                    <option value="4th year">{{ __('4th year') }}</option>
-                                                                </select>
-                                                                    @error('curriculum_year')
-                                                                        <span class="invalid-feedback" role="alert">
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </span>
-                                                                    @enderror
-                                                            </div>
-
-                                                            <div class="col-md-4">
-                                                                <label for="age" class="col-form-label">{{ __('Age') }}</label>
-                                                                    <input id="age" type="text" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ old('age') }}">
-                                                                    @error('age')
-                                                                        <span class="invalid-feedback" role="alert">
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </span>
-                                                                    @enderror
-                                                            </div>
-
-                                                            <div class="col-md-4">
-                                                                <label for="student_type" class="col-form-label">{{ __('Student Type') }}</label>
-                                                                <select name="student_type" id="student_type" class="form-control form-select my-select @error('student_type') is-invalid @enderror" name="student_type" value="{{ old('student_type') }}">
-                                                                    <option disabled selected>Choose...</option>
-                                                                    <option value="Regular Student">{{ __('Regular') }}</option>
-                                                                    <option value="Irregular Student">{{ __('Irregular Student') }}</option>
-                                                                </select>
-                                                                    @error('student_type')
-                                                                        <span class="invalid-feedback" role="alert">
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </span>
-                                                                    @enderror
-                                                            </div>
-
-                                                            <div class="col-md-4">
-                                                                <label for="student_status" class="col-form-label">{{ __('Status of Registration') }}</label>
-                                                                <select name="student_status" id="student_type" class="form-control form-select my-select @error('student_status') is-invalid @enderror" name="student_status" value="{{ old('student_status') }}">
-                                                                    <option disabled selected>Choose...</option>
-                                                                    <option value="New Student">{{ __('New Student') }}</option>
-                                                                    <option value="Old Student">{{ __('Old Student') }}</option>
-                                                                    <option value="Shifting Student">{{ __('Shifting Student') }}</option>
-                                                                    <option value="Transferee">{{ __('Transferee') }}</option>
-                                                                </select>
-                                                                    @error('student_status')
-                                                                        <span class="invalid-feedback" role="alert">
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </span>
-                                                                    @enderror
-                                                            </div>
-
-                                                            <div class="col-md-4">
-                                                                <label for="civil_status" class="col-form-label">{{ __('Student Type') }}</label>
-                                                                <select name="civil_status" id="civil_status" class="form-control form-select my-select @error('civil_status') is-invalid @enderror" name="civil_status" value="{{ old('civil_status') }}">
-                                                                    <option disabled selected>Choose...</option>
-                                                                    <option value="Single">{{ __('Single') }}</option>
-                                                                    <option value="Married">{{ __('Married') }}</option>
-                                                                </select>
-                                                                    @error('civil_status')
-                                                                        <span class="invalid-feedback" role="alert">
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </span>
-                                                                    @enderror
-                                                            </div>
-
                                                             <div class="col-md-4">
                                                                 <label for="subjects" class="col-form-label">{{ __('Subjects') }}</label>
                                                                     <input id="subjects" type="text" class="form-control @error('subjects') is-invalid @enderror" name="subjects" value="{{ old('subjects') }}">
@@ -497,22 +392,6 @@
                                                                 <label for="time" class="col-form-label">{{ __('Time') }}</label>
                                                                     <input id="time" type="text" class="form-control @error('time') is-invalid @enderror" name="time" value="{{ old('time') }}">
                                                                     @error('time')
-                                                                        <span class="invalid-feedback" role="alert">
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </span>
-                                                                    @enderror
-                                                            </div>
-
-                                                            <div class="col-md-6">
-                                                                <label for="section" class="col-form-label">{{ __('Section') }}</label>
-                                                                <select name="section" id="section" class="form-control form-select my-select @error('section') is-invalid @enderror" name="section" value="{{ old('section') }}">
-                                                                    <option disabled selected>Choose...</option>
-                                                                    <option value="A">{{ __('A') }}</option>
-                                                                    <option value="B">{{ __('B') }}</option>
-                                                                    <option value="C">{{ __('C') }}</option>
-                                                                    <option value="D">{{ __('D') }}</option>
-                                                                </select>
-                                                                    @error('section')
                                                                         <span class="invalid-feedback" role="alert">
                                                                             <strong>{{ $message }}</strong>
                                                                         </span>

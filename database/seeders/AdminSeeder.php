@@ -16,8 +16,8 @@ class AdminSeeder extends Seeder
     {
         \App\Models\Admin::create([
             'name' => 'Administrator',
-            'email' => 'bimbimxerep@gmail.com',
-            'password' => bcrypt('invincibles69'),
+            'email' => 'rubickking04@gmail.com',
+            'password' => bcrypt('admin123'),
         ]);
     }
 }

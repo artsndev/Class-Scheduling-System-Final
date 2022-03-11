@@ -51,7 +51,7 @@
                             <div class="dropdown pb-4">
                                 <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                                     <img src="{{ asset('/storage/images/avatar.png') }}" alt="hugenerd" width="30" height="30" class="rounded-circle">
-                                    <span class="d-none d-sm-inline mx-1">{{ Auth::user()->name }}</span>
+                                    <span class="d-none d-sm-inline mx-1">{{ Auth::user()->firstname." ".Auth::user()->lastname }}</span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
                                     <li><a class="dropdown-item" href="{{ url('/home') }}">Profile</a></li>
@@ -97,12 +97,6 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    {{-- <a href="#" class="card-footer d-flex text-white">
-                                                        {{ __('View Details') }}
-                                                        <span class="ms-auto text-right">
-                                                            <i class="bi bi-chevron-right "></i>
-                                                        </span>
-                                                    </a> --}}
                                                 </div>
                                             </div>
                                             <div class="col-md-4 mb-3">
@@ -124,15 +118,8 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    {{-- <a href="#" class="card-footer d-flex text-dark">
-                                                        {{ __('View Details') }}
-                                                        <span class="ms-auto">
-                                                            <i class="bi bi-chevron-right"></i>
-                                                        </span>
-                                                    </a> --}}
                                                 </div>
                                             </div>
-
 
                                             <div class="col-md-4 mb-3">
                                                 <div class="card bg-success text-white h-100">
@@ -153,28 +140,8 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    {{-- <a href="#" class="card-footer d-flex text-white" >
-                                                        {{ __('View Details') }}
-                                                        <span class="ms-auto">
-                                                            <i class="bi bi-chevron-right"></i>
-                                                        </span>
-                                                    </a> --}}
                                                 </div>
                                             </div>
-                                            {{-- <div class="col-md-3 mb-3">
-                                                <div class="card shadow-lg bg-danger text-white h-100">
-                                                    <div class="card-body py-5">
-                                                        <h2>1</h2>
-                                                        <h5>{{ __('Admin') }}</h5>
-                                                    </div>
-                                                    <a href="#" class="card-footer d-flex text-white">
-                                                        {{ __('View Details') }}
-                                                        <span class="ms-auto">
-                                                            <i class="bi bi-chevron-right"></i>
-                                                        </span>
-                                                    </a>
-                                                </div>
-                                            </div> --}}
                                 </div>
                             </div>
                     </div>

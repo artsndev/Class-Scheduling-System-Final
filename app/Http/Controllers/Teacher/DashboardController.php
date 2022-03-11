@@ -63,27 +63,14 @@ class DashboardController extends Controller
         //     'admin_id' =>'required|string',
         //     'user_id'=>'required|string',
         //     'proffessor'=>'required|string',
-        //     'department'=>'required|string|max:255',
-        //     'semester'=>'required|string|max:255',
-        //     'curriculum_year'=>'required|string|max:255',
-        //     'student_type'=>'required|string|max:255',
-        //     'student_status'=>'required|string',
-        //     'civil_status'=>'required|string',
         //     'subjects'=>'required|string|max:255',
         //     'units'=>'required|string',
         //     'age'=>'required|string|max:255',
         //     'days'=>'required|string|max:255',
         //     'time'=>'required|string',
-        //     'section'=>'required|string',
         //     'room'=>'required|string',
         // ]);
         $sched = Schedule::find($id);
-        $sched->department = $request['department'];
-        $sched->semester = $request['semester'];
-        $sched->curriculum_year = $request['curriculum_year'];
-        $sched->student_type = $request['student_type'];
-        $sched->student_status = $request['student_status'];
-        $sched->civil_status = $request['civil_status'];
         $sched->subjects = $request['subjects'];
         $sched->units = $request['units'];
         $sched->age = $request['age'];

@@ -47,16 +47,14 @@
                                         <i class="fs-4 bi-speedometer2 text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Dashboard</span> </a>
                                 </li>
                                 <li>
-                                    <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                        <i class="fs-4 bi-person-plus text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">{{ __('Add New') }}</span> </a>
-                                    <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                                        <li class="w-100 text-end">
-                                            <a href="{{ url('admin/register') }}" class="nav-link px-0"><span class="d-none d-sm-inline">{{ __('New Student') }}</span></a>
-                                        </li>
-                                        <li class="ms-auto">
-                                            <a href="{{ url('admin/teacher/register') }}" class="nav-link px-0"> <span class="d-none d-sm-inline">{{ __('New Teacher') }}</span></a>
-                                        </li>
-                                    </ul>
+                                    <a href="{{ url('admin/register') }}" class="nav-link px-0 align-middle">
+                                        <i class="fs-4 bi-person-plus text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">{{ __('New Student') }}</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ url('admin/teacher/register') }}" class="nav-link px-0 align-middle">
+                                        <i class="fs-4 bi-person-plus-fill text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">{{ __('New Teacher') }}</span>
+                                    </a>
                                 </li>
                             </ul>
                             <hr>

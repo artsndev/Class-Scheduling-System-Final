@@ -20,10 +20,19 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'name',
+        'firstname',
+        'lastname',
+        'middlename',
         'email',
         'address',
-        'username',
+        'department',
+        'semester',
+        'section',
+        'curriculum_year',
+        'student_type',
+        'student_status',
+        'civil_status',
+        'studentId',
         'gender',
         'phone',
         'birth_date',

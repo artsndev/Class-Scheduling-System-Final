@@ -15,18 +15,11 @@ class Schedule extends Model
     protected $fillable = [
         'teacher_id',
         'user_id',
-        'department',
-        'semester',
-        'curriculum_year',
-        'student_type',
-        'student_status',
-        'civil_status',
         'subjects',
         'units',
         'age',
         'days',
         'time',
-        'section',
         'room',
     ];
     public function user(){

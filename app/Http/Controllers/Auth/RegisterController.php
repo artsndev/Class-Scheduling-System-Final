@@ -51,7 +51,17 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'firstname' => ['required', 'string', 'max:255'],
+            'lastname' => ['required', 'string', 'max:255'],
+            'middlename' => ['required', 'string', 'max:255'],
+            'studentId' => ['required', 'string', 'max:255'],
+            'department'=> ['required', 'string', 'max:255'],
+            'semester'=>['required', 'string', 'max:255'],
+            'curriculum_year'=>['required', 'string', 'max:255'],
+            'student_type'=>['required', 'string', 'max:255'],
+            'student_status'=>['required', 'string', 'max:255'],
+            'section'=>['required', 'string', 'max:255'],
+            'civil_status'=>['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'address' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'string', 'max:15'],
@@ -70,9 +80,18 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $user = User::create([
-            'name' => $data['name'],
+            'firstname' => $data['firstname'],
+            'lastname' => $data['lastname'],
+            'middlename' => $data['middlename'],
+            'department' => $data['department'],
+            'semester' => $data['semester'],
+            'curriculum_year' => $data['curriculum_year'],
+            'student_type' => $data['student_type'],
+            'student_status' => $data['student_status'],
+            'section' => $data['section'],
+            'civil_status' => $data['civil_status'],
             'email' => $data['email'],
-            'username' => $data['username'],
+            'studentId' => $data['studentId'],
             'address' => $data['address'],
             'gender' => $data['gender'],
             'phone' => $data['phone'],
