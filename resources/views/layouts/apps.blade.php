@@ -43,8 +43,8 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/dashboard') }}"class="nav-link px-0 align-middle">
-                                        <i class="fs-4 bi-speedometer2 text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Dashboard</span> </a>
+                                    <a href="{{ url('/home') }}"class="nav-link px-0 align-middle">
+                                        <i class="fs-4 bi bi-person-check text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Profile</span> </a>
                                 </li>
                             </ul>
                             <hr>
@@ -54,10 +54,6 @@
                                     <span class="d-none d-sm-inline mx-1">{{ Auth::user()->firstname." ".Auth::user()->lastname }}</span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                                    <li><a class="dropdown-item" href="{{ url('/home') }}">Profile</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
                                     <li> <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">Sign out</a>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -75,12 +71,5 @@
             </div>
             @endauth
     </div>
-    {{--  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
-    <script>
-         $(function () {
-             $('.datepicker').datepicker();
-         });
-      </script>  --}}
 </body>
 </html>

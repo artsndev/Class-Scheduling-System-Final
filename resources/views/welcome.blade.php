@@ -72,7 +72,7 @@
                         @else
                         @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('home') }}">{{ Auth::user()->name }}</a>
+                            <a class="nav-link" href="{{ url('home') }}">{{ Auth::user()->firstname." ".Auth::user()->lastname }}</a>
                         </li>
                         @endauth
                         <li class="nav-item dropdown">

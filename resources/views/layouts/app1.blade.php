@@ -70,30 +70,38 @@
                     </div>
                     <div class="col py-3">
                         <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-md-12">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <h5>Student Dashboard</h5>
-                                            </div>
+                            <form method="post">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="profile-img">
+                                            <img src="{{asset('/storage/images/avatars.png')}}" alt="" class="mx-auto">
                                         </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="profile-head">
+                                                    <h5>{{ Auth::user()->lastname.", ".Auth::user()->firstname }}</h5>
+                                                    <h6 class="text-info fw-bold py-1">{{ Auth::user()->studentId }}</h6>
+                                                    <h6 class="text-primary fw-bold py-2">{{__('Student / User')}}</h6>
+
+                                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="{{ url('/home') }}" role="tab" aria-controls="home" aria-selected="true">About</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Schedule</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
                                         <div class="row">
                                             <div class="col-md-4 mb-3">
                                                 <div class="card  bg-primary bg-gradient text-white">
-                                                    <div class="card-body py-5">
+                                                    <div class="card-body">
                                                         <div class="row">
                                                             <div class="col-sm-7">
                                                                 <h2>{{ App\Models\User::all()->count() }}</h2>
                                                                 <h5>{{ __('Student Data') }}</h5>
-                                                            </div>
-                                                            <div class="col-sm-5">
-                                                                <lord-icon
-                                                                    src="https://cdn.lordicon.com/dxjqoygy.json"
-                                                                    trigger="hover"
-                                                                    colors="primary:#ffffff,secondary:#ffffff"
-                                                                    stroke="60"
-                                                                    style="width:100px;height:100px">
-                                                                </lord-icon>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -101,20 +109,11 @@
                                             </div>
                                             <div class="col-md-4 mb-3">
                                                 <div class="card bg-warning bg-gradient text-dark h-100">
-                                                    <div class="card-body py-5">
+                                                    <div class="card-body">
                                                         <div class="row">
                                                             <div class="col-sm-7">
                                                                 <h2>{{ App\Models\Teacher::all()->count() }}</h2>
                                                                 <h5>{{ __('Teacher') }}</h5>
-                                                            </div>
-                                                            <div class="col-sm-5">
-                                                                <lord-icon
-                                                                    src="https://cdn.lordicon.com/zpxybbhl.json"
-                                                                    trigger="hover"
-                                                                    colors="primary:#121331,secondary:#121331"
-                                                                    stroke="60"
-                                                                    style="width:100px;height:100px">
-                                                                </lord-icon>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -123,31 +122,30 @@
 
                                             <div class="col-md-4 mb-3">
                                                 <div class="card bg-success text-white h-100">
-                                                    <div class="card-body py-5">
+                                                    <div class="card-body">
                                                         <div class="row">
                                                             <div class="col-sm-7">
                                                                 <h2>{{ App\Models\Schedule::all()->count() }}</h2>
-                                                                <h5>{{ __('Schedule\'s') }}</h5>
-                                                            </div>
-                                                            <div class="col-sm-5">
-                                                                <lord-icon
-                                                                    src="https://cdn.lordicon.com/bbnkwdur.json"
-                                                                    trigger="hover"
-                                                                    colors="primary:#ffffff,secondary:#ffffff"
-                                                                    stroke="60"
-                                                                    style="width:100px;height:100px">
-                                                                </lord-icon>
+                                                                <h5>{{ __('Schedule') }}</h5>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            <div class="col-md-12">
+                                                <div class="tab-content profile-tab" id="myTabContent">
+                                                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                                        @yield('content')
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
+                        </div>
                     </div>
-                    @yield('content')
-                </div>
-            </div>
             @endauth
     </div>
 </body>
