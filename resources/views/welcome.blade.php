@@ -105,6 +105,7 @@
                 <div class="container-fluid container-fluid-max">
                   <div class="row">
                     <div class="col-12 text-center">
+                        <img class="image rounded-circle text-center" src="{{asset('/storage/images/logo.png')}}" alt="image" style="width: 150px;height: 150px; ">
                         {{-- <h1 class="text-white text-grey-100 text-uppercase display-4">{{ __('Welcome to Class Scheduling System') }}</h1> --}}
                       <h1 class="text-white text-grey-100 text-uppercase display-4">{{ __('Welcome') }}</h1>
                       <h1 class="text-white text-grey-100 text-uppercase display-4">{{ __('to') }}</h1>

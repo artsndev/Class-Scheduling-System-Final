@@ -33,6 +33,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
      */
     Route::middleware('auth')->group(function(){
         Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+        Route::get('/download', [App\Http\Controllers\HomeController::class, 'download'])->name('download');
         Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
     });
     /**
