@@ -26,6 +26,7 @@ use App\Http\Controllers\Admin\ForgotPasswordController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/download', [App\Http\Controllers\HomeController::class, 'download'])->name('download');
 Route::group(['middleware' => 'prevent-back-history'],function(){
     Auth::routes(['verify' => true]);
     /**
@@ -33,7 +34,6 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
      */
     Route::middleware('auth')->group(function(){
         Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-        Route::get('/download', [App\Http\Controllers\HomeController::class, 'download'])->name('download');
         Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
     });
     /**

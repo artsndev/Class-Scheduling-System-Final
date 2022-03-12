@@ -17,15 +17,15 @@
 
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                            <a class="nav-link btn-outline-primary active" id="home-tab" data-bs-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">My Schedule</a>
+                            <a class="nav-link btn-outline-primary" id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">My Schedule</a>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-7 py-3">
                 <div class="row">
                     <div class="col-md-4 mb-3">
                         <div class="card  bg-primary bg-gradient text-white">
@@ -213,7 +213,7 @@
                                         </thead>
                                         @foreach ( $scheds as $sched)
                                             <tr>
-                                                <td  class="text-center" scope="col">{{ $sched->user->name }}</td>
+                                                <td  class="text-center" scope="col">{{ $sched->user->firstname." ".$sched->user->lastname }}</td>
                                                 <td  class="text-center" scope="col">{{ $sched->user->email }}</td>
                                                 <td class="text-center" scope="col">{{ $sched->teacher->name }}</td>
                                                 <td class="text-center" scope="col">{{ $sched->teacher->email }}</td>
