@@ -4,13 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Schedule;
+use App\Exports\SchedulesExport;
 use Illuminate\Http\Request;
-use Maatwebsite\Excel\Excel;
-use Illuminate\Auth\Access\Response;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
-use Maatwebsite\Excel\Facades\Excel as Excels;
-use Illuminate\Support\Facades\Response as FacadeResponse;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class HomeController extends Controller
 {
@@ -29,10 +27,11 @@ class HomeController extends Controller
     }
     public function download(Request $request)
     {
-        $file = public_path()."\mySchedule.csv";
-        $myfiles = array(
-            'Content-type: application/csv',
-        );
-        return  FacadeResponse::download($file, "mySchedule.csv" ,$myfiles);
+        return Excel::download(new SchedulesExport, 'users.xlsx');
+        // $file = public_path()."\mySchedule.csv";
+        // $myfiles = array(
+        //     'Content-type: application/csv',
+        // );
+        // return  FacadeResponse::download($file, "mySchedule.csv" ,$myfiles);
     }
 }
