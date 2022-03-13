@@ -6,25 +6,76 @@ use App\Models\User;
 use App\Models\Schedule;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
-use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromView;
+use Maatwebsite\Excel\Events\AfterSheet;
+use Maatwebsite\Excel\Concerns\FromQuery;
+use Maatwebsite\Excel\Concerns\Exportable;
+use Maatwebsite\Excel\Concerns\WithEvents;
+use Maatwebsite\Excel\Concerns\WithMapping;
+use Maatwebsite\Excel\Concerns\WithDrawings;
+use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use Maatwebsite\Excel\Concerns\WithCustomStartCell;
+use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
 
-class SchedulesExport implements FromView, ShouldAutoSize
+class SchedulesExport implements FromCollection, ShouldAutoSize, WithMapping, WithHeadings, WithEvents
 {
     use Exportable;
     /**
     * @return \Illuminate\Support\Collection
     */
-    public function view(): View
+    protected $id;
+    public function __construct($id)
     {
-        // $scheds = Schedule::withTrashed()->where("user_id", "=", Auth::user()->id)->get();
-        // return view('dashboard', compact('scheds'));
-        //return Schedule::withTrashed()->where("user_id", "=", Auth::user()->id)->get();
-        return view('dashboard', [
-            'users' => User::find(Auth::user()->id),
-            'scheds' => Schedule::withTrashed()->where("user_id", "=", Auth::user()->id)->get()
-        ]);
+        $this->id = $id;
+    }
+    public function collection()
+    {
+        // dd(Schedule::query()->with('user')->where("user_id","=", Auth::user()->id)->get());
+        return Schedule::with('user')->where("user_id",$this->id)->first();
+    }
+    public function map($sched): array
+    {
+        return [
+            $sched->id,
+            $sched->user->firstname,
+            $sched->user->lastname,
+            $sched->subjects,
+            $sched->units,
+            $sched->days,
+            $sched->time,
+            $sched->room,
+        ];
+    }
+    public function headings(): array
+    {
+        return [
+            'Id',
+            'Given Name',
+            'Last Name',
+            'Subjects',
+            'Units',
+            'Days',
+            'Time',
+            'Room',
+        ];
+    }
+    public function registerEvents(): array
+    {
+        return [
+            AfterSheet::class => function(AfterSheet $event){
+                $event->sheet->getStyle('A1:H1')->applyFromArray([
+                    'font' => [
+                        'bold' => true
+                    ],
+                    'borders' => [
+                        'outline' => [
+                            'color' => ['argb' => 'FFFF0000'],
+                        ],
+                    ]
+                ]);
+            }
+        ];
     }
 }

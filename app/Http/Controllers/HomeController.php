@@ -25,8 +25,8 @@ class HomeController extends Controller
         $scheds = Schedule::withTrashed()->where("user_id", "=", Auth::user()->id)->get();
         return view('home', compact('scheds', 'users'));
     }
-    public function download()
+    public function download(Request $request)
     {
-        return Excel::download(new SchedulesExport, 'mySched.xlsx');
+        return Excel::download(new SchedulesExport($request->id), 'mySched.xlsx');
     }
 }
