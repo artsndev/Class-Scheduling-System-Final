@@ -25,7 +25,7 @@ class HomeController extends Controller
         //dd($notif);
         return view('home', compact('scheds', 'users'));
     }
-    public function download(Request $request)
+    public function download()
     {
         return Excel::download(new SchedulesExport, 'users.xlsx');
         // $file = public_path()."\mySchedule.csv";
