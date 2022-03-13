@@ -416,13 +416,12 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                {{-- <a class="btn btn-outline-success" href="{{ url('/download/'.$sched->id) }}"><i class="fa fa-download"></i></a> --}}
+                                                <a class="btn btn-outline-success" href="{{ url('/download') }}"><i class="fa fa-download"></i></a>
                                                 </td>
                                                 <td class="text-center" scope="col">{{ $sched->created_at }}</td>
                                             </tr>
                                         @endforeach
                                     </table>
-                                    <a class="btn btn-info mx-auto" href="{{ url('/download/'.$sched->id) }}"><i class="fa fa-download">{{ __(' Download Schedule') }}</i></a>
                                 </div>
                             </div>
                         </div>
