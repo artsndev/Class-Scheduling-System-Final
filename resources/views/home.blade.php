@@ -219,14 +219,14 @@
                                                 <td class="text-center" scope="col">{{ $sched->teacher->email }}</td>
                                                 <td class="text-center" scope="col">
                                                     <button type="button" class=" btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter1{{ $sched->id }}"><i class="bi bi-eye"></i></button>
-                                                <div class="modal fade" id="exampleModalCenter1{{ $sched->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle1" aria-hidden="true">
+                                                <div class="modal fade " id="exampleModalCenter1{{ $sched->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle1" aria-hidden="true">
                                                     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                         <div class="modal-content">
-                                                            <div class="modal-header">
+                                                            {{-- <div class="modal-header">
                                                                 <h5 class="modal-title" id="exampleModalCenterTitle1">Schedule Form</h5>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                            </div>
-                                                            <div class="modal-body">
+                                                            </div> --}}
+                                                            <div class="modal-body bg-primary text-white">
                                                                 <form>
                                                                     <fieldset disabled="disabled">
                                                                     <div class="row text-center">
@@ -238,7 +238,7 @@
                                                                         <div class="row">
                                                                             <div class="col-md-4">
                                                                                 <label for="name" class="col-form-label">{{ __('Name') }}</label>
-                                                                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $sched->user->name }}" >
+                                                                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $sched->user->firstname }}" >
                                                                                 @error('name')
                                                                                     <span class="invalid-feedback" role="alert">
                                                                                         <strong>{{ $message }}</strong>
@@ -325,7 +325,7 @@
 
                                                                             <div class="col-md-3">
                                                                                 <label for="semester" class="col-form-label">{{ __('Semester') }}</label>
-                                                                                <input name="semester" id="semester" class="form-control @error('semester') is-invalid @enderror" name="semester" value="{{ $sched->semester }}">
+                                                                                <input name="semester" id="semester" class="form-control @error('semester') is-invalid @enderror" name="semester" value="{{ $sched->user->semester }}">
                                                                                     @error('semester')
                                                                                         <span class="invalid-feedback" role="alert">
                                                                                             <strong>{{ $message }}</strong>
@@ -398,33 +398,31 @@
                                                                                         </thead>
                                                                                         <tbody>
                                                                                             <tr>
-                                                                                                <td class="text-center" scope="row">{{ $sched->subjects }}</td>
-                                                                                                <td class="text-center" scope="row">{{ $sched->units }}</td>
-                                                                                                <td class="text-center" scope="row">{{ $sched->days }}</td>
-                                                                                                <td class="text-center" scope="row">{{ $sched->time }}</td>
-                                                                                                <td class="text-center" scope="row">{{ $sched->room }}</td>
-                                                                                                <td class="text-center" scope="row">{{ $sched->teacher->name }}</td>
+                                                                                                <td class="text-center text-white" scope="row">{{ $sched->subjects }}</td>
+                                                                                                <td class="text-center text-white" scope="row">{{ $sched->units }}</td>
+                                                                                                <td class="text-center text-white" scope="row">{{ $sched->days }}</td>
+                                                                                                <td class="text-center text-white" scope="row">{{ $sched->time }}</td>
+                                                                                                <td class="text-center text-white" scope="row">{{ $sched->room }}</td>
+                                                                                                <td class="text-center text-white" scope="row">{{ $sched->teacher->name }}</td>
                                                                                             </tr>
                                                                                         </tbody>
                                                                                     </table>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                            </div>
-                                                            <div class="modal-footer">
+                                                                    </div>
                                                                 </fieldset>
                                                             </form>
-                                                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <a href="{{ url('/download') }}">download</a>
+                                                {{-- <a class="btn btn-outline-success" href="{{ url('/download/'.$sched->id) }}"><i class="fa fa-download"></i></a> --}}
                                                 </td>
                                                 <td class="text-center" scope="col">{{ $sched->created_at }}</td>
                                             </tr>
                                         @endforeach
                                     </table>
+                                    <a class="btn btn-info mx-auto" href="{{ url('/download/'.$sched->id) }}"><i class="fa fa-download">{{ __(' Download Schedule') }}</i></a>
                                 </div>
                             </div>
                         </div>
