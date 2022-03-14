@@ -27,6 +27,7 @@ class User extends Authenticatable
         'address',
         'department',
         'semester',
+        'age',
         'section',
         'curriculum_year',
         'student_type',

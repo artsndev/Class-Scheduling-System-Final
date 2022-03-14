@@ -33,7 +33,7 @@
                                     <img src="{{ asset('/storage/images/avatars.png')}}" alt="hugenerd" width="30" height="30" class="rounded-circle">
                                 @endif
                             </td>
-                            <td class="text-start" scope="row">{{ $user->name }}</th>
+                            <td class="text-start" scope="row">{{ $user->firstname." ".$user->lastname }}</th>
                             <td  class="text-start" scope="row">{{ $user->email }}</td>
                             <td  class="text-center" scope="row">{{ $user->gender }}</td>
                             {{-- @if( $user->email_verified_at)
@@ -64,7 +64,7 @@
                                                         <div class="row mb-3">
                                                             <div class="col-md-4">
                                                                 <label for="name" class="col-form-label">{{ __('Name') }}</label>
-                                                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $user->name }}" >
+                                                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $user->firstname." ".$user->lastname }}" >
                                                                 @error('name')
                                                                     <span class="invalid-feedback" role="alert">
                                                                         <strong>{{ $message }}</strong>

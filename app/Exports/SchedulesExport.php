@@ -19,7 +19,7 @@ use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithCustomStartCell;
 use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
 
-class SchedulesExport implements FromCollection, ShouldAutoSize, WithMapping, WithHeadings, WithEvents
+class SchedulesExport implements FromView, ShouldAutoSize
 {
     use Exportable;
     /**
@@ -30,52 +30,54 @@ class SchedulesExport implements FromCollection, ShouldAutoSize, WithMapping, Wi
     {
         $this->id = $id;
     }
-    public function collection()
+    public function view(): View
     {
-        // dd(Schedule::query()->with('user')->where("user_id","=", Auth::user()->id)->get());
-        return Schedule::with('user')->where("user_id",$this->id)->first();
+        // return Schedule::with('user')->where("id", "=", $this->id)->get();
+        return view('dashboard', [
+            'scheds' => Schedule::with('user')->where("id", "=", $this->id)->get()
+        ]);
     }
-    public function map($sched): array
-    {
-        return [
-            $sched->id,
-            $sched->user->firstname,
-            $sched->user->lastname,
-            $sched->subjects,
-            $sched->units,
-            $sched->days,
-            $sched->time,
-            $sched->room,
-        ];
-    }
-    public function headings(): array
-    {
-        return [
-            'Id',
-            'Given Name',
-            'Last Name',
-            'Subjects',
-            'Units',
-            'Days',
-            'Time',
-            'Room',
-        ];
-    }
-    public function registerEvents(): array
-    {
-        return [
-            AfterSheet::class => function(AfterSheet $event){
-                $event->sheet->getStyle('A1:H1')->applyFromArray([
-                    'font' => [
-                        'bold' => true
-                    ],
-                    'borders' => [
-                        'outline' => [
-                            'color' => ['argb' => 'FFFF0000'],
-                        ],
-                    ]
-                ]);
-            }
-        ];
-    }
+    // public function map($sched): array
+    // {
+    //     return [
+    //         $sched->id,
+    //         $sched->user->firstname,
+    //         $sched->user->lastname,
+    //         $sched->subjects,
+    //         $sched->units,
+    //         $sched->days,
+    //         $sched->time,
+    //         $sched->room,
+    //     ];
+    // }
+    // public function headings(): array
+    // {
+    //     return [
+    //         'Id',
+    //         'Given Name',
+    //         'Last Name',
+    //         'Subjects',
+    //         'Units',
+    //         'Days',
+    //         'Time',
+    //         'Room',
+    //     ];
+    // }
+    // public function registerEvents(): array
+    // {
+    //     return [
+    //         AfterSheet::class => function(AfterSheet $event){
+    //             $event->sheet->getStyle('A1:H1')->applyFromArray([
+    //                 'font' => [
+    //                     'bold' => true
+    //                 ],
+    //                 'borders' => [
+    //                     'outline' => [
+    //                         'color' => ['argb' => 'FFFF0000'],
+    //                     ],
+    //                 ]
+    //             ]);
+    //         }
+    //     ];
+    // }
 }

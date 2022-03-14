@@ -226,7 +226,7 @@
                                                                 <h5 class="modal-title" id="exampleModalCenterTitle1">Schedule Form</h5>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div> --}}
-                                                            <div class="modal-body bg-primary text-white">
+                                                            <div class="modal-body">
                                                                 <form>
                                                                     <fieldset disabled="disabled">
                                                                     <div class="row text-center">
@@ -236,14 +236,39 @@
                                                                         </div>
                                                                     </div>
                                                                         <div class="row">
-                                                                            <div class="col-md-4">
-                                                                                <label for="name" class="col-form-label">{{ __('Name') }}</label>
+                                                                            <div class="col-md-2">
+                                                                                <label for="name" class="col-form-label">{{ __('Family Name') }}</label>
+                                                                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $sched->user->lastname }}" >
+                                                                                @error('name')
+                                                                                    <span class="invalid-feedback" role="alert">
+                                                                                        <strong>{{ $message }}</strong>
+                                                                                    </span>
+                                                                                @enderror
+                                                                            </div>
+
+                                                                            <div class="col-md-2">
+                                                                                <label for="name" class="col-form-label">{{ __('Given Name') }}</label>
                                                                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $sched->user->firstname }}" >
                                                                                 @error('name')
                                                                                     <span class="invalid-feedback" role="alert">
                                                                                         <strong>{{ $message }}</strong>
                                                                                     </span>
                                                                                 @enderror
+                                                                            </div>
+
+                                                                            <div class="col-md-2">
+                                                                                <label for="name" class="col-form-label">{{ __('Middle Name') }}</label>
+                                                                                <input class="form-control" value="{{ $sched->user->middlename }}" >
+                                                                            </div>
+
+                                                                            <div class="col-md-3">
+                                                                                <label for="name" class="col-form-label">{{ __('Student ID') }}</label>
+                                                                                <input class="form-control" value="{{ $sched->user->studentId }}" >
+                                                                            </div>
+
+                                                                            <div class="col-md-3">
+                                                                                <label for="name" class="col-form-label">{{ __('Civil Status') }}</label>
+                                                                                <input class="form-control" value="{{ $sched->user->civil_status }}" >
                                                                             </div>
 
                                                                             <div class="col-md-4">
@@ -259,15 +284,6 @@
                                                                                 </div>
                                                                             </div>
 
-                                                                            <div class="col-md-4">
-                                                                                <label for="username" class="col-form-label">{{ __('Username') }}</label>
-                                                                                    <input id="username" type="text" placeholder="juandelacruz69" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ $sched->user->username }}">
-                                                                                    @error('username')
-                                                                                        <span class="invalid-feedback" role="alert">
-                                                                                            <strong>{{ $message }}</strong>
-                                                                                        </span>
-                                                                                    @enderror
-                                                                            </div>
 
                                                                             <div class="col-md-4">
                                                                                 <label for="address" class="col-form-label">{{ __('Address') }}</label>
@@ -292,20 +308,20 @@
                                                                                 @enderror
                                                                             </div>
 
-                                                                            <div class="col-md-4">
-                                                                                <label for="gender" class="col-form-label">{{ __('Gender') }}</label>
-                                                                                <input id="gender" type="text" class="form-control @error('gender') is-invalid @enderror" name="gender" value="{{ $sched->user->gender }}" autocomplete="gender" autofocus>
-                                                                                @error('gender')
-                                                                                    <span class="invalid-feedback" role="alert">
-                                                                                        <strong>{{ $message }}</strong>
-                                                                                    </span>
-                                                                                @enderror
-                                                                            </div>
-
 
                                                                             <div class="col-md-3">
+                                                                                <label for="semester" class="col-form-label">{{ __('Semester') }}</label>
+                                                                                <input name="semester" id="semester" class="form-control @error('semester') is-invalid @enderror" name="semester" value="{{ $sched->user->semester }}">
+                                                                                    @error('semester')
+                                                                                        <span class="invalid-feedback" role="alert">
+                                                                                            <strong>{{ $message }}</strong>
+                                                                                        </span>
+                                                                                    @enderror
+                                                                            </div>
+
+                                                                            <div class="col-md-6">
                                                                                 <label for="department" class="col-form-label ">{{ __('Department') }}</label>
-                                                                                    <input name="department" id="department" class="form-control @error('department') is-invalid @enderror" name="department" value="{{ $sched->department }}">
+                                                                                    <input name="department" id="department" class="form-control @error('department') is-invalid @enderror" name="department" value="{{ $sched->user->department }}">
                                                                                     @error('department')
                                                                                         <span class="invalid-feedback" role="alert">
                                                                                             <strong>{{ $message }}</strong>
@@ -323,39 +339,9 @@
                                                                                 @enderror
                                                                             </div>
 
-                                                                            <div class="col-md-3">
-                                                                                <label for="semester" class="col-form-label">{{ __('Semester') }}</label>
-                                                                                <input name="semester" id="semester" class="form-control @error('semester') is-invalid @enderror" name="semester" value="{{ $sched->user->semester }}">
-                                                                                    @error('semester')
-                                                                                        <span class="invalid-feedback" role="alert">
-                                                                                            <strong>{{ $message }}</strong>
-                                                                                        </span>
-                                                                                    @enderror
-                                                                            </div>
-
-                                                                            <div class="col-md-3">
-                                                                                <label for="civil_status" class="col-form-label">{{ __('Civil Status') }}</label>
-                                                                                <input name="civil_status" id="civil_status" class="form-control @error('civil_status') is-invalid @enderror" name="civil_status" value="{{ $sched->civil_status }}">
-                                                                                    @error('civil_status')
-                                                                                        <span class="invalid-feedback" role="alert">
-                                                                                            <strong>{{ $message }}</strong>
-                                                                                        </span>
-                                                                                    @enderror
-                                                                            </div>
-
-                                                                            <div class="col-md-3">
-                                                                                <label for="curriculum_year" class="col-form-label">{{ __('Year Level') }}</label>
-                                                                                <input name="curriculum_year" id="curriculum_year" class="form-control @error('curriculum_year') is-invalid @enderror" name="curriculum_year" value="{{ $sched->curriculum_year }}">
-                                                                                    @error('curriculum_year')
-                                                                                        <span class="invalid-feedback" role="alert">
-                                                                                            <strong>{{ $message }}</strong>
-                                                                                        </span>
-                                                                                    @enderror
-                                                                            </div>
-
-                                                                            <div class="col-md-3">
+                                                                            <div class="col-md-2">
                                                                                 <label for="age" class="col-form-label">{{ __('Age') }}</label>
-                                                                                    <input id="age" type="text" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ $sched->age }}">
+                                                                                    <input id="age" type="text" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ $sched->user->age }}">
                                                                                     @error('age')
                                                                                         <span class="invalid-feedback" role="alert">
                                                                                             <strong>{{ $message }}</strong>
@@ -363,9 +349,39 @@
                                                                                     @enderror
                                                                             </div>
 
-                                                                            <div class="col-md-3">
+                                                                            <div class="col-md-2">
+                                                                                <label for="gender" class="col-form-label">{{ __('Gender') }}</label>
+                                                                                <input id="gender" type="text" class="form-control @error('gender') is-invalid @enderror" name="gender" value="{{ $sched->user->gender }}" autocomplete="gender" autofocus>
+                                                                                @error('gender')
+                                                                                    <span class="invalid-feedback" role="alert">
+                                                                                        <strong>{{ $message }}</strong>
+                                                                                    </span>
+                                                                                @enderror
+                                                                            </div>
+
+                                                                            <div class="col-md-2">
+                                                                                <label for="civil_status" class="col-form-label">{{ __('Civil Status') }}</label>
+                                                                                <input name="civil_status" id="civil_status" class="form-control @error('civil_status') is-invalid @enderror" name="civil_status" value="{{ $sched->user->civil_status }}">
+                                                                                    @error('civil_status')
+                                                                                        <span class="invalid-feedback" role="alert">
+                                                                                            <strong>{{ $message }}</strong>
+                                                                                        </span>
+                                                                                    @enderror
+                                                                            </div>
+
+                                                                            <div class="col-md-2">
+                                                                                <label for="curriculum_year" class="col-form-label">{{ __('Year Level') }}</label>
+                                                                                <input name="curriculum_year" id="curriculum_year" class="form-control @error('curriculum_year') is-invalid @enderror" name="curriculum_year" value="{{ $sched->user->curriculum_year }}">
+                                                                                    @error('curriculum_year')
+                                                                                        <span class="invalid-feedback" role="alert">
+                                                                                            <strong>{{ $message }}</strong>
+                                                                                        </span>
+                                                                                    @enderror
+                                                                            </div>
+
+                                                                            <div class="col-md-4">
                                                                                 <label for="student_type" class="col-form-label">{{ __('Student Type') }}</label>
-                                                                                <input name="student_type" id="student_type" class="form-control @error('student_type') is-invalid @enderror" name="student_type" value="{{ $sched->student_type }}">
+                                                                                <input name="student_type" id="student_type" class="form-control @error('student_type') is-invalid @enderror" name="student_type" value="{{ $sched->user->student_type }}">
                                                                                     @error('student_type')
                                                                                         <span class="invalid-feedback" role="alert">
                                                                                             <strong>{{ $message }}</strong>
@@ -375,7 +391,7 @@
 
                                                                             <div class="col-md-3">
                                                                                 <label for="student_status" class="col-form-label">{{ __('Status of Registration') }}</label>
-                                                                                <input name="student_status" id="student_type" class="form-control @error('student_status') is-invalid @enderror" name="student_status" value="{{ $sched->student_status }}">
+                                                                                <input name="student_status" id="student_type" class="form-control @error('student_status') is-invalid @enderror" name="student_status" value="{{ $sched->user->student_status }}">
                                                                                     @error('student_status')
                                                                                         <span class="invalid-feedback" role="alert">
                                                                                             <strong>{{ $message }}</strong>
@@ -398,12 +414,12 @@
                                                                                         </thead>
                                                                                         <tbody>
                                                                                             <tr>
-                                                                                                <td class="text-center text-white" scope="row">{{ $sched->subjects }}</td>
-                                                                                                <td class="text-center text-white" scope="row">{{ $sched->units }}</td>
-                                                                                                <td class="text-center text-white" scope="row">{{ $sched->days }}</td>
-                                                                                                <td class="text-center text-white" scope="row">{{ $sched->time }}</td>
-                                                                                                <td class="text-center text-white" scope="row">{{ $sched->room }}</td>
-                                                                                                <td class="text-center text-white" scope="row">{{ $sched->teacher->name }}</td>
+                                                                                                <td class="text-center" scope="row">{{ $sched->subjects }}</td>
+                                                                                                <td class="text-center" scope="row">{{ $sched->units }}</td>
+                                                                                                <td class="text-center" scope="row">{{ $sched->days }}</td>
+                                                                                                <td class="text-center" scope="row">{{ $sched->time }}</td>
+                                                                                                <td class="text-center" scope="row">{{ $sched->room }}</td>
+                                                                                                <td class="text-center" scope="row">{{ $sched->teacher->name }}</td>
                                                                                             </tr>
                                                                                         </tbody>
                                                                                     </table>
