@@ -17,7 +17,6 @@ class Schedule extends Model
         'user_id',
         'subjects',
         'units',
-        'age',
         'days',
         'time',
         'room',

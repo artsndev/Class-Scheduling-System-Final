@@ -358,6 +358,7 @@
                                                         </div>
                                                     </div>
                                                         <div class="row">
+                                                            @for ($i = 0; $i < 10; $i++)
                                                             <div class="col-md-4">
                                                                 <label for="subjects" class="col-form-label">{{ __('Subjects') }}</label>
                                                                     <input id="subjects" type="text" class="form-control @error('subjects') is-invalid @enderror" name="subjects" value="{{ old('subjects') }}">
@@ -367,6 +368,7 @@
                                                                         </span>
                                                                     @enderror
                                                             </div>
+                                                            @endfor
 
                                                             <div class="col-md-4">
                                                                 <label for="units" class="col-form-label">{{ __('Units') }}</label>
