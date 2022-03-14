@@ -182,8 +182,8 @@
             <td style="text-align: center; font-weight: bold;">{{ $sched->room }}</td>
             <td style="text-align: center; font-weight: bold;">{{ __(' ') }}</td>
             <td style="text-align: center; font-weight: bold;">{{ __(' ') }}</td>
-            <td style="text-align: center; font-weight: bold;">{{ __(' ') }}</td>
-            <td style="text-align: center; font-weight: bold;">{{ $sched->teacher->name }}</td>
+            <td style="text-align: center; font-weight: bold;">{{ $sched->admin->name }}</td>
+            <td style="text-align: center; font-weight: bold;"></td>
         </tr>
         <tr>
             {{-- <td style="text-align: center;">{{ $sched->user->firstname." ".$sched->user->lastname }}</td> --}}
@@ -195,8 +195,8 @@
             <td style="text-align: center; font-weight: bold;">{{ $sched->room }}</td>
             <td style="text-align: center; font-weight: bold;">{{ __(' ') }}</td>
             <td style="text-align: center; font-weight: bold;">{{ __(' ') }}</td>
-            <td style="text-align: center; font-weight: bold;">{{ __(' ') }}</td>
-            <td style="text-align: center; font-weight: bold;">{{ $sched->teacher->name }}</td>
+            <td style="text-align: center; font-weight: bold;">{{ $sched->admin->name }}</td>
+            <td style="text-align: center; font-weight: bold;"></td>
         </tr>
     </tbody>
     @endforeach

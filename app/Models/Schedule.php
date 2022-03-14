@@ -13,7 +13,7 @@ class Schedule extends Model
 {
     use HasFactory, SoftDeletes;
     protected $fillable = [
-        'teacher_id',
+        'admin_id',
         'user_id',
         'subjects',
         'units',
@@ -24,7 +24,7 @@ class Schedule extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
-    public function teacher(){
-        return $this->belongsTo(Teacher::class);
+    public function admin(){
+        return $this->belongsTo(Admin::class);
     }
 }

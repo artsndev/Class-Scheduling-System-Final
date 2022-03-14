@@ -45,9 +45,11 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 
         Route::middleware('auth:admin')->group(function(){
             Route::get('/home', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin.home');
-            Route::post('/update/{id}', [App\Http\Controllers\Admin\HomeController::class, 'update'])->name('admin.update');
+            Route::post('/store/schedule/{id}', [App\Http\Controllers\Admin\HomeController::class, 'stores'])->name('admin.store');
+            Route::post('/user/update/{id}', [App\Http\Controllers\Admin\HomeController::class, 'updateUser'])->name('admin.update');
+            Route::post('/update/sched/{id}', [App\Http\Controllers\Admin\HomeController::class, 'updateSched'])->name('admin.update');
+
             Route::get('/schedule', [App\Http\Controllers\Admin\ScheduleController::class, 'index'])->name('admin.schedule');
-            Route::post('/schedule/store/{id}', [App\Http\Controllers\Admin\ScheduleController::class, 'store'])->name('admin.schedule');
             Route::get('/teacher/register', [App\Http\Controllers\Admin\TeacherRegistration::class, 'index'])->name('admin.schedule');
             Route::post('/teacher/store', [App\Http\Controllers\Admin\TeacherRegistration::class, 'store'])->name('admin.teacher.register');
             Route::get('/teachers/data', [App\Http\Controllers\Admin\TeachersDashController::class, 'index'])->name('admin.teacher');

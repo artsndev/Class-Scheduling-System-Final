@@ -21,9 +21,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $users = User::find(Auth::user()->id);
-        $scheds = Schedule::withTrashed()->where("user_id", "=", Auth::user()->id)->get();
-        return view('home', compact('scheds', 'users'));
+        $scheds = Schedule::where("user_id", "=", Auth::user()->id)->get();
+        return view('home',  [ 'scheds'=> Schedule::paginate(6)]);
     }
     public function download(int $id)
     {

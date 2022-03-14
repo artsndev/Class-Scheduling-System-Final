@@ -132,10 +132,10 @@
                         <div class="col-md-6">
                             <div class="row py-2">
                                 <div class="col-sm-3">
-                                    <p class="mb-0">Civil Status</p>
+                                    <p class="mb-0">Age</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">{{ Auth::user()->civil_status }}</p>
+                                    <p class="text-muted mb-0">{{ Auth::user()->age }}</p>
                                 </div>
                             </div>
                             <hr>
@@ -203,24 +203,34 @@
                                     <table class="table data-table table-sm table-bordered table-striped table-hover nowrap">
                                         <thead>
                                             <tr>
+                                                <th class="text-center" scope="col">{{ __('Student\'s ID') }}</th>
+                                                <th class="text-center" scope="col">{{ __(' ') }}</th>
                                                 <th class="text-center" scope="col">{{ __('Name') }}</th>
                                                 <th class="text-center" scope="col">{{ __('Email') }}</th>
-                                                <th class="text-center" scope="col">{{ __('Professor') }}</th>
-                                                <th class="text-center" scope="col">{{ __(' Professor\'s Email') }}</th>
+                                                <th class="header filter-select filter-exact text-center" scope="col">{{ __('Uploader\'s Name') }}</th>
+                                                <th class="header filter-select filter-exact text-center" scope="col">{{ __('Uploader\'s Email') }}</th>
                                                 <th class="text-center" scope="col">{{ __('View My Schedule') }}</th>
                                                 <th class="text-center" scope="col">{{ __('Enrolled on') }}</th>
                                             </tr>
                                         </thead>
                                         @foreach ( $scheds as $sched)
                                             <tr>
+                                                <td  class="text-center" scope="col">{{ $sched->user->studentId }}</td>
+                                                <td class="text-center" scope="row">
+                                                    @if($sched->image)
+                                                        <img src="{{ asset('/storage/images/'.$sched->image)}}" class="img-fluid" alt="">
+                                                    @else
+                                                        <img src="{{ asset('/storage/images/avatars.png')}}" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                                                    @endif
+                                                </td>
                                                 <td  class="text-center" scope="col">{{ $sched->user->firstname." ".$sched->user->lastname }}</td>
                                                 <td  class="text-center" scope="col">{{ $sched->user->email }}</td>
-                                                <td class="text-center" scope="col">{{ $sched->teacher->name }}</td>
-                                                <td class="text-center" scope="col">{{ $sched->teacher->email }}</td>
+                                                <td class="text-center" scope="col">{{ $sched->admin->name }}</td>
+                                                <td class="text-center" scope="col">{{ $sched->admin->email }}</td>
                                                 <td class="text-center" scope="col">
                                                     <button type="button" class=" btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter1{{ $sched->id }}"><i class="bi bi-eye"></i></button>
                                                 <div class="modal fade " id="exampleModalCenter1{{ $sched->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle1" aria-hidden="true">
-                                                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                                    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
                                                         <div class="modal-content">
                                                             {{-- <div class="modal-header">
                                                                 <h5 class="modal-title" id="exampleModalCenterTitle1">Schedule Form</h5>
@@ -319,7 +329,7 @@
                                                                                     @enderror
                                                                             </div>
 
-                                                                            <div class="col-md-6">
+                                                                            <div class="col-md-3">
                                                                                 <label for="department" class="col-form-label ">{{ __('Department') }}</label>
                                                                                     <input name="department" id="department" class="form-control @error('department') is-invalid @enderror" name="department" value="{{ $sched->user->department }}">
                                                                                     @error('department')
@@ -339,7 +349,7 @@
                                                                                 @enderror
                                                                             </div>
 
-                                                                            <div class="col-md-2">
+                                                                            <div class="col-md-3">
                                                                                 <label for="age" class="col-form-label">{{ __('Age') }}</label>
                                                                                     <input id="age" type="text" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ $sched->user->age }}">
                                                                                     @error('age')
@@ -379,7 +389,7 @@
                                                                                     @enderror
                                                                             </div>
 
-                                                                            <div class="col-md-4">
+                                                                            <div class="col-md-3">
                                                                                 <label for="student_type" class="col-form-label">{{ __('Student Type') }}</label>
                                                                                 <input name="student_type" id="student_type" class="form-control @error('student_type') is-invalid @enderror" name="student_type" value="{{ $sched->user->student_type }}">
                                                                                     @error('student_type')
@@ -409,6 +419,9 @@
                                                                                                 <th class="header filter-select filter-exact" scope="col">{{ __('Day') }}</th>
                                                                                                 <th class="header filter-select filter-exact text-center" scope="col">{{ __('Time') }}</th>
                                                                                                 <th class="header filter-select filter-exact text-center" scope="col">{{ __('Room') }}</th>
+                                                                                                <th class="header filter-select filter-exact text-center" scope="col">{{ __('Final Rating') }}</th>
+                                                                                                <th class="header filter-select filter-exact text-center" scope="col">{{ __('Remarks') }}</th>
+                                                                                                <th class="header filter-select filter-exact text-center" scope="col">{{ __('Posted by') }}</th>
                                                                                                 <th class="header filter-select filter-exact text-center" scope="col">{{ __('Instructor/Professor') }}</th>
                                                                                             </tr>
                                                                                         </thead>
@@ -419,16 +432,20 @@
                                                                                                 <td class="text-center" scope="row">{{ $sched->days }}</td>
                                                                                                 <td class="text-center" scope="row">{{ $sched->time }}</td>
                                                                                                 <td class="text-center" scope="row">{{ $sched->room }}</td>
-                                                                                                <td class="text-center" scope="row">{{ $sched->teacher->name }}</td>
+                                                                                                <td class="text-center" scope="row">{{ __(' ') }}</td>
+                                                                                                <td class="text-center" scope="row">{{ __(' ') }}</td>
+                                                                                                <td class="text-center" scope="row">{{ $sched->admin->name }}</td>
+                                                                                                <td class="text-center" scope="row">{{ __(' ') }}</td>
                                                                                             </tr>
                                                                                         </tbody>
                                                                                     </table>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
+
                                                                 </fieldset>
-                                                            </form>
+                                                                </form>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -438,6 +455,7 @@
                                             </tr>
                                         @endforeach
                                     </table>
+                                    {{ $scheds->links() }}
                                 </div>
                             </div>
                         </div>

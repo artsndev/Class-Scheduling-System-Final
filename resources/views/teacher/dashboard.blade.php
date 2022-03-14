@@ -342,7 +342,7 @@
                                 {{-- Modal Schedule Form --}}
                                 <button type="button" class=" btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter1{{ $user->id }}"><i class="fa fa-upload"></i></button>
                                 <div class="modal fade" id="exampleModalCenter1{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle1" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalCenterTitle1">Schedule Form</h5>
@@ -358,7 +358,7 @@
                                                         </div>
                                                     </div>
                                                         <div class="row">
-                                                            @for ($i = 0; $i < 10; $i++)
+                                                            {{-- @for ($i = 0; $i < 10; $i++) --}}
                                                             <div class="col-md-4">
                                                                 <label for="subjects" class="col-form-label">{{ __('Subjects') }}</label>
                                                                     <input id="subjects" type="text" class="form-control @error('subjects') is-invalid @enderror" name="subjects" value="{{ old('subjects') }}">
@@ -368,7 +368,7 @@
                                                                         </span>
                                                                     @enderror
                                                             </div>
-                                                            @endfor
+                                                            {{-- @endfor --}}
 
                                                             <div class="col-md-4">
                                                                 <label for="units" class="col-form-label">{{ __('Units') }}</label>
