@@ -66,21 +66,33 @@ class HomeController extends Controller
             'time.*'=>'required|string|distinct',
             'room.*'=>'required|string',
         ]);
-        $users= User::find($id);
-        $sched[] = [
-            'admin_id' => Auth::user()->id,
-            'user_id' => $users->id,
-            'proffessor' => $request['proffessor'],
-            'subjects' => $request['subjects'],
-            'units' => $request['units'],
-            'days' => $request['days'],
-            'time' =>$request['time'],
-            'room' => $request['room'],
-        ];
+        $user= User::find($id);
+        foreach ($request->all() as $key =>$sched) {
+            $sched =[
+                'admin_id' => Auth::user()->id,
+                'user_id' => $user->id,
+                'proffessor' => $request['proffessor'],
+                'subjects' => $request['subjects'],
+                'units' => $request['units'],
+                'days' => $request['days'],
+                'time' =>$request['time'],
+                'room' => $request['room'],
+            ];
+        }
+        // $sched = Schedule::create([
+            // 'admin_id' => Auth::user()->id,
+            // 'user_id' => $user->id,
+            // 'proffessor' => $request['proffessor'],
+            // 'subjects' => $request['subjects'],
+            // 'units' => $request['units'],
+            // 'days' => $request['days'],
+            // 'time' =>$request['time'],
+            // 'room' => $request['room'],
+        // ]);
         Schedule::create($sched);
-        // dd($sched);
-        Alert::toast('You\'ve Successfully Uploaded!', 'success');
-        return back();
+        dd($sched);
+        // Alert::toast('You\'ve Successfully Uploaded!', 'success');
+        // return back();
     }
     // public function updateSched(int $id, Schedule $sched, Request $request)
     // {
