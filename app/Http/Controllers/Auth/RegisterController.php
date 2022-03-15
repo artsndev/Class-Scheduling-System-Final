@@ -100,7 +100,8 @@ class RegisterController extends Controller
             'birth_date' =>  $data['birth_date'],
             'password' => Hash::make($data['password']),
         ]);
-        Alert::toast('You\'ve Successfully Registered!', 'success');
-        return $user;
+        dd($user);
+        // Alert::toast('You\'ve Successfully Registered!', 'success');
+        // return $user;
     }
 }

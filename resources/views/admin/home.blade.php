@@ -367,7 +367,7 @@
                                 {{-- Modal Schedule Form --}}
                                 <button type="button" class=" btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter1{{ $user->id }}"><i class="fa fa-upload"></i></button>
                                 <div class="modal fade" id="exampleModalCenter1{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle1" aria-hidden="true">
-                                    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalCenterTitle1">Schedule Form</h5>
@@ -382,74 +382,9 @@
                                                             <p class="h4">{{ __('Schedule Form') }}</p>
                                                         </div>
                                                     </div>
-                                                    @foreach (range(0,3) as $x )
-                                                        <div class="row">
-                                                            <div class="col-md-2">
-                                                                <label for="subjects-{{ $x }}" class="col-form-label">{{ __('Subjects') }}</label>
-                                                                    <input id="subjects-{{ $x }}" type="text" class="form-control @error('subjects.'.$x) is-invalid @enderror" name="subjects[]" value="{{ old('subjects.'.$x) }}">
-                                                                    @error('subjects.'.$x)
-                                                                        <span class="invalid-feedback" role="alert">
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </span>
-                                                                    @enderror
-                                                            </div>
+                                                    @for ($x=0; $x<10;)
 
-                                                            <div class="col-md-2">
-                                                                <label for="unit-{{ $x }}" class="col-form-label">{{ __('Units') }}</label>
-                                                                    <input id="unit-{{ $x }}" type="text" class="form-control @error('units.'.$x) is-invalid @enderror" name="units[]" value="{{ old('units.'.$x) }}">
-                                                                    @error('units.'.$x)
-                                                                        <span class="invalid-feedback" role="alert">
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </span>
-                                                                    @enderror
-                                                            </div>
-
-                                                            <div class="col-md-2">
-                                                                <label for="day-{{ $x }}" class="col-form-label">{{ __('Days') }}</label>
-                                                                    <input id="day-{{ $x }}" type="text" class="form-control @error('days.'.$x) is-invalid @enderror" name="days[]" value="{{ old('days.'.$x) }}">
-                                                                    @error('days.'.$x)
-                                                                        <span class="invalid-feedback" role="alert">
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </span>
-                                                                    @enderror
-                                                            </div>
-
-                                                            <div class="col-md-2">
-                                                                <label for="time-{{ $x }}" class="col-form-label">{{ __('Time') }}</label>
-                                                                    <input id="time-{{ $x }}" type="text" class="form-control @error('time.'.$x) is-invalid @enderror" name="time[]" value="{{ old('time.'.$x) }}">
-                                                                    @error('time.'.$x)
-                                                                        <span class="invalid-feedback" role="alert">
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </span>
-                                                                    @enderror
-                                                            </div>
-
-                                                            <div class="col-md-2">
-                                                                <label for="room-{{ $x }}" class="col-form-label">{{ __('Room') }}</label>
-                                                                    <input id="room-{{ $x }}" type="text" class="form-control @error('room.'.$x) is-invalid @enderror" name="room[]" value="{{ old('room.'.$x) }}">
-                                                                    @error('room.'.$x)
-                                                                        <span class="invalid-feedback" role="alert">
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </span>
-                                                                    @enderror
-                                                            </div>
-
-                                                            <div class="col-md-2">
-                                                                <label for="proffessor-{{ $x }}" class="col-form-label">{{ __('Instructor') }}</label>
-                                                                    <select id="proffessor-{{ $x }}" type="text" class="form-control form-select my-select @error('proffessor.'.$x) is-invalid @enderror" name="proffessor[]" value="{{ old('proffessor.'.$x) }}">
-                                                                        <option disabled selected>Choose...</option>
-                                                                        @foreach ( $teachers as $teach )
-                                                                        <option value="{{ $teach->name }}">{{ $teach->name }}</option>
-                                                                        @endforeach
-                                                                    </select>
-                                                                    @error('proffessor.'.$x)
-                                                                        <span class="invalid-feedback" role="alert">
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </span>
-                                                                    @enderror
-                                                            </div>
-                                                        </div>
-                                                    @endforeach
+                                                    @endfor
                                                 </div>
                                             <div class="modal-footer">
                                                 <button type="submit" class="btn btn-primary">Upload</button>
