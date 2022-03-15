@@ -367,7 +367,7 @@
                                 {{-- Modal Schedule Form --}}
                                 <button type="button" class=" btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter1{{ $user->id }}"><i class="fa fa-upload"></i></button>
                                 <div class="modal fade" id="exampleModalCenter1{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle1" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalCenterTitle1">Schedule Form</h5>
@@ -382,8 +382,51 @@
                                                             <p class="h4">{{ __('Schedule Form') }}</p>
                                                         </div>
                                                     </div>
-                                                    @for ($x=0; $x<10;)
 
+                                                    @for ($x=1; $x<3; $x++)
+                                                    <div class="input-group">
+                                                        <input name="sched[{{ $x }}][subjects]" type="text" placeholder="Subjects {{ $x }}" class="form-control @error('sched.'.$x.'.subjects') is-invalid @enderror">
+                                                        @error('sched.'.$x.'.subjects')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                        <input name="sched[{{ $x }}][units]" type="text" placeholder="Units {{ $x }}" class="form-control @error('sched.'.$x.'.units') is-invalid @enderror">
+                                                        @error('sched.'.$x.'.units')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                        <input name="sched[{{ $x }}][days]"type="text" placeholder="Days {{ $x }}" class="form-control @error('sched.'.$x.'.days') is-invalid @enderror">
+                                                        @error('sched.'.$x.'.days')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                        <input name="sched[{{ $x }}][time]" type="text" placeholder="Time {{ $x }}" class="form-control @error('sched.'.$x.'.time') is-invalid @enderror">
+                                                        @error('sched.'.$x.'.time')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                        <input name="sched[{{ $x }}][room]" type="text" placeholder="Room {{ $x }}" class="form-control @error('sched.'.$x.'.room') is-invalid @enderror">
+                                                        @error('sched.'.$x.'.room')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                        <select name="sched[{{ $x }}][proffessor]" id="" class="form-select my-select @error('sched.'.$x.'.proffessor') is-invalid @enderror">
+                                                            <option disabled selected>{{ __('Professor'. $x) }}</option>
+                                                            @foreach ($teachers as $teach)
+                                                            <option value="{{ $teach->name }}">{{ $teach->name }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                        @error('sched.'.$x.'.proffessor')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                    </div>
                                                     @endfor
                                                 </div>
                                             <div class="modal-footer">

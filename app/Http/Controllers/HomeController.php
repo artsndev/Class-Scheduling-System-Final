@@ -21,6 +21,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // $scheds = $user->schedules;
         $scheds = Schedule::where("user_id", "=", Auth::user()->id)->get();
         return view('home',  [ 'scheds'=> Schedule::paginate(6)]);
     }

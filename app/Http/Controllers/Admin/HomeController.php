@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Teacher;
 use App\Models\Schedule;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -59,49 +60,44 @@ class HomeController extends Controller
     }
     public function stores(int $id, User $user,Request $request){
         $request->validate([
-            'proffessor.*'=>'required|string|max:255',
-            'subjects.*'=>'required|string|max:255|distinct',
-            'units.*'=>'required|string',
-            'days.*'=>'required|string|max:255|distinct',
-            'time.*'=>'required|string|distinct',
-            'room.*'=>'required|string',
+            // 'proffessor.*'=>'string|max:255|nullable',
+            // 'subjects.*'=>'string|max:255|nullable',
+            // 'units.*'=>'string|nullable',
+            // 'days.*'=>'string|max:255|distinct|nullable',
+            // 'time.*'=>'string|distinct|nullable',
+            // 'room.*'=>'string|nullable',
+            'sched.*.proffessor'=>'string|max:255|nullable',
+            'sched.*.subjects'=>'string|max:255|nullable',
+            'sched.*.units'=>'string|nullable',
+            'sched.*.days'=>'string|max:255|distinct|nullable',
+            'sched.*.time'=>'string|distinct|nullable',
+            'sched.*.room'=>'string|nullable',
         ]);
         $user= User::find($id);
-        $sched = Schedule::create([
-            'admin_id' => Auth::user()->id,
-            'user_id' => $user->id,
-            'proffessor' => $request['proffessor'],
-            'subjects' => $request['subjects'],
-            'units' => $request['units'],
-            'days' => $request['days'],
-            'time' =>$request['time'],
-            'room' => $request['room'],
-        ]);
-        dd($sched);
-        // Alert::toast('You\'ve Successfully Uploaded!', 'success');
-        // return back();
+        // $subjects = $request->subjects;
+        // $proffessor = $request->proffessor;
+        // $units = $request->units;
+        // $days = $request->days;
+        // $time = $request->time;
+        // $room = $request->room;
+        // for ( $i=0 ; $i < count($subjects);  $i++){
+        //     $scheds= [
+        //         'admin_id' => Auth::user()->id,
+        //         'user_id' => $user->id,
+        //         'subjects' => $subjects[$i],
+        //         'units' => $units[$i],
+        //         'days' =>$days[$i],
+        //         'time'=> $time[$i],
+        //         'room'=> $room[$i],
+        //     ];
+        //     DB::table('schedules')->insert($scheds);
+        // }
+        foreach ($request->sched as $schedInput){
+            $scheds = $schedInput + ['admin_id' => Auth::user()->id, 'user_id' => $user->id];
+            Schedule::create($scheds);
+        }
+        // dd($scheds);
+        Alert::toast('You\'ve Successfully Uploaded!', 'success');
+        return back();
     }
-    // public function updateSched(int $id, Schedule $sched, Request $request)
-    // {
-    //     $request->validate([
-    //         'proffessor'=>'required|string',
-    //         'subjects'=>'required|string|max:255',
-    //         'units'=>'required|string',
-    //         'age'=>'required|string|max:255',
-    //         'days'=>'required|string|max:255',
-    //         'time'=>'required|string',
-    //         'room'=>'required|string',
-    //     ]);
-    //     $sched = Schedule::find($id);
-    //     $sched->subjects = $request['subjects'];
-    //     $sched->units = $request['units'];
-    //     $sched->age = $request['age'];
-    //     $sched->days = $request['days'];
-    //     $sched->time = $request['time'];
-    //     $sched->section = $request['section'];
-    //     $sched->room = $request['room'];
-    //     //dd($sched);
-    //     Alert::toast('Schedule Updated Successfully!', 'success');
-    //     return back();
-    // }
 }
