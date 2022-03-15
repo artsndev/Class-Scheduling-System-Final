@@ -20,7 +20,9 @@ class CreateUsersTable extends Migration
             $table->string('middlename')->nullable();
             $table->string('email')->unique();
             $table->string('address')->nullable();
-            $table->string('department')->nullable();
+            $table->string('department')->default('College of Technical Education');
+            $table->string('course')->default('Diploma in Technology');
+            $table->string('major')->nullable();
             $table->string('semester')->nullable();
             $table->string('curriculum_year')->nullable();
             $table->string('student_type')->nullable();

@@ -84,17 +84,13 @@
                     </div>
 
                     <div class="col-md-3">
-                        <label for="department" class="col-form-label ">{{ __('Department') }}</label>
-                            <select name="department" id="department" class="form-control form-select my-select @error('department') is-invalid @enderror" name="department" value="{{ old('department') }}">
+                        <label for="major" class="col-form-label ">{{ __('Major\'s') }}</label>
+                            <select name="major" id="major" class="form-control form-select my-select @error('major') is-invalid @enderror" name="major" value="{{ old('major') }}">
                                 <option disabled selected>Choose...</option>
-                                <option value="{{ __('College of Engineering & Technology') }}">College of Engineering & Technology</option>
-                                <option value="{{ __('College of Arts, Humanities & Social Sciences') }}">College of Arts, Humanities & Social Sciences</option>
-                                <option value="{{ __('College of Teacher Education') }}">College of Teacher Education</option>
-                                <option value="{{ __('College of Maritime Education') }}">College of Maritime Education</option>
-                                <option value="{{ __('College of Technical Education') }}">College of Technical Education</option>
-                                <option value="{{ __('College of Information and Computing Sciences') }}">College of Information and Computing Sciences</option>
+                                <option value="{{ __('Major in Information Technology') }}">{{ __('Major in Information Technology') }}</option>
+                                <option value="{{ __('Major in Food Technology') }}">{{ __('Major in Food Technology') }}</option>
                             </select>
-                            @error('department')
+                            @error('major')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

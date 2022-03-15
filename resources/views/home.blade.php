@@ -128,14 +128,23 @@
                                     <p class="text-muted mb-0">{{ Auth::user()->address }}</p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
+                            <hr>
                             <div class="row py-2">
                                 <div class="col-sm-3">
                                     <p class="mb-0">Age</p>
                                 </div>
                                 <div class="col-sm-9">
                                     <p class="text-muted mb-0">{{ Auth::user()->age }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row py-2">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Major</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">{{ Auth::user()->major }}</p>
                                 </div>
                             </div>
                             <hr>
@@ -154,6 +163,15 @@
                                 </div>
                                 <div class="col-sm-9">
                                     <p class="text-muted mb-0">{{ Auth::user()->department }}</p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Course</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">{{ Auth::user()->course }}</p>
                                 </div>
                             </div>
                             <hr>
@@ -435,7 +453,7 @@
                                                                                                 <td class="text-center" scope="row">{{ __(' ') }}</td>
                                                                                                 <td class="text-center" scope="row">{{ __(' ') }}</td>
                                                                                                 <td class="text-center" scope="row">{{ $sched->admin->name }}</td>
-                                                                                                <td class="text-center" scope="row">{{ __(' ') }}</td>
+                                                                                                <td class="text-center" scope="row">{{ $sched->proffessor }}</td>
                                                                                             </tr>
                                                                                         </tbody>
                                                                                     </table>

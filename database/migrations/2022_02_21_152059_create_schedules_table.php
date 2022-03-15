@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('admin_id');
             $table->foreign('admin_id')->references('id')->on('admins');
+            $table->string('proffessor')->nullable();
             $table->string('subjects')->nullable();
             $table->string('units')->nullable();
             $table->string('days')->nullable();

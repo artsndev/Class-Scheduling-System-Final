@@ -1,4 +1,4 @@
-<table>
+<table style=" width: 50%; border: 1px solid black;">
     @foreach ( $scheds as $sched)
     <thead style="border-block: 20px solid;">
         <tr>
@@ -99,8 +99,8 @@
         </tr>
         <tr>
             <td style="text-align: center; font-weight: bold;">{{ $sched->user->department }}</td>
-            <td style="text-align: center;">{{ __(' ') }}</td>
-            <td style="text-align: center;">{{ __('N/A') }}</td>
+            <td style="text-align: center; font-weight: bold;">{{ $sched->user->course }}</td>
+            <td style="text-align: center; font-weight: bold;">{{ $sched->user->major }}</td>
             <td style="text-align: center;">{{ __(' ') }}</td>
             <td style="text-align: center;">{{ __(' ') }}</td>
             <td style="text-align: center;">{{ __(' ') }}</td>
@@ -183,7 +183,7 @@
             <td style="text-align: center; font-weight: bold;">{{ __(' ') }}</td>
             <td style="text-align: center; font-weight: bold;">{{ __(' ') }}</td>
             <td style="text-align: center; font-weight: bold;">{{ $sched->admin->name }}</td>
-            <td style="text-align: center; font-weight: bold;"></td>
+            <td style="text-align: center; font-weight: bold;">{{ $sched->proffessor }}</td>
         </tr>
         <tr>
             {{-- <td style="text-align: center;">{{ $sched->user->firstname." ".$sched->user->lastname }}</td> --}}
@@ -196,7 +196,7 @@
             <td style="text-align: center; font-weight: bold;">{{ __(' ') }}</td>
             <td style="text-align: center; font-weight: bold;">{{ __(' ') }}</td>
             <td style="text-align: center; font-weight: bold;">{{ $sched->admin->name }}</td>
-            <td style="text-align: center; font-weight: bold;"></td>
+            <td style="text-align: center; font-weight: bold;">{{ $sched->proffessor }}</td>
         </tr>
     </tbody>
     @endforeach

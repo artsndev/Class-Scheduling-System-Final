@@ -92,7 +92,7 @@
                                                                 <input class="form-control" value="{{ $user->civil_status }}" >
                                                             </div>
 
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-3">
                                                                 <label for="email" class="col-form-label">{{ __('Email Address') }}</label>
                                                                 <div class="input-group">
                                                                     <div class="input-group-text"><i class="bi bi-envelope-fill"></i></div>
@@ -106,7 +106,7 @@
                                                             </div>
 
 
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-3">
                                                                 <label for="address" class="col-form-label">{{ __('Address') }}</label>
                                                                 <div class="input-group">
                                                                     <div class="input-group-text"><i class="fa fa-location-arrow"></i></div>
@@ -119,7 +119,7 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div class="col-md-4">
+                                                            <div class="col-md-2">
                                                                 <label for="phone" class="col-form-label">{{ __('Phone Number') }}</label>
                                                                 <input id="phone" type="text" placeholder="09557815639" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ $user->phone }}">
                                                                 @error('phone')
@@ -129,6 +129,15 @@
                                                                 @enderror
                                                             </div>
 
+                                                            <div class="col-md-4">
+                                                                <label for="phone" class="col-form-label">{{ __('Department') }}</label>
+                                                                <input id="phone" type="text" placeholder="09557815639" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ $user->department }}">
+                                                                @error('phone')
+                                                                    <span class="invalid-feedback" role="alert">
+                                                                        <strong>{{ $message }}</strong>
+                                                                    </span>
+                                                                @enderror
+                                                            </div>
 
                                                             <div class="col-md-3">
                                                                 <label for="semester" class="col-form-label">{{ __('Semester') }}</label>
@@ -353,13 +362,12 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </td>
                             <td  class="text-center" scope="row">
                                 {{-- Modal Schedule Form --}}
                                 <button type="button" class=" btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter1{{ $user->id }}"><i class="fa fa-upload"></i></button>
                                 <div class="modal fade" id="exampleModalCenter1{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle1" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalCenterTitle1">Schedule Form</h5>
@@ -374,67 +382,74 @@
                                                             <p class="h4">{{ __('Schedule Form') }}</p>
                                                         </div>
                                                     </div>
+                                                    @foreach (range(0,3) as $x )
                                                         <div class="row">
-                                                            {{-- <div class="col-md-6">
-                                                                <label for="proffessor" class="form-label">{{ __('Instructor') }}</label>
-                                                                    <input id="proffessor" type="text" placeholder="{{ __('Write Something') }}" class="form-control @error('proffessor') is-invalid @enderror" name="proffessor" value="{{ old('proffessor') }}">
-                                                                    @error('proffessor')
-                                                                        <span class="invalid-feedback" role="alert">
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </span>
-                                                                    @enderror
-                                                            </div> --}}
-
-                                                            <div class="col-md-4">
-                                                                <label for="subjects" class="col-form-label">{{ __('Subjects') }}</label>
-                                                                    <input id="subjects" type="text" class="form-control @error('subjects') is-invalid @enderror" name="subjects" value="{{ old('subjects') }}">
-                                                                    @error('subjects')
+                                                            <div class="col-md-2">
+                                                                <label for="subjects-{{ $x }}" class="col-form-label">{{ __('Subjects') }}</label>
+                                                                    <input id="subjects-{{ $x }}" type="text" class="form-control @error('subjects.'.$x) is-invalid @enderror" name="subjects[]" value="{{ old('subjects.'.$x) }}">
+                                                                    @error('subjects.'.$x)
                                                                         <span class="invalid-feedback" role="alert">
                                                                             <strong>{{ $message }}</strong>
                                                                         </span>
                                                                     @enderror
                                                             </div>
 
-                                                            <div class="col-md-4">
-                                                                <label for="units" class="col-form-label">{{ __('Units') }}</label>
-                                                                    <input id="units" type="text" class="form-control @error('units') is-invalid @enderror" name="units" value="{{ old('units') }}">
-                                                                    @error('units')
+                                                            <div class="col-md-2">
+                                                                <label for="unit-{{ $x }}" class="col-form-label">{{ __('Units') }}</label>
+                                                                    <input id="unit-{{ $x }}" type="text" class="form-control @error('units.'.$x) is-invalid @enderror" name="units[]" value="{{ old('units.'.$x) }}">
+                                                                    @error('units.'.$x)
                                                                         <span class="invalid-feedback" role="alert">
                                                                             <strong>{{ $message }}</strong>
                                                                         </span>
                                                                     @enderror
                                                             </div>
 
-                                                            <div class="col-md-4">
-                                                                <label for="days" class="col-form-label">{{ __('Days') }}</label>
-                                                                    <input id="days" type="text" class="form-control @error('days') is-invalid @enderror" name="days" value="{{ old('days') }}">
-                                                                    @error('days')
+                                                            <div class="col-md-2">
+                                                                <label for="day-{{ $x }}" class="col-form-label">{{ __('Days') }}</label>
+                                                                    <input id="day-{{ $x }}" type="text" class="form-control @error('days.'.$x) is-invalid @enderror" name="days[]" value="{{ old('days.'.$x) }}">
+                                                                    @error('days.'.$x)
                                                                         <span class="invalid-feedback" role="alert">
                                                                             <strong>{{ $message }}</strong>
                                                                         </span>
                                                                     @enderror
                                                             </div>
 
-                                                            <div class="col-md-4">
-                                                                <label for="time" class="col-form-label">{{ __('Time') }}</label>
-                                                                    <input id="time" type="text" class="form-control @error('time') is-invalid @enderror" name="time" value="{{ old('time') }}">
-                                                                    @error('time')
+                                                            <div class="col-md-2">
+                                                                <label for="time-{{ $x }}" class="col-form-label">{{ __('Time') }}</label>
+                                                                    <input id="time-{{ $x }}" type="text" class="form-control @error('time.'.$x) is-invalid @enderror" name="time[]" value="{{ old('time.'.$x) }}">
+                                                                    @error('time.'.$x)
                                                                         <span class="invalid-feedback" role="alert">
                                                                             <strong>{{ $message }}</strong>
                                                                         </span>
                                                                     @enderror
                                                             </div>
 
-                                                            <div class="col-md-4">
-                                                                <label for="room" class="col-form-label">{{ __('Room') }}</label>
-                                                                    <input id="room" type="text" class="form-control @error('room') is-invalid @enderror" name="room" value="{{ old('room') }}">
-                                                                    @error('room')
+                                                            <div class="col-md-2">
+                                                                <label for="room-{{ $x }}" class="col-form-label">{{ __('Room') }}</label>
+                                                                    <input id="room-{{ $x }}" type="text" class="form-control @error('room.'.$x) is-invalid @enderror" name="room[]" value="{{ old('room.'.$x) }}">
+                                                                    @error('room.'.$x)
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                            </div>
+
+                                                            <div class="col-md-2">
+                                                                <label for="proffessor-{{ $x }}" class="col-form-label">{{ __('Instructor') }}</label>
+                                                                    <select id="proffessor-{{ $x }}" type="text" class="form-control form-select my-select @error('proffessor.'.$x) is-invalid @enderror" name="proffessor[]" value="{{ old('proffessor.'.$x) }}">
+                                                                        <option disabled selected>Choose...</option>
+                                                                        @foreach ( $teachers as $teach )
+                                                                        <option value="{{ $teach->name }}">{{ $teach->name }}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                    @error('proffessor.'.$x)
                                                                         <span class="invalid-feedback" role="alert">
                                                                             <strong>{{ $message }}</strong>
                                                                         </span>
                                                                     @enderror
                                                             </div>
                                                         </div>
+                                                    @endforeach
                                                 </div>
                                             <div class="modal-footer">
                                                 <button type="submit" class="btn btn-primary">Upload</button>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
+use App\Models\Teacher;
 use App\Models\Schedule;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -19,7 +20,7 @@ class HomeController extends Controller
      */
     public function index(User $user)
     {
-        return view('admin.home', ['users'=> User::paginate(2)]);
+        return view('admin.home', ['users'=> User::paginate(2), 'teachers' => Teacher::all()]);
     }
     public function destroy(int $id)
     {
@@ -58,22 +59,25 @@ class HomeController extends Controller
     }
     public function stores(int $id, Request $request){
         $request->validate([
-            'subjects'=>'required|string|max:255',
-            'units'=>'required|string',
-            'days'=>'required|string|max:255',
-            'time'=>'required|string',
-            'room'=>'required|string',
+            'proffessor.*'=>'required|string|max:255',
+            'subjects.*'=>'required|string|max:255|distinct',
+            'units.*'=>'required|string',
+            'days.*'=>'required|string|max:255|distinct',
+            'time.*'=>'required|string|distinct',
+            'room.*'=>'required|string',
         ]);
-        $user= User::find($id);
-        $sched = Schedule::create([
+        $users= User::find($id);
+        $sched[] = [
             'admin_id' => Auth::user()->id,
-            'user_id' => $user->id,
+            'user_id' => $users->id,
+            'proffessor' => $request['proffessor'],
             'subjects' => $request['subjects'],
             'units' => $request['units'],
             'days' => $request['days'],
             'time' =>$request['time'],
             'room' => $request['room'],
-        ]);
+        ];
+        Schedule::create($sched);
         // dd($sched);
         Alert::toast('You\'ve Successfully Uploaded!', 'success');
         return back();
