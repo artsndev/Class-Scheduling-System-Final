@@ -459,7 +459,7 @@
                                                                                             @endforeach
                                                                                         </tbody>
                                                                                     </table>
-                                                                                    {{ $scheds->links() }}
+                                                                                    {{-- {{ $scheds->links() }} --}}
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -472,7 +472,7 @@
                                                 <a class="btn btn-outline-success" href="{{ url('/download/'.Auth::user()->id) }}"><i class="fa fa-download"></i></a>
                                                 </td>
                                                 <td class="text-center" scope="col">{{ Auth::user()->created_at }}</td>
-                                                <td class="text-center" scope="col">{{ Auth::user()->updated_at->diffForHumans() }}</td>
+                                                <td class="text-center" scope="col">{{ Auth::user()->created_at }}</td>
                                             </tr>
                                     </table>
                                 </div>

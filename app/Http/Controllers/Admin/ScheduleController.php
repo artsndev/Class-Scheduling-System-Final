@@ -13,11 +13,10 @@ use Illuminate\Support\Facades\Validator;
 
 class ScheduleController extends Controller
 {
-    //
     public function index(){
-        $users= User::latest()->paginate(10);
-        $scheds = Schedule::latest()->paginate(10);
-        return view('admin.schedule', compact('users','scheds'));
+        $users= User::with('studentSched')->latest()->paginate(10);
+        // dd($users);
+        return view('admin.schedule', compact('users'));
     }
     public function update(int $id, User $users,Request $request)
     {

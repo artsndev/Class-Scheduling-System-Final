@@ -25,7 +25,7 @@
                     <tbody>
                         @foreach ($users as $user)
                         <tr>
-                            <td  class="text-center" scope="col">{{ $user->studentId }}</td>
+                            <td  class="text-center" scope="col">{{ $user->id }}</td>
                             <td class="text-center" scope="row">
                                 @if($user->image)
                                     <img src="{{ asset('/storage/images/'.$user->image)}}" class="img-fluid" alt="">

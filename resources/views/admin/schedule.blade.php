@@ -24,7 +24,7 @@
                     </thead>
                     @foreach ( $users as $user)
                         <tr>
-                            <th class="text-center" scope="row">{{ $user->studentId }}</th>
+                            <th class="text-center" scope="row">{{ $user->id }}</th>
                             <td class="text-center" scope="row">
                                 @if($user->image)
                                     <img src="{{ asset('/storage/images/'.$user->image)}}" class="img-fluid" alt="">
@@ -235,7 +235,7 @@
                                                                                 </tr>
                                                                             </thead>
                                                                             <tbody>
-                                                                            @foreach ( $scheds as $sched)
+                                                                            @foreach ( $user->studentSched as $sched)
                                                                             <tr>
                                                                                 <td class="text-center" scope="row">{{ $sched->subjects }}</td>
                                                                                 <td class="text-center" scope="row">{{ $sched->units }}</td>
@@ -334,7 +334,7 @@
                         </tr>
                     @endforeach
                 </table>
-                {{ $users->links() }}
+                {{-- {{ $users->links() }} --}}
             </div>
         </div>
     </div>
