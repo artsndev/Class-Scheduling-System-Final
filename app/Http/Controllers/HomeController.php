@@ -22,13 +22,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        $scheds = Schedule::where("user_id", "=", Auth::user()->id)->get();
-        return view('home', compact('scheds', 'users'));
+        // $users = User::all();
+        $scheds = Schedule::with('user')->where("user_id", "=", Auth::user()->id)->get();
+        // dd($scheds);
+        return view('home', compact('scheds'));
     }
     public function download(int $id)
     {
-        $scheds = Schedule::where("user_id", "=", Auth::user()->id)->get();
+        // $scheds = Schedule::where("user_id", "=", Auth::user()->id)->get();
         return Excel::download(new SchedulesExport($id), 'mySched.xlsx');
     }
 }

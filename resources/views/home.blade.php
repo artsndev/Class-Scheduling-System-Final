@@ -459,7 +459,6 @@
                                                                                             @endforeach
                                                                                         </tbody>
                                                                                     </table>
-                                                                                    {{-- {{ $scheds->links() }} --}}
                                                                                 </div>
                                                                             </div>
                                                                         </div>

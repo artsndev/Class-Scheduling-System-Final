@@ -21,16 +21,21 @@ class ScheduleController extends Controller
     public function update(int $id, User $users,Request $request)
     {
         $users = User::find($id);
-        $sched = Schedule::find($users->id);
-        $sched->save([
-            $sched->proffessor = $request['proffessor'],
-            $sched->subjects = $request['lastname'],
-            $sched->units = $request['units'],
-            $sched->days = $request['days'],
-            $sched->time = $request['time'],
-            $sched->room = $request['room'],
-        ]);
-        dd($sched);
+        // $scheds = Schedule::find($users->id);
+        foreach ($request->scheds as $sched) {
+            Schedule::update([
+                'id' => $sched->id,
+                ],[
+                // 'proffessor' => $sched->proffessor,
+                'subjects' => $sched->subjects,
+                'units' => $sched->units,
+                'days' => $sched->days,
+                'time' => $sched->time,
+                'room' => $sched->room,
+            ]);
+            dd($sched);
+        }
+        // dd($sched);
         // Alert::toast('You\'ve Successfully Uploaded!', 'success');
         // return back();
     }
