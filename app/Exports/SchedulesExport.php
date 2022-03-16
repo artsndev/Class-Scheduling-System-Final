@@ -34,7 +34,7 @@ class SchedulesExport implements FromView, ShouldAutoSize
     {
         // return Schedule::with('user')->where("id", "=", $this->id)->get();
         return view('dashboard', [
-            'scheds' => Schedule::with('user')->where("id", "=", $this->id)->get()
+            'scheds' => Schedule::with('user')->where("user_id", "=", Auth::user()->id)->get()
         ]);
     }
     // public function map($sched): array

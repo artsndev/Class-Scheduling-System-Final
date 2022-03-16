@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Schedule;
 use Illuminate\Http\Request;
 use App\Exports\SchedulesExport;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Response as FacadeResponse;
@@ -21,13 +22,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // $scheds = $user->schedules;
         $scheds = Schedule::where("user_id", "=", Auth::user()->id)->get();
-        return view('home',  [ 'scheds'=> Schedule::paginate(6)]);
+        return view('home', [ 'scheds'=> Schedule::latest()->paginate(10)]);
     }
     public function download(int $id)
     {
-        $scheds = Schedule::where("id", "=", $id)->get();
+        $scheds = Schedule::where("user_id", "=", Auth::user()->id)->get();
         // dd($scheds);
         return Excel::download(new SchedulesExport($id), 'mySched.xlsx');
     }

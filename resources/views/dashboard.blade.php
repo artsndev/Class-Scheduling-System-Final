@@ -1,5 +1,4 @@
 <table style=" width: 50%; border: 1px solid black;">
-    @foreach ( $scheds as $sched)
     <thead style="border-block: 20px solid;">
         <tr>
             <td>{{ __('Enrollment Form Revised(2018)') }}</td>
@@ -11,7 +10,7 @@
             <td style="text-align: center;">{{ __(' ') }}</td>
             <td style="text-align: center;">{{ __(' ') }}</td>
             <td style="text-align: center;">{{ __('Cellphone no. ') }}</td>
-            <td style="text-align: center; text-decoration: underline; font-weight: bold;">{{ "______".$sched->user->phone."______" }}</td>
+            <td style="text-align: center; text-decoration: underline; font-weight: bold;">{{ "______".Auth::user()->phone."______" }}</td>
         </tr>
         <tr>
             <td>{{ __('ZAMBOANGA CITY STATE POLYTECHNIC COLLEGE') }}</td>
@@ -23,7 +22,7 @@
             <td style="text-align: center;">{{ __(' ') }}</td>
             <td style="text-align: center;">{{ __(' ') }}</td>
             <td style="text-align: center;">{{ __('Email Address ') }}</td>
-            <td style="text-align: center; text-decoration: underline; font-weight: bold;">{{ $sched->user->email }}</td>
+            <td style="text-align: center; text-decoration: underline; font-weight: bold;">{{ Auth::user()->email }}</td>
         </tr>
         <tr>
             <td style="font-weight: bold;">{{ __('(Registrar\'s Copy)') }}</td>
@@ -74,16 +73,16 @@
             <td>{{ __('Date ') }}</td>
         </tr>
         <tr>
-            <td style="text-align: center; font-weight: bold; text-transform: uppercase;">{{ $sched->user->lastname }}</td>
-            <td style="text-align: center; font-weight: bold; text-transform: uppercase;">{{ $sched->user->firstname }}</td>
-            <td style="text-align: center; font-weight: bold; text-transform: uppercase;">{{ $sched->user->middlename }}</td>
+            <td style="text-align: center; font-weight: bold; text-transform: uppercase;">{{ Auth::user()->lastname }}</td>
+            <td style="text-align: center; font-weight: bold; text-transform: uppercase;">{{ Auth::user()->firstname }}</td>
+            <td style="text-align: center; font-weight: bold; text-transform: uppercase;">{{ Auth::user()->middlename }}</td>
             <td style="text-align: center;">{{ __(' ') }}</td>
             <td style="text-align: center;">{{ __(' ') }}</td>
             <td style="text-align: center;">{{ __(' ') }}</td>
             <td style="text-align: center;">{{ __(' ') }}</td>
             <td style="text-align: center;">{{ __(' ') }}</td>
             <td style="text-align: center;">{{ __(' ') }}</td>
-            <td style="text-align: center; font-weight: bold;">{{ $sched->user->created_at }}</td>
+            <td style="text-align: center; font-weight: bold;">{{ Auth::user()->created_at }}</td>
         </tr>
         <tr>
             <td>{{ __('College / Department') }}</td>
@@ -98,16 +97,16 @@
             <td>{{ __('Student Type') }}</td>
         </tr>
         <tr>
-            <td style="text-align: center; font-weight: bold;">{{ $sched->user->department }}</td>
-            <td style="text-align: center; font-weight: bold;">{{ $sched->user->course }}</td>
-            <td style="text-align: center; font-weight: bold;">{{ $sched->user->major }}</td>
+            <td style="text-align: center; font-weight: bold;">{{ Auth::user()->department }}</td>
+            <td style="text-align: center; font-weight: bold;">{{ Auth::user()->course }}</td>
+            <td style="text-align: center; font-weight: bold;">{{ Auth::user()->major }}</td>
             <td style="text-align: center;">{{ __(' ') }}</td>
             <td style="text-align: center;">{{ __(' ') }}</td>
             <td style="text-align: center;">{{ __(' ') }}</td>
             <td style="text-align: center;">{{ __(' ') }}</td>
             <td style="text-align: center;">{{ __(' ') }}</td>
-            <td style="text-align: center; font-weight: bold;">{{ $sched->user->studentId }}</td>
-            <td style="text-align: center;font-weight: bold;">{{ $sched->user->student_type }}</td>
+            <td style="text-align: center; font-weight: bold;">{{ Auth::user()->studentId }}</td>
+            <td style="text-align: center;font-weight: bold;">{{ Auth::user()->student_type }}</td>
         </tr>
         <tr>
             <td>{{ __('Semester') }}</td>
@@ -121,14 +120,14 @@
             <td style="text-align: center;">{{ __(' ') }}</td>
         </tr>
         <tr>
-            <td style="text-align: center; font-weight: bold;">{{ $sched->user->semester }}</td>
+            <td style="text-align: center; font-weight: bold;">{{ Auth::user()->semester }}</td>
             <td style="text-align: center;">{{ __(' ') }}</td>
-            <td style="text-align: center; font-weight: bold;">{{ $sched->user->curriculum_year }}</td>
-            <td style="text-align: center; font-weight: bold;">{{ $sched->user->gender }}</td>
+            <td style="text-align: center; font-weight: bold;">{{ Auth::user()->curriculum_year }}</td>
+            <td style="text-align: center; font-weight: bold;">{{ Auth::user()->gender }}</td>
             <td>{{ __('Date of Birth: ') }}</td>
-            <td style="text-align: center; font-weight: bold;">{{ $sched->user->birth_date }}</td>
+            <td style="text-align: center; font-weight: bold;">{{ Auth::user()->birth_date }}</td>
             <td style="text-align: right;">{{ __('Age ') }}</td>
-            <td style="text-align: center; font-weight: bold;">{{ $sched->user->age }}</td>
+            <td style="text-align: center; font-weight: bold;">{{ Auth::user()->age }}</td>
             <td style="text-align: center;">{{ __(' ') }}</td>
         </tr>
         <tr>
@@ -144,7 +143,7 @@
             <td style="text-align: center;">{{ __(' ') }}</td>
         </tr>
         <tr>
-            <td style="text-align: center; font-weight: bold;">{{ $sched->user->student_status }}</td>
+            <td style="text-align: center; font-weight: bold;">{{ Auth::user()->student_status }}</td>
             <td style="text-align: center;">{{ __(' ') }}</td>
             <td style="text-align: center;">{{ __(' ') }}</td>
             <td style="text-align: center;">{{ __(' ') }}</td>
@@ -173,6 +172,7 @@
         </tr>
     </thead>
     <tbody>
+        @foreach ( $scheds as $sched)
         <tr>
             <td style="font-weight: bold;">{{ $sched->subjects }}</td>
             <td style="text-align: center; font-weight: bold;">{{ $sched->units }}</td>
@@ -185,19 +185,7 @@
             <td style="text-align: center; font-weight: bold;">{{ $sched->admin->name }}</td>
             <td style="text-align: center; font-weight: bold;">{{ $sched->proffessor }}</td>
         </tr>
-        <tr>
-            {{-- <td style="text-align: center;">{{ $sched->user->firstname." ".$sched->user->lastname }}</td> --}}
-            <td style="font-weight: bold;">{{ $sched->subjects }}</td>
-            <td style="text-align: center; font-weight: bold;">{{ $sched->units }}</td>
-            <td style="text-align: center; font-weight: bold;">{{ $sched->days }}</td>
-            <td style="text-align: center; font-weight: bold;">{{ $sched->time }}</td>
-            <td style="text-align: center; font-weight: bold;">{{ $sched->user->section }}</td>
-            <td style="text-align: center; font-weight: bold;">{{ $sched->room }}</td>
-            <td style="text-align: center; font-weight: bold;">{{ __(' ') }}</td>
-            <td style="text-align: center; font-weight: bold;">{{ __(' ') }}</td>
-            <td style="text-align: center; font-weight: bold;">{{ $sched->admin->name }}</td>
-            <td style="text-align: center; font-weight: bold;">{{ $sched->proffessor }}</td>
-        </tr>
+        @endforeach
     </tbody>
-    @endforeach
+
 </table>

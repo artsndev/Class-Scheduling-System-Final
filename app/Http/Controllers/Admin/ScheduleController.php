@@ -14,7 +14,8 @@ class ScheduleController extends Controller
 {
     //
     public function index(){
+        $users= User::latest()->paginate(10);
         $scheds = Schedule::latest()->paginate(10);
-        return view('admin.schedule', compact('scheds'));
+        return view('admin.schedule', compact('users','scheds'));
     }
 }

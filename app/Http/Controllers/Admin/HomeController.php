@@ -47,7 +47,9 @@ class HomeController extends Controller
         $user->lastname = $request['lastname'];
         $user->firstname = $request['firstname'];
         $user->middlename = $request['middlename'];
+        $user->semester = $request['semester'];
         $user->studentId = $request['studentId'];
+        $user->curriculum_year = $request['curriculum_year'];
         $user->age = $request['age'];
         $user->email = $request['email'];
         $user->phone = $request['phone'];

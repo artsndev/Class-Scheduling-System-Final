@@ -22,8 +22,8 @@
                             <th class="header text-center" scope="col">{{ __('Enrolled') }}</th>
                         </tr>
                     </thead>
-                    @foreach ($users as $user)
                     <tbody>
+                        @foreach ($users as $user)
                         <tr>
                             <td  class="text-center" scope="col">{{ $user->studentId }}</td>
                             <td class="text-center" scope="row">
@@ -257,7 +257,7 @@
                                                 <form action="{{ url('admin/user/update/'.$user->id) }}" method="POST">
                                                 @csrf
                                                 <div class="row mb-3">
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-3">
                                                         <label for="lastname" class="col-form-label">{{ __('Last Name') }}</label>
                                                         <input id="lastname" type="text" placeholder="Dela Cruz" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ $user->lastname }}" >
                                                         @error('lastname')
@@ -267,7 +267,7 @@
                                                         @enderror
                                                     </div>
 
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-3">
                                                         <label for="firstname" class="col-form-label">{{ __('First Name') }}</label>
                                                         <input id="firstname" type="text" placeholder="Juan" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ $user->firstname }}" >
                                                         @error('firstname')
@@ -277,7 +277,7 @@
                                                         @enderror
                                                     </div>
 
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-3">
                                                         <label for="middlename" class="col-form-label">{{ __('Middle Initial') }}</label>
                                                         <input id="middlename" type="text" placeholder="Carlos" class="form-control @error('middlename') is-invalid @enderror" name="middlename" value="{{ $user->middlename }}" >
                                                         @error('middlename')
@@ -285,6 +285,20 @@
                                                                 <strong>{{ $message }}</strong>
                                                             </span>
                                                         @enderror
+                                                    </div>
+
+                                                    <div class="col-md-3">
+                                                        <label for="semester" class="col-form-label">{{ __('Semester') }}</label>
+                                                        <select name="semester" id="semester" class="form-control form-select my-select @error('semester') is-invalid @enderror" name="semester">
+                                                            <option disabled selected>{{ $user->semester }}</option>
+                                                            <option value="1st Semester">{{ __('1st Semester') }}</option>
+                                                            <option value="2nd Semester">{{ __('2nd Semester') }}</option>
+                                                        </select>
+                                                            @error('semester')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
                                                     </div>
 
                                                     <div class="col-md-3">
@@ -307,32 +321,6 @@
                                                             @enderror
                                                     </div>
 
-                                                    <div class="col-md-6">
-                                                        <label for="email" class="col-form-label">{{ __('Email Address') }}</label>
-                                                        <div class="input-group">
-                                                            <div class="input-group-text"><i class="bi bi-envelope-fill"></i></div>
-                                                            <input id="email" type="email" placeholder="yourname@gmail.com" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $user->email }}">
-                                                            @error('email')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <label for="address" class="col-form-label">{{ __('Address') }}</label>
-                                                        <div class="input-group">
-                                                            <div class="input-group-text"><i class="fa fa-location-arrow"></i></div>
-                                                        <input id="address" type="text" placeholder="R.T. Lim Boulevard, Baliwasan, Zamboanga City" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ $user->address }}">
-                                                        @error('address')
-                                                            <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $message }}</strong>
-                                                            </span>
-                                                        @enderror
-                                                        </div>
-                                                    </div>
-
-
                                                     <div class="col-md-3">
                                                         <label for="phone" class="col-form-label">{{ __('Phone Number') }}</label>
                                                         <input id="phone" type="text" placeholder="09557815639" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ $user->phone }}">
@@ -351,6 +339,47 @@
                                                                 <strong>{{ $message }}</strong>
                                                             </span>
                                                         @enderror
+                                                    </div>
+
+                                                    <div class="col-md-4">
+                                                        <label for="email" class="col-form-label">{{ __('Email Address') }}</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-text"><i class="bi bi-envelope-fill"></i></div>
+                                                            <input id="email" type="email" placeholder="yourname@gmail.com" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $user->email }}">
+                                                            @error('email')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="address" class="col-form-label">{{ __('Address') }}</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-text"><i class="fa fa-location-arrow"></i></div>
+                                                        <input id="address" type="text" placeholder="R.T. Lim Boulevard, Baliwasan, Zamboanga City" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ $user->address }}">
+                                                        @error('address')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-4">
+                                                        <label for="curriculum_year" class="col-form-label">{{ __('Year Level') }}</label>
+                                                        <select name="curriculum_year" id="curriculum_year" class="form-control form-select my-select @error('curriculum_year') is-invalid @enderror" name="curriculum_year" value="{{ old('curriculum_year') }}">
+                                                            <option disabled selected>{{ $user->curriculum_year }}</option>
+                                                            <option value="1st year">{{ __('1st year') }}</option>
+                                                            <option value="2nd year">{{ __('2nd year') }}</option>
+                                                            <option value="3rd year">{{ __('3rd year') }}</option>
+                                                            <option value="4th year">{{ __('4th year') }}</option>
+                                                        </select>
+                                                            @error('curriculum_year')
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </span>
+                                                            @enderror
                                                     </div>
 
                                                     </div>
@@ -383,7 +412,7 @@
                                                         </div>
                                                     </div>
 
-                                                    @for ($x=1; $x<3; $x++)
+                                                    @for ($x=1; $x<11; $x++)
                                                     <div class="input-group">
                                                         <input name="sched[{{ $x }}][subjects]" type="text" placeholder="Subjects {{ $x }}" class="form-control @error('sched.'.$x.'.subjects') is-invalid @enderror">
                                                         @error('sched.'.$x.'.subjects')
