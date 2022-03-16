@@ -17,8 +17,8 @@
                             <th class="header filter-select filter-exact text-center" scope="col">{{ __('Student\'s Name') }}</th>
                             <th class="header filter-select filter-exact text-center" scope="col">{{ __('Student\'s Email') }}</th>
                             <th class="header filter-select filter-exact text-center" scope="col">{{ __('Uploader\'s Name') }}</th>
-                            <th class="header filter-select filter-exact text-center" scope="col">{{ __('Uploader\'s Email') }}</th>
-                            <th class="header filter-select filter-exact text-center" scope="col">{{ __('View') }}</th>
+                            <th class="header filter-select filter-exact text-center" scope="col">{{ __('View Student\'s Schedule') }}</th>
+                            <th class="header filter-select filter-exact text-center" scope="col">{{ __('Update') }}</th>
                             <th class="header filter-select filter-exact text-center" scope="col">{{ __('Uploaded at') }}</th>
                         </tr>
                     </thead>
@@ -35,8 +35,8 @@
                             <td  class="text-center" scope="col">{{ $user->firstname." ".$user->lastname }}</td>
                             <td  class="text-center" scope="col">{{ $user->email }}</td>
                             <td class="text-center" scope="col">{{ Auth::user()->name }}</td>
-                            <td class="text-center" scope="col">{{ Auth::user()->email }}</td>
                             <td class="text-center" scope="col">
+                                {{-- Modal Students Schedule Form --}}
                                 <button type="button" class=" btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter1{{ $user->id }}"><i class="bi bi-eye"></i></button>
                                     <div class="modal fade " id="exampleModalCenter1{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle1" aria-hidden="true">
                                         <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
@@ -259,6 +259,76 @@
                                         </div>
                                     </div>
                                 <a class="btn btn-outline-success" href="{{ url('/download/'.$user->id) }}"><i class="fa fa-download"></i></a>
+                            </td>
+                            <td class="text-center" scope="col">
+                                <button type="button" class=" btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModalCenters1{{ $user->id }}"><i class="bi bi-pencil-square"></i></button>
+                                {{-- Modal Schedule Update Form --}}
+                                <div class="modal fade " id="exampleModalCenters1{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle1" aria-hidden="true">
+                                        <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <form action="{{ url('/admin/update/sched/'.$user->id) }}" method="POST">
+                                                        @csrf
+                                                    <div class="row text-center">
+                                                        <div class="col-md-12">
+                                                            <img src="{{asset('/storage/images/avatars.png')}}" alt="avatar" class="rounded-circle img-thumbnail" style="width: 100px;">
+                                                            <p class="h4">{{ __('Schedule Update Form') }}</p>
+                                                        </div>
+                                                    </div>
+                                                        @for ($x=1; $x<11; $x++)
+                                                    <div class="input-group">
+                                                        <input name="sched[{{ $x }}][subjects]" type="text" placeholder="Subjects {{ $x }}" class="form-control @error('sched.'.$x.'.subjects') is-invalid @enderror">
+                                                        @error('sched.'.$x.'.subjects')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                        <input name="sched[{{ $x }}][units]" type="text" placeholder="Units {{ $x }}" class="form-control @error('sched.'.$x.'.units') is-invalid @enderror">
+                                                        @error('sched.'.$x.'.units')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                        <input name="sched[{{ $x }}][days]"type="text" placeholder="Days {{ $x }}" class="form-control @error('sched.'.$x.'.days') is-invalid @enderror">
+                                                        @error('sched.'.$x.'.days')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                        <input name="sched[{{ $x }}][time]" type="text" placeholder="Time {{ $x }}" class="form-control @error('sched.'.$x.'.time') is-invalid @enderror">
+                                                        @error('sched.'.$x.'.time')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                        <input name="sched[{{ $x }}][room]" type="text" placeholder="Room {{ $x }}" class="form-control @error('sched.'.$x.'.room') is-invalid @enderror">
+                                                        @error('sched.'.$x.'.room')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                        <select name="sched[{{ $x }}][proffessor]" id="" class="form-select my-select @error('sched.'.$x.'.proffessor') is-invalid @enderror">
+                                                            <option disabled selected>{{ __('Professor'. $x) }}</option>
+                                                            {{-- @foreach ($teachers as $teach)
+                                                            <option value="{{ $teach->name }}">{{ $teach->name }}</option>
+                                                            @endforeach --}}
+                                                        </select>
+                                                        @error('sched.'.$x.'.proffessor')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                    </div>
+                                                    @endfor
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-primary">Upload</button>
+                                                    </form>
+                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                             </td>
                             <td class="text-center" scope="col">{{ $user->created_at }}</td>
                         </tr>

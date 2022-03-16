@@ -20,8 +20,8 @@
                             <th class="header text-center" scope="col">{{ __('Registered') }}</th>
                         </tr>
                     </thead>
-                    @foreach($teacher as $teach )
                     <tbody>
+                        @foreach($teacher as $teach )
                         <tr>
                             <th class="text-center" scope="row">{{ $teach->id }}</th>
                             <td class="text-center" scope="row">
@@ -227,8 +227,8 @@
                             </td>
                             <td  class="text-center" scope="row">{{ $teach->created_at->format('m/d/y h:i:s') }}</td>
                         </tr>
+                        @endforeach
                     </tbody>
-                    @endforeach
                 </table>
                 {{ $teacher->links() }}
             </div>

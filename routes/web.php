@@ -47,7 +47,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             Route::get('/home', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin.home');
             Route::post('/store/schedule/{id}', [App\Http\Controllers\Admin\HomeController::class, 'stores'])->name('admin.store');
             Route::post('/user/update/{id}', [App\Http\Controllers\Admin\HomeController::class, 'updateUser'])->name('admin.update');
-            Route::post('/update/sched/{id}', [App\Http\Controllers\Admin\HomeController::class, 'updateSched'])->name('admin.update');
+            Route::post('/update/sched/{id}', [App\Http\Controllers\Admin\ScheduleController::class, 'update'])->name('admin.update');
 
             Route::get('/schedule', [App\Http\Controllers\Admin\ScheduleController::class, 'index'])->name('admin.schedule');
             Route::get('/teacher/register', [App\Http\Controllers\Admin\TeacherRegistration::class, 'index'])->name('admin.schedule');

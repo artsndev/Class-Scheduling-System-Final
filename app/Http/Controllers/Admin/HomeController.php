@@ -62,12 +62,6 @@ class HomeController extends Controller
     }
     public function stores(int $id, User $user,Request $request){
         $request->validate([
-            // 'proffessor.*'=>'string|max:255|nullable',
-            // 'subjects.*'=>'string|max:255|nullable',
-            // 'units.*'=>'string|nullable',
-            // 'days.*'=>'string|max:255|distinct|nullable',
-            // 'time.*'=>'string|distinct|nullable',
-            // 'room.*'=>'string|nullable',
             'sched.*.proffessor'=>'string|max:255|nullable',
             'sched.*.subjects'=>'string|max:255|nullable',
             'sched.*.units'=>'string|nullable',
@@ -76,24 +70,6 @@ class HomeController extends Controller
             'sched.*.room'=>'string|nullable',
         ]);
         $user= User::find($id);
-        // $subjects = $request->subjects;
-        // $proffessor = $request->proffessor;
-        // $units = $request->units;
-        // $days = $request->days;
-        // $time = $request->time;
-        // $room = $request->room;
-        // for ( $i=0 ; $i < count($subjects);  $i++){
-        //     $scheds= [
-        //         'admin_id' => Auth::user()->id,
-        //         'user_id' => $user->id,
-        //         'subjects' => $subjects[$i],
-        //         'units' => $units[$i],
-        //         'days' =>$days[$i],
-        //         'time'=> $time[$i],
-        //         'room'=> $room[$i],
-        //     ];
-        //     DB::table('schedules')->insert($scheds);
-        // }
         foreach ($request->sched as $schedInput){
             $scheds = $schedInput + ['admin_id' => Auth::user()->id, 'user_id' => $user->id];
             Schedule::create($scheds);
