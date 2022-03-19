@@ -412,7 +412,79 @@
                                                         </div>
                                                     </div>
 
-                                                    @for ($x=1; $x<11; $x++)
+                                                    <div class="table-responsive-sm ">
+                                                        <table>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="header text-start filter-select filter-exact" scope="col">{{ ('Subjects') }}</th>
+                                                                    <th class="header text-start" scope="col">{{ __('Units') }}</th>
+                                                                    <th class="header filter-select filter-exact" scope="col">{{ __('Days') }}</th>
+                                                                    <th class="header text-start text-dark filter-select filter-exact" scope="col">{{ __('Time') }}</th>
+                                                                    <th class="header text-center" scope="col">{{ __('Room') }}</th>
+                                                                    <th class="header text-center" scope="col">{{ __('Instructor') }}</th>
+                                                                    <th><a href="javascript:void(0)" class="btn btn-success addRow" >{{ __('Add') }}</a> </th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="text-center" scope="row">
+                                                                        <input name="subjects[]" type="text" placeholder="Subjects " class="form-control @error('subjects[]') is-invalid @enderror">
+                                                                        @error('subjects[]')
+                                                                            <span class="invalid-feedback" role="alert">
+                                                                                <strong>{{ $message }}</strong>
+                                                                            </span>
+                                                                        @enderror
+                                                                    </td>
+                                                                    <td class="text-center" scope="row">
+                                                                        <select name="units[]" type="text" placeholder="Units" class="form-select my-select @error('units[]') is-invalid @enderror">
+                                                                            <option disabled selected>{{ __('Choose...') }}</option>
+                                                                            <option value="1">{{ __('1') }}</option>
+                                                                            <option value="2">{{ __('2') }}</option>
+                                                                            <option value="3">{{ __('3') }}</option>
+                                                                        </select>
+                                                                        @error('units[]')
+                                                                            <span class="invalid-feedback" role="alert">
+                                                                                <strong>{{ $message }}</strong>
+                                                                            </span>
+                                                                        @enderror
+                                                                    </td>
+                                                                    <td class="text-center" scope="row">
+                                                                        <input name="days[]"type="text" placeholder="Days" class="form-control @error('days[]') is-invalid @enderror">
+                                                                        @error('days[]')
+                                                                            <span class="invalid-feedback" role="alert">
+                                                                                <strong>{{ $message }}</strong>
+                                                                            </span>
+                                                                        @enderror
+                                                                    </td>
+                                                                    <td class="text-center" scope="row">
+                                                                        <input name="time[]" type="time" placeholder="Time " class="form-control @error('time[]') is-invalid @enderror">
+                                                                        @error('time[]')
+                                                                            <span class="invalid-feedback" role="alert">
+                                                                                <strong>{{ $message }}</strong>
+                                                                            </span>
+                                                                        @enderror
+                                                                    </td>
+                                                                    <td class="text-center" scope="row">
+                                                                        <input name="room[]" type="text" placeholder="Room" class="form-control @error('room[]') is-invalid @enderror">
+                                                                        @error('room[]')
+                                                                            <span class="invalid-feedback" role="alert">
+                                                                                <strong>{{ $message }}</strong>
+                                                                            </span>
+                                                                        @enderror
+                                                                    </td>
+                                                                    <td class="text-center" scope="row">
+                                                                        <select name="proffessor[]" id="" class="form-select my-select @error('proffessor[]') is-invalid @enderror">
+                                                                            <option disabled selected>{{ __('Professor') }}</option>
+                                                                            @foreach ($teachers as $teach)
+                                                                            <option value="{{ $teach->name }}">{{ $teach->name }}</option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    {{-- @for ($x=1; $x<11; $x++)
                                                     <div class="input-group">
                                                         <input name="sched[{{ $x }}][subjects]" type="text" placeholder="Subjects {{ $x }}" class="form-control @error('sched.'.$x.'.subjects') is-invalid @enderror">
                                                         @error('sched.'.$x.'.subjects')
@@ -432,7 +504,7 @@
                                                                 <strong>{{ $message }}</strong>
                                                             </span>
                                                         @enderror
-                                                        <input name="sched[{{ $x }}][time]" type="text" placeholder="Time {{ $x }}" class="form-control @error('sched.'.$x.'.time') is-invalid @enderror">
+                                                        <input name="sched[{{ $x }}][time]" type="time" placeholder="Time {{ $x }}" class="form-control @error('sched.'.$x.'.time') is-invalid @enderror">
                                                         @error('sched.'.$x.'.time')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>
@@ -456,7 +528,7 @@
                                                             </span>
                                                         @enderror
                                                     </div>
-                                                    @endfor
+                                                    @endfor --}}
                                                 </div>
                                             <div class="modal-footer">
                                                 <button type="submit" class="btn btn-primary">Upload</button>

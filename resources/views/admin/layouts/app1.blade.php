@@ -13,6 +13,18 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        var i = 0;
+        $("#AddRemoveIp").click(function () {
+            ++i;
+            $("#sched").append('<tr><td><input name="sched['+i+'][subjects]" type="text" placeholder="Subjects " class="form-control @error("sched['+i+'][subjects]") is-invalid @enderror">@error("sched['+i+'][subjects]")<span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>@enderror</td><td class="text-center" scope="row"><select name="sched['+i+'][units]" type="text" placeholder="Units" class="form-select my-select @error("sched['+i+'][units]") is-invalid @enderror"><option disabled selected>{{ __('Choose...') }}</option><option value="1">{{ __('1') }}</option><option value="2">{{ __('2') }}</option><option value="3">{{ __('3') }}</option></select>@error("sched['+i+'][units]")<span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>@enderror</td><td class="text-center" scope="row"><input name="sched['+i+'][days]"type="text" placeholder="Days" class="form-control @error("sched['+i+'][days]") is-invalid @enderror">@error("sched['+i+'][days]")<span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>@enderror</td><td class="text-center" scope="row"><input name="sched['+i+'][time]" type="time" placeholder="Time " class="form-control @error("sched['+i+'][time]") is-invalid @enderror">@error("sched['+i+'][time]")<span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>@enderror</td><td class="text-center" scope="row"><input name="sched['+i+'][room]" type="text" placeholder="Room" class="form-control @error("sched['+i+'][room]") is-invalid @enderror">@error("sched['+i+'][room]")<span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>@enderror</td><td class="text-center" scope="row"><select name="sched['+i+'][proffessor]" id="" class="form-select my-select @error("sched['+i+'][proffessor]") is-invalid @enderror"><option disabled selected>{{ __('Professor') }}</option>@foreach ($teachers as $teach)<option value="{{ $teach->name }}">{{ $teach->name }}</option>@endforeach</select></td><td><button type="button" class="remove-item btn btn-danger">Delete</button></td></tr>');
+        });
+        $(document).on('click', '.remove-item', function () {
+            $(this).parents('tr').remove();
+        });
+    </script>
+    </script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -146,7 +158,7 @@
                                                     <div class="card-body py-5">
                                                         <div class="row">
                                                             <div class="col-sm-7">
-                                                                <h2>{{ App\Models\Schedule::all()->count() }}</h2>
+                                                                <h2>{{ App\Models\User::with('studentSched')->count() }}</h2>
                                                                 <h5>{{ __('Schedule\'s') }}</h5>
                                                             </div>
                                                             <div class="col-sm-5">

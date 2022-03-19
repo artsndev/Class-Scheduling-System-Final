@@ -18,7 +18,6 @@
                             <th class="header filter-select filter-exact text-center" scope="col">{{ __('Student\'s Email') }}</th>
                             <th class="header filter-select filter-exact text-center" scope="col">{{ __('Uploader\'s Name') }}</th>
                             <th class="header filter-select filter-exact text-center" scope="col">{{ __('View Student\'s Schedule') }}</th>
-                            <th class="header filter-select filter-exact text-center" scope="col">{{ __('Update') }}</th>
                             <th class="header filter-select filter-exact text-center" scope="col">{{ __('Uploaded at') }}</th>
                         </tr>
                     </thead>
@@ -259,47 +258,6 @@
                                         </div>
                                     </div>
                                 {{-- <a class="btn btn-outline-success" href="{{ url('/download/'.$user->id) }}"><i class="fa fa-download"></i></a> --}}
-                            </td>
-                            <td class="text-center" scope="col">
-                                <button type="button" class=" btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModalCenters1{{ $user->id }}"><i class="bi bi-pencil-square"></i></button>
-                                {{-- Modal Schedule Update Form --}}
-                                <div class="modal fade " id="exampleModalCenters1{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle1" aria-hidden="true">
-                                        <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-body">
-                                                    <form action="{{ url('/admin/update/sched/'.$user->id) }}" method="POST">
-                                                        @csrf
-                                                    <div class="row text-center">
-                                                        <div class="col-md-12">
-                                                            <img src="{{asset('/storage/images/avatars.png')}}" alt="avatar" class="rounded-circle img-thumbnail" style="width: 100px;">
-                                                            <p class="h4">{{ __('Schedule Update Form') }}</p>
-                                                        </div>
-                                                    </div>
-                                                    @for ($i = 1; $i < 10; $i++)
-                                                    <input type="hidden" name="scheds[{{ $sched->id }}][id]" value="{{ $sched->id }}">
-                                                    <div class="input-group">
-                                                        <input id="" name="scheds[{{ $sched->subjects }}][subjects]" type="text" placeholder="Subjects" class="form-control">
-                                                        <input name="scheds[{{ $sched->units }}][units]" type="text" placeholder="Units" class="form-control">
-                                                        <input name="scheds[{{ $sched->days }}][days]"type="text" placeholder="Days" class="form-control">
-                                                        <input name="scheds[{{ $sched->time }}][time]" type="text" placeholder="Time " class="form-control">
-                                                        <input name="scheds[{{ $sched->room }}][room]" type="text" placeholder="Room " class="form-control">
-                                                        <select name="scheds[{{ $sched->proffessor }}][proffessor]" id="" class="form-select my-select">
-                                                            {{-- <option disabled selected>{{ __('Professor'. $sched->proffessor) }}</option> --}}
-                                                            {{-- @foreach ($teachers as $teach)
-                                                            <option value="{{ $teach->name }}">{{ $teach->name }}</option>
-                                                            @endforeach --}}
-                                                        </select>
-                                                    </div>
-                                                    @endfor
-                                                    <div class="modal-footer">
-                                                        <button type="submit" class="btn btn-primary">Upload</button>
-                                                    </form>
-                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                             </td>
                             <td class="text-center" scope="col">{{ $user->created_at }}</td>
                         </tr>
