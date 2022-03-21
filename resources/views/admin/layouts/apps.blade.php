@@ -77,7 +77,7 @@
                     @yield('content')
                 </div>
             </div>
-            @endauth
+        @endauth
     </div>
 </body>
 </html>

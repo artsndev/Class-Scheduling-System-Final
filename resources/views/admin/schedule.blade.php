@@ -238,13 +238,16 @@
                                                                                 <td class="text-center" scope="row">{{ $sched->subjects }}</td>
                                                                                 <td class="text-center" scope="row">{{ $sched->units }}</td>
                                                                                 <td class="text-center" scope="row">{{ $sched->days }}</td>
-                                                                                <td class="text-center" scope="row">{{ $sched->time }}</td>
+                                                                                @if($sched->timeStart)
+                                                                                    <td class="text-center" scope="row">{{ \Carbon\Carbon::parse($sched->timeStart)->format('g:i A')." - ".\Carbon\Carbon::parse($sched->timeEnd)->format('g:i A')  }}</td>
+                                                                                @else
+                                                                                    <td class="text-center" scope="row"></td>
+                                                                                @endif
                                                                                 <td class="text-center" scope="row">{{ $sched->room }}</td>
                                                                                 <td class="text-center" scope="row">{{ __(' ') }}</td>
                                                                                 <td class="text-center" scope="row">{{ __(' ') }}</td>
                                                                                 <td class="text-center" scope="row">{{ $sched->admin->name }}</td>
                                                                                 <td class="text-center" scope="row">{{ $sched->proffessor }}</td>
-                                                                                <td class="text-center" scope="row">{{ $sched->created_at->diffForHumans() }}</td>
                                                                             </tr>
                                                                             @endforeach
                                                                         </tbody>
@@ -253,17 +256,19 @@
                                                             </div>
                                                         </fieldset>
                                                     </form>
+                                                    <div class="modal-footer">
+                                                        <a href="{{ url('admin/schedule/profile/'.$user->id) }}" class="btn btn-info">{{ __('View in other page') }}</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                {{-- <a class="btn btn-outline-success" href="{{ url('/download/'.$user->id) }}"><i class="fa fa-download"></i></a> --}}
+                                {{-- <a class="btn btn-outline-success" href="{{ url('/download/student/'.$user->id) }}"><i class="fa fa-download"></i></a> --}}
                             </td>
                             <td class="text-center" scope="col">{{ $user->created_at }}</td>
                         </tr>
                     @endforeach
                 </table>
-                {{-- {{ $users->links() }} --}}
             </div>
         </div>
     </div>

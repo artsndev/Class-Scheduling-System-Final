@@ -30,6 +30,6 @@ class HomeController extends Controller
     public function download(int $id)
     {
         // $scheds = Schedule::where("user_id", "=", Auth::user()->id)->get();
-        return Excel::download(new SchedulesExport($id), 'mySched.xlsx');
+        return Excel::download(new SchedulesExport($id),  Auth::user()->lastname.','.Auth::user()->firstname.'.xlsx');
     }
 }

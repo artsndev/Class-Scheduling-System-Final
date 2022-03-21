@@ -23,7 +23,8 @@ return new class extends Migration
             $table->string('subjects')->nullable();
             $table->string('units')->nullable();
             $table->string('days')->nullable();
-            $table->string('time')->nullable();
+            $table->string('timeStart')->nullable();
+            $table->string('timeEnd')->nullable();
             $table->string('room')->nullable();
             $table->softDeletes();
             $table->timestamps();

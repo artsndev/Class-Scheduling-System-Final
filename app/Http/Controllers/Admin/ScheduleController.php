@@ -3,13 +3,17 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
+use App\Models\Teacher;
 use App\Models\Schedule;
 use Illuminate\Http\Request;
+use App\Exports\SchedulesExport;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class ScheduleController extends Controller
 {
@@ -18,25 +22,8 @@ class ScheduleController extends Controller
         // dd($users);
         return view('admin.schedule', compact('users'));
     }
-    public function update(int $id, User $users,Request $request)
+    public function downloadSched(int $id)
     {
-        $users = User::find($id);
-        // $scheds = Schedule::find($users->id);
-        foreach ($request->scheds as $sched) {
-            Schedule::update([
-                'id' => $sched->id,
-                ],[
-                // 'proffessor' => $sched->proffessor,
-                'subjects' => $sched->subjects,
-                'units' => $sched->units,
-                'days' => $sched->days,
-                'time' => $sched->time,
-                'room' => $sched->room,
-            ]);
-            dd($sched);
-        }
-        // dd($sched);
-        // Alert::toast('You\'ve Successfully Uploaded!', 'success');
-        // return back();
+        return Excel::download(new SchedulesExport($id), 'sched.xlsx');
     }
 }

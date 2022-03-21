@@ -19,7 +19,8 @@ class Schedule extends Model
         'subjects',
         'units',
         'days',
-        'time',
+        'timeStart',
+        'timeEnd',
         'room',
     ];
     public function user(){

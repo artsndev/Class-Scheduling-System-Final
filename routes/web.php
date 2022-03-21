@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\Teacher\LoginController;
 use App\Http\Controllers\Admin\ScheduleController;
 use App\Http\Controllers\Admin\TeacherRegistration;
+use App\Http\Controllers\Admin\StudentProfileSchedule;
 use App\Http\Controllers\Admin\TeachersDashController;
 use App\Http\Controllers\Admin\ResetPasswordController;
 use App\Http\Controllers\Admin\ForgotPasswordController;
@@ -27,6 +28,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/download/{id}', [App\Http\Controllers\HomeController::class, 'download'])->name('download');
+Route::get('/download/student/{id}', [App\Http\Controllers\Admin\ScheduleController::class, 'downloadSched'])->name('admin.schedule.download');
+
+
 Route::group(['middleware' => 'prevent-back-history'],function(){
     Auth::routes(['verify' => true]);
     /**
@@ -48,6 +52,9 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             Route::post('/store/schedule/{id}', [App\Http\Controllers\Admin\HomeController::class, 'stores'])->name('admin.store');
             Route::post('/user/update/{id}', [App\Http\Controllers\Admin\HomeController::class, 'updateUser'])->name('admin.update');
             Route::post('/update/sched/{id}', [App\Http\Controllers\Admin\ScheduleController::class, 'update'])->name('admin.update');
+
+            Route::get('/schedule/profile/{id}', [App\Http\Controllers\Admin\StudentProfileSchedule::class, 'index'])->name('admin.schedule.profile');
+            Route::post('/schedule/update/{id}', [App\Http\Controllers\Admin\StudentProfileSchedule::class, 'update'])->name('admin.schedule.update.profile');
 
             Route::get('/schedule', [App\Http\Controllers\Admin\ScheduleController::class, 'index'])->name('admin.schedule');
             Route::get('/teacher/register', [App\Http\Controllers\Admin\TeacherRegistration::class, 'index'])->name('admin.schedule');

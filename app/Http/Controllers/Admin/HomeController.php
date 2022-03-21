@@ -66,7 +66,8 @@ class HomeController extends Controller
             'sched.*.subjects'=>'string|max:255|nullable',
             'sched.*.units'=>'string|nullable',
             'sched.*.days'=>'string|max:255|distinct|nullable',
-            'sched.*.time'=>'string|distinct|nullable',
+            'sched.*.timeStart'=>'string|distinct|nullable',
+            'sched.*.timeEnd'=>'string|distinct|nullable',
             'sched.*.room'=>'string|nullable',
         ]);
         $user= User::find($id);

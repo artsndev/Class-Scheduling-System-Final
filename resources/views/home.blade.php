@@ -435,7 +435,7 @@
                                                                                                 <th class="header text-center filter-select filter-exact" scope="col">{{ ('Subject') }}</th>
                                                                                                 <th class="header text-center" scope="col">{{ ('Unit\'s') }} </th>
                                                                                                 <th class="header filter-select filter-exact" scope="col">{{ __('Day') }}</th>
-                                                                                                <th class="header filter-select filter-exact text-center" scope="col">{{ __('Time') }}</th>
+                                                                                                <th class="header filter-select filter-exact text-center" scope="col">{{ __('Time ') }}</th>
                                                                                                 <th class="header filter-select filter-exact text-center" scope="col">{{ __('Room') }}</th>
                                                                                                 <th class="header filter-select filter-exact text-center" scope="col">{{ __('Final Rating') }}</th>
                                                                                                 <th class="header filter-select filter-exact text-center" scope="col">{{ __('Remarks') }}</th>
@@ -449,7 +449,11 @@
                                                                                                 <td class="text-center" scope="row">{{ $sched->subjects }}</td>
                                                                                                 <td class="text-center" scope="row">{{ $sched->units }}</td>
                                                                                                 <td class="text-center" scope="row">{{ $sched->days }}</td>
-                                                                                                <td class="text-center" scope="row">{{ $sched->time }}</td>
+                                                                                                @if($sched->timeStart)
+                                                                                                    <td class="text-center" scope="row">{{ \Carbon\Carbon::parse($sched->timeStart)->format('g:i A')." - ".\Carbon\Carbon::parse($sched->timeEnd)->format('g:i A')  }}</td>
+                                                                                                @else
+                                                                                                    <td class="text-center" scope="row"></td>
+                                                                                                @endif
                                                                                                 <td class="text-center" scope="row">{{ $sched->room }}</td>
                                                                                                 <td class="text-center" scope="row">{{ __(' ') }}</td>
                                                                                                 <td class="text-center" scope="row">{{ __(' ') }}</td>

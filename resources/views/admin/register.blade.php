@@ -88,7 +88,14 @@
                             <select name="major" id="major" class="form-control form-select my-select @error('major') is-invalid @enderror" name="major" value="{{ old('major') }}">
                                 <option disabled selected>Choose...</option>
                                 <option value="{{ __('Major in Information Technology') }}">{{ __('Major in Information Technology') }}</option>
-                                <option value="{{ __('Major in Food Technology') }}">{{ __('Major in Food Technology') }}</option>
+                                <option value="{{ __('Major in Electronics') }}">{{ __('Major in Food Technology') }}</option>
+                                <option value="{{ __('Major in Civil Technology') }}">{{ __('Major in Civil Technology') }}</option>
+                                <option value="{{ __('Major in Garments, Fashion and design ') }}">{{ __('Major in Garments, Fashion and design ') }}</option>
+                                <option value="{{ __('Major in Electrical ') }}">{{ __('Major in Electrical') }}</option>
+                                <option value="{{ __('Major in Food Production Services') }}">{{ __('Major in Food Production Services') }}</option>
+                                <option value="{{ __('Major in Hospitality Management ') }}">{{ __('Major in Hospitality Management') }}</option>
+                                <option value="{{ __('Major in Mechanical ') }}">{{ __('Major in Mechanical') }}</option>
+                                <option value="{{ __('Major in Automotive') }}">{{ __('Major in Automotive') }}</option>
                             </select>
                             @error('major')
                                 <span class="invalid-feedback" role="alert">

@@ -177,7 +177,11 @@
             <td style="font-weight: bold;">{{ $sched->subjects }}</td>
             <td style="text-align: center; font-weight: bold;">{{ $sched->units }}</td>
             <td style="text-align: center; font-weight: bold;">{{ $sched->days }}</td>
-            <td style="text-align: center; font-weight: bold;">{{ $sched->time }}</td>
+            @if($sched->timeStart)
+            <td style="text-align: center; font-weight: bold;">{{ \Carbon\Carbon::parse($sched->timeStart)->format('g:i A')." - ".\Carbon\Carbon::parse($sched->timeEnd)->format('g:i A') }}</td>
+            @else
+            <td style="text-align: center; font-weight: bold;">{{ __(' ') }}</td>
+            @endif
             <td style="text-align: center; font-weight: bold;">{{ $sched->user->section }}</td>
             <td style="text-align: center; font-weight: bold;">{{ $sched->room }}</td>
             <td style="text-align: center; font-weight: bold;">{{ __(' ') }}</td>
@@ -186,6 +190,18 @@
             <td style="text-align: center; font-weight: bold;">{{ $sched->proffessor }}</td>
         </tr>
         @endforeach
+        <tr>
+            <td style="text-align: center; font-weight: bold;">{{ __(' ') }}</td>
+            <td style="text-align: center; font-weight: bold;">{{ __('Total Units: '). Auth::user()->studentSched->sum('units') }}</td>
+            <td style="text-align: center;">{{ __(' ') }}</td>
+            <td style="text-align: center;">{{ __(' ') }}</td>
+            <td style="text-align: center;">{{ __(' ') }}</td>
+            <td style="text-align: center;">{{ __(' ') }}</td>
+            <td style="text-align: center;">{{ __(' ') }}</td>
+            <td style="text-align: center;">{{ __(' ') }}</td>
+            <td style="text-align: center;">{{ __(' ') }}</td>
+            <td style="text-align: center;">{{ __(' ') }}</td>
+        </tr>
     </tbody>
 
 </table>
