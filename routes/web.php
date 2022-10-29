@@ -31,25 +31,25 @@ Route::get('/download/{id}', [App\Http\Controllers\HomeController::class, 'downl
 Route::get('/download/student/{id}', [App\Http\Controllers\Admin\ScheduleController::class, 'downloadSched'])->name('admin.schedule.download');
 
 
-Route::group(['middleware' => 'prevent-back-history'],function(){
+Route::group(['middleware' => 'prevent-back-history'], function () {
     Auth::routes(['verify' => true]);
     /**
      *  Student Routes
      */
-    Route::middleware('auth')->group(function(){
+    Route::middleware('auth')->group(function () {
         Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
         Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
     });
     /**
      *  Admin Routes
      */
-    Route::namespace('admin')->prefix('admin')->group( function(){
+    Route::namespace('admin')->prefix('admin')->group(function () {
         Route::get('/login', [App\Http\Controllers\Admin\LoginController::class, 'showLoginForm'])->name('admin.login');
         Route::post('/login', [App\Http\Controllers\Admin\LoginController::class, 'login'])->name('admin.login');
 
-        Route::middleware('auth:admin')->group(function(){
+        Route::middleware('auth:admin')->group(function () {
             Route::get('/home', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin.home');
-            Route::post('/store/schedule/{id}', [App\Http\Controllers\Admin\HomeController::class, 'stores'])->name('admin.store');
+            // Route::post('/store/schedule/{id}', [App\Http\Controllers\Admin\HomeController::class, 'stores'])->name('admin.store');
             Route::post('/user/update/{id}', [App\Http\Controllers\Admin\HomeController::class, 'updateUser'])->name('admin.update');
             Route::post('/update/sched/{id}', [App\Http\Controllers\Admin\ScheduleController::class, 'update'])->name('admin.update');
 
@@ -70,11 +70,12 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
     /**
      *  Teacher Routes
      */
-    Route::namespace('teacher')->prefix('teacher')->group( function(){
+    Route::namespace('teacher')->prefix('teacher')->group(function () {
         Route::get('/login', [App\Http\Controllers\Teacher\LoginController::class, 'showLoginForm'])->name('teacher.login');
         Route::post('/login', [App\Http\Controllers\Teacher\LoginController::class, 'login'])->name('teacher.login');
-        Route::middleware('auth:teacher')->group(function(){
+        Route::middleware('auth:teacher')->group(function () {
             Route::get('/home', [App\Http\Controllers\Teacher\HomeController::class, 'index'])->name('teacher.home');
+            Route::post('/store/schedule/{id}', [App\Http\Controllers\Teacher\DashboardController::class, 'stores'])->name('teacher.store');
             Route::post('/schedule/store/{id}', [App\Http\Controllers\Teacher\DashboardController::class, 'store'])->name('teacher.schedule');
             Route::get('/dashboard', [App\Http\Controllers\Teacher\DashboardController::class, 'index'])->name('teacher.dashboard');
             Route::post('/dashboard/store/{id}', [App\Http\Controllers\Teacher\DashboardController::class, 'update'])->name('teacher.update.dashboard');

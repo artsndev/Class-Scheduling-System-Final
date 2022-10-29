@@ -14,10 +14,10 @@
                         <tr>
                             <th class="header text-center filter-select filter-exact" scope="col">{{ ('User\'s ID') }}</th>
                             <th class="header text-center" scope="col"> </th>
-                            <th class="header filter-select filter-exact" scope="col">{{ __('Name') }}</th>
+                            <th class="header filter-select filter-exact text-center" scope="col">{{ __('Name') }}</th>
                             <th class="header text-start text-dark filter-select filter-exact" scope="col">{{ __('Email') }}</th>
                             <th class="header text-center" scope="col">{{ __('Gender') }}</th>
-                            <th class="header text-center" scope="col">{{ __('Actions') }}</th>
+                            {{-- <th class="header text-center" scope="col">{{ __('Actions') }}</th> --}}
                             <th class="header text-center" scope="col">{{ __('Upload') }}</th>
                             <th class="header text-center" scope="col">{{ __('Enrolled') }}</th>
                         </tr>
@@ -33,7 +33,7 @@
                                     <img src="{{ asset('/storage/images/avatar.png')}}" alt="hugenerd" width="30" height="30" class="rounded-circle">
                                 @endif
                             </td>
-                            <td class="text-start" scope="row">{{ $user->name }}</th>
+                            <td class="text-center" scope="row">{{ __(' '.$user->firstname.' '. $user->lastname) }}</th>
                             <td  class="text-start" scope="row">{{ $user->email }}</td>
                             <td  class="text-center" scope="row">{{ $user->gender }}</td>
                             <td  class="text-center" scope="row">
@@ -58,7 +58,7 @@
                                                         <div class="row mb-3">
                                                             <div class="col-md-4">
                                                                 <label for="name" class="col-form-label">{{ __('Name') }}</label>
-                                                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $user->name }}" >
+                                                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $user->firstname." ". $user->lastname }}" >
                                                                 @error('name')
                                                                     <span class="invalid-feedback" role="alert">
                                                                         <strong>{{ $message }}</strong>
@@ -141,7 +141,7 @@
                                     </div>
                                 </div>
                                 {{-- Modal Update Student Form --}}
-                                <button type="button" class=" btn btn-outline-warning bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#exampleModalCenters{{ $user->id }}"></button>
+                                {{-- <button type="button" class=" btn btn-outline-warning bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#exampleModalCenters{{ $user->id }}"></button> --}}
                                 <div class="modal fade" id="exampleModalCenters{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitles" aria-hidden="true">
                                     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                         <div class="modal-content">
@@ -156,182 +156,94 @@
                                                         <h2>{{ __('Student\'s Update Schedule Form') }}</h2>
                                                     </div>
                                                 </div>
-                                                <form action="{{ url('teacher/dashboard/store/'.$user->id) }}" method="POST">
-                                                @csrf
-                                                <div class="row">
+                                                <form action="{{ url('/teacher/store/schedule/'.$user->id) }}" method="POST">
+                                                    @csrf
 
-                                                    <div class="col-md-6">
-                                                        <label for="department" class="col-form-label ">{{ __('Department') }}</label>
-                                                            <select name="department" id="department" class="form-control form-select my-select @error('department') is-invalid @enderror" name="department" value="{{ old('department') }}">
-                                                                <option disabled selected>Choose...</option>
-                                                                <option value="CET">College of Engineering & Technology</option>
-                                                                <option value="CAHSS">College of Arts, Humanities & Social Sciences</option>
-                                                                <option value="CTE">College of Teacher Education</option>
-                                                                <option value="CME">College of Maritime Education</option>
-                                                                <option value="CTechEd">College of Technical Education</option>
-                                                                <option value="CICS">College of Information and Computing Sciences</option>
-                                                                <option value="Senior High School">Senior High School</option>
-                                                                <option value="Graduate School">Graduate School</option>
-                                                            </select>
-                                                            @error('department')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
-                                                            @enderror
-                                                    </div>
-
-                                                    <div class="col-md-6">
-                                                        <label for="semester" class="col-form-label">{{ __('Semester') }}</label>
-                                                        <select name="semester" id="semester" class="form-control form-select my-select @error('semester') is-invalid @enderror" name="semester" value="{{ old('semester') }}">
-                                                            <option disabled selected>Choose...</option>
-                                                            <option value="1st Semester">{{ __('1st Semester') }}</option>
-                                                            <option value="2nd Semester">{{ __('2nd Semester') }}</option>
-                                                        </select>
-                                                            @error('semester')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
-                                                            @enderror
-                                                    </div>
-
-                                                    <div class="col-md-4">
-                                                        <label for="curriculum_year" class="col-form-label">{{ __('Year Level') }}</label>
-                                                        <select name="curriculum_year" id="curriculum_year" class="form-control form-select my-select @error('curriculum_year') is-invalid @enderror" name="curriculum_year" value="{{ old('curriculum_year') }}">
-                                                            <option disabled selected>Choose...</option>
-                                                            <option value="1st year">{{ __('1st year') }}</option>
-                                                            <option value="2nd year">{{ __('2nd year') }}</option>
-                                                            <option value="3rd year">{{ __('3rd year') }}</option>
-                                                            <option value="4th year">{{ __('4th year') }}</option>
-                                                        </select>
-                                                            @error('curriculum_year')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
-                                                            @enderror
-                                                    </div>
-
-                                                    <div class="col-md-4">
-                                                        <label for="age" class="col-form-label">{{ __('Age') }}</label>
-                                                            <input id="age" type="text" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ old('age') }}">
-                                                            @error('age')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
-                                                            @enderror
-                                                    </div>
-
-                                                    <div class="col-md-4">
-                                                        <label for="student_type" class="col-form-label">{{ __('Student Type') }}</label>
-                                                        <select name="student_type" id="student_type" class="form-control form-select my-select @error('student_type') is-invalid @enderror" name="student_type" value="{{ old('student_type') }}">
-                                                            <option disabled selected>Choose...</option>
-                                                            <option value="Regular Student">{{ __('Regular') }}</option>
-                                                            <option value="Irregular Student">{{ __('Irregular Student') }}</option>
-                                                        </select>
-                                                            @error('student_type')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
-                                                            @enderror
-                                                    </div>
-
-                                                    <div class="col-md-4">
-                                                        <label for="student_status" class="col-form-label">{{ __('Status of Registration') }}</label>
-                                                        <select name="student_status" id="student_type" class="form-control form-select my-select @error('student_status') is-invalid @enderror" name="student_status" value="{{ old('student_status') }}">
-                                                            <option disabled selected>Choose...</option>
-                                                            <option value="New Student">{{ __('New Student') }}</option>
-                                                            <option value="Old Student">{{ __('Old Student') }}</option>
-                                                            <option value="Shifting Student">{{ __('Shifting Student') }}</option>
-                                                            <option value="Transferee">{{ __('Transferee') }}</option>
-                                                        </select>
-                                                            @error('student_status')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
-                                                            @enderror
-                                                    </div>
-
-                                                    <div class="col-md-4">
-                                                        <label for="civil_status" class="col-form-label">{{ __('Student Type') }}</label>
-                                                        <select name="civil_status" id="civil_status" class="form-control form-select my-select @error('civil_status') is-invalid @enderror" name="civil_status" value="{{ old('civil_status') }}">
-                                                            <option disabled selected>Choose...</option>
-                                                            <option value="Single">{{ __('Single') }}</option>
-                                                            <option value="Married">{{ __('Married') }}</option>
-                                                        </select>
-                                                            @error('civil_status')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
-                                                            @enderror
-                                                    </div>
-
-                                                    <div class="col-md-4">
-                                                        <label for="subjects" class="col-form-label">{{ __('Subjects') }}</label>
-                                                            <input id="subjects" type="text" class="form-control @error('subjects') is-invalid @enderror" name="subjects" value="{{ old('subjects') }}">
-                                                            @error('subjects')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
-                                                            @enderror
-                                                    </div>
-
-                                                    <div class="col-md-4">
-                                                        <label for="units" class="col-form-label">{{ __('Units') }}</label>
-                                                            <input id="units" type="text" class="form-control @error('units') is-invalid @enderror" name="units" value="{{ old('units') }}">
-                                                            @error('units')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
-                                                            @enderror
-                                                    </div>
-
-                                                    <div class="col-md-4">
-                                                        <label for="days" class="col-form-label">{{ __('Days') }}</label>
-                                                            <input id="days" type="text" class="form-control @error('days') is-invalid @enderror" name="days" value="{{ old('days') }}">
-                                                            @error('days')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
-                                                            @enderror
-                                                    </div>
-
-                                                    <div class="col-md-4">
-                                                        <label for="time" class="col-form-label">{{ __('Time') }}</label>
-                                                            <input id="time" type="text" class="form-control @error('time') is-invalid @enderror" name="time" value="{{ old('time') }}">
-                                                            @error('time')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
-                                                            @enderror
-                                                    </div>
-
-                                                    <div class="col-md-6">
-                                                        <label for="section" class="col-form-label">{{ __('Section') }}</label>
-                                                        <select name="section" id="section" class="form-control form-select my-select @error('section') is-invalid @enderror" name="section" value="{{ old('section') }}">
-                                                            <option disabled selected>Choose...</option>
-                                                            <option value="A">{{ __('A') }}</option>
-                                                            <option value="B">{{ __('B') }}</option>
-                                                            <option value="C">{{ __('C') }}</option>
-                                                            <option value="D">{{ __('D') }}</option>
-                                                        </select>
-                                                            @error('section')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
-                                                            @enderror
-                                                    </div>
-
-                                                    <div class="col-md-6">
-                                                        <label for="room" class="col-form-label">{{ __('Room') }}</label>
-                                                            <input id="room" type="text" class="form-control @error('room') is-invalid @enderror" name="room" value="{{ old('room') }}">
-                                                            @error('room')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
-                                                            @enderror
+                                                    <div class="table-responsive-sm ">
+                                                        <table>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="header text-start filter-select filter-exact" scope="col">{{ ('Subjects') }}</th>
+                                                                    <th class="header text-start" scope="col">{{ __('Units') }}</th>
+                                                                    <th class="header filter-select filter-exact" scope="col">{{ __('Days') }}</th>
+                                                                    <th class="header text-start text-dark filter-select filter-exact" scope="col">{{ __('Time Start') }}</th>
+                                                                    <th class="header text-start text-dark filter-select filter-exact" scope="col">{{ __('Time End') }}</th>
+                                                                    <th class="header text-center" scope="col">{{ __('Room') }}</th>
+                                                                    <th class="header text-center" scope="col">{{ __('Instructor') }}</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @for ($x=1; $x<11; $x++)
+                                                                <tr>
+                                                                <td class="text-center" scope="row">
+                                                                    <input name="sched[{{ $x }}][subjects]" type="text" placeholder="Subjects {{ $x }}" class="form-control @error('sched.'.$x.'.subjects') is-invalid @enderror">
+                                                                    @error('sched.'.$x.'.subjects')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </td>
+                                                                <td class="text-center" scope="row">
+                                                                    <select name="sched[{{ $x }}][units]" type="text" placeholder="Unit {{ $x }}" class="form-select my-select @error('sched.'.$x.'.units') is-invalid @enderror">
+                                                                        <option disabled selected>{{ __('Choose...') }}</option>
+                                                                        <option value="1">{{ __('1') }}</option>
+                                                                        <option value="2">{{ __('2') }}</option>
+                                                                        <option value="3">{{ __('3') }}</option>
+                                                                    </select>
+                                                                    @error('sched.'.$x.'.units')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </td>
+                                                                <td class="text-center" scope="row">
+                                                                    <input name="sched[{{ $x }}][days]"type="text" placeholder="Day {{ $x }}" class="form-control @error('sched.'.$x.'.days') is-invalid @enderror">
+                                                                    @error('sched.'.$x.'.days')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </td>
+                                                                <td class="text-center" scope="row">
+                                                                    <input name="sched[{{ $x }}][timeStart]" type="time" class="form-control @error('sched.'.$x.'.timeStart') is-invalid @enderror">
+                                                                    @error('sched.'.$x.'.timeStart')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </td>
+                                                                <td class="text-center" scope="row">
+                                                                    <input name="sched[{{ $x }}][timeEnd]" type="time" class="form-control @error('sched.'.$x.'.timeEnd') is-invalid @enderror">
+                                                                    @error('sched.'.$x.'.timeEnd')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </td>
+                                                                <td class="text-center" scope="row">
+                                                                    <input name="sched[{{ $x }}][room]" type="text" placeholder="Room {{ $x }}" class="form-control @error('sched.'.$x.'.room') is-invalid @enderror">
+                                                                    @error('sched.'.$x.'.room')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </td>
+                                                                <td class="text-center" scope="row">
+                                                                    <select name="sched[{{ $x }}][proffessor]" id="" class="form-select my-select @error('sched.'.$x.'.proffessor') is-invalid @enderror">
+                                                                        <option disabled selected>{{ __('Professor '. $x ) }}</option>
+                                                                        @foreach ($teachers as $teach)
+                                                                        <option value="{{ $teach->name }}">{{ $teach->name }}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                    </td>
+                                                                </tr>
+                                                                @endfor
+                                                            </tbody>
+                                                        </table>
                                                     </div>
                                                 </div>
                                             <div class="modal-footer">
-                                                <button type="submit" class="btn btn-primary">{{ __('Update') }}</button>
+                                                <button type="submit" class="btn btn-primary">Upload</button>
                                             </form>
                                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                                             </div>
@@ -349,7 +261,7 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <form action="{{ url('/teacher/schedule/store/'.$user->id) }}" method="POST">
+                                                <form action="{{ url('/teacher/store/schedule/'.$user->id) }}" method="POST">
                                                     @csrf
                                                     <div class="row text-center">
                                                         <div class="col-md-12">
@@ -357,59 +269,89 @@
                                                             <p class="h4">{{ __('Schedule Form') }}</p>
                                                         </div>
                                                     </div>
-                                                        <div class="row">
-                                                            {{-- @for ($i = 0; $i < 10; $i++) --}}
-                                                            <div class="col-md-4">
-                                                                <label for="subjects" class="col-form-label">{{ __('Subjects') }}</label>
-                                                                    <input id="subjects" type="text" class="form-control @error('subjects') is-invalid @enderror" name="subjects" value="{{ old('subjects') }}">
-                                                                    @error('subjects')
-                                                                        <span class="invalid-feedback" role="alert">
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </span>
-                                                                    @enderror
-                                                            </div>
-                                                            {{-- @endfor --}}
 
-                                                            <div class="col-md-4">
-                                                                <label for="units" class="col-form-label">{{ __('Units') }}</label>
-                                                                    <input id="units" type="text" class="form-control @error('units') is-invalid @enderror" name="units" value="{{ old('units') }}">
-                                                                    @error('units')
+                                                    <div class="table-responsive-sm ">
+                                                        <table>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="header text-start filter-select filter-exact" scope="col">{{ ('Subjects') }}</th>
+                                                                    <th class="header text-start" scope="col">{{ __('Units') }}</th>
+                                                                    <th class="header filter-select filter-exact" scope="col">{{ __('Days') }}</th>
+                                                                    <th class="header text-start text-dark filter-select filter-exact" scope="col">{{ __('Time Start') }}</th>
+                                                                    <th class="header text-start text-dark filter-select filter-exact" scope="col">{{ __('Time End') }}</th>
+                                                                    <th class="header text-center" scope="col">{{ __('Room') }}</th>
+                                                                    <th class="header text-center" scope="col">{{ __('Instructor') }}</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @for ($x=1; $x<11; $x++)
+                                                                <tr>
+                                                                <td class="text-center" scope="row">
+                                                                    <input name="sched[{{ $x }}][subjects]" type="text" placeholder="Subjects {{ $x }}" class="form-control @error('sched.'.$x.'.subjects') is-invalid @enderror">
+                                                                    @error('sched.'.$x.'.subjects')
                                                                         <span class="invalid-feedback" role="alert">
                                                                             <strong>{{ $message }}</strong>
                                                                         </span>
                                                                     @enderror
-                                                            </div>
-
-                                                            <div class="col-md-4">
-                                                                <label for="days" class="col-form-label">{{ __('Days') }}</label>
-                                                                    <input id="days" type="text" class="form-control @error('days') is-invalid @enderror" name="days" value="{{ old('days') }}">
-                                                                    @error('days')
+                                                                </td>
+                                                                <td class="text-center" scope="row">
+                                                                    <select name="sched[{{ $x }}][units]" type="text" placeholder="Unit {{ $x }}" class="form-select my-select @error('sched.'.$x.'.units') is-invalid @enderror">
+                                                                        <option disabled selected>{{ __('Choose...') }}</option>
+                                                                        <option value="1">{{ __('1') }}</option>
+                                                                        <option value="2">{{ __('2') }}</option>
+                                                                        <option value="3">{{ __('3') }}</option>
+                                                                    </select>
+                                                                    @error('sched.'.$x.'.units')
                                                                         <span class="invalid-feedback" role="alert">
                                                                             <strong>{{ $message }}</strong>
                                                                         </span>
                                                                     @enderror
-                                                            </div>
-
-                                                            <div class="col-md-4">
-                                                                <label for="time" class="col-form-label">{{ __('Time') }}</label>
-                                                                    <input id="time" type="text" class="form-control @error('time') is-invalid @enderror" name="time" value="{{ old('time') }}">
-                                                                    @error('time')
+                                                                </td>
+                                                                <td class="text-center" scope="row">
+                                                                    <input name="sched[{{ $x }}][days]"type="text" placeholder="Day {{ $x }}" class="form-control @error('sched.'.$x.'.days') is-invalid @enderror">
+                                                                    @error('sched.'.$x.'.days')
                                                                         <span class="invalid-feedback" role="alert">
                                                                             <strong>{{ $message }}</strong>
                                                                         </span>
                                                                     @enderror
-                                                            </div>
-
-                                                            <div class="col-md-6">
-                                                                <label for="room" class="col-form-label">{{ __('Room') }}</label>
-                                                                    <input id="room" type="text" class="form-control @error('room') is-invalid @enderror" name="room" value="{{ old('room') }}">
-                                                                    @error('room')
+                                                                </td>
+                                                                <td class="text-center" scope="row">
+                                                                    <input name="sched[{{ $x }}][timeStart]" type="time" class="form-control @error('sched.'.$x.'.timeStart') is-invalid @enderror">
+                                                                    @error('sched.'.$x.'.timeStart')
                                                                         <span class="invalid-feedback" role="alert">
                                                                             <strong>{{ $message }}</strong>
                                                                         </span>
                                                                     @enderror
-                                                            </div>
-                                                        </div>
+                                                                </td>
+                                                                <td class="text-center" scope="row">
+                                                                    <input name="sched[{{ $x }}][timeEnd]" type="time" class="form-control @error('sched.'.$x.'.timeEnd') is-invalid @enderror">
+                                                                    @error('sched.'.$x.'.timeEnd')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </td>
+                                                                <td class="text-center" scope="row">
+                                                                    <input name="sched[{{ $x }}][room]" type="text" placeholder="Room {{ $x }}" class="form-control @error('sched.'.$x.'.room') is-invalid @enderror">
+                                                                    @error('sched.'.$x.'.room')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </td>
+                                                                <td class="text-center" scope="row">
+                                                                    <select name="sched[{{ $x }}][proffessor]" id="" class="form-select my-select @error('sched.'.$x.'.proffessor') is-invalid @enderror">
+                                                                        <option disabled selected>{{ __('Professor '. $x ) }}</option>
+                                                                        @foreach ($teachers as $teach)
+                                                                        <option value="{{ $teach->name }}">{{ $teach->name }}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                    </td>
+                                                                </tr>
+                                                                @endfor
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
                                                 </div>
                                             <div class="modal-footer">
                                                 <button type="submit" class="btn btn-primary">Upload</button>

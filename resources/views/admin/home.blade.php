@@ -14,11 +14,11 @@
                         <tr>
                             <th class="header text-center filter-select filter-exact" scope="col">{{ ('Student\'s ID') }}</th>
                             <th class="header text-center" scope="col"> </th>
-                            <th class="header filter-select filter-exact" scope="col">{{ __('Name') }}</th>
+                            <th class="header filter-select filter-exact text-center" scope="col">{{ __('Name') }}</th>
                             <th class="header text-start text-dark filter-select filter-exact" scope="col">{{ __('Email') }}</th>
                             <th class="header text-center" scope="col">{{ __('Gender') }}</th>
                             <th class="header text-center" scope="col">{{ __('Actions') }}</th>
-                            <th class="header text-center" scope="col">{{ __('Schedule\'s') }}</th>
+                            {{-- <th class="header text-center" scope="col">{{ __('Schedule\'s') }}</th> --}}
                             <th class="header text-center" scope="col">{{ __('Enrolled') }}</th>
                         </tr>
                     </thead>
@@ -33,7 +33,7 @@
                                     <img src="{{ asset('/storage/images/avatars.png')}}" alt="hugenerd" width="30" height="30" class="rounded-circle">
                                 @endif
                             </td>
-                            <td class="text-start" scope="row">{{ $user->firstname." ".$user->lastname }}</th>
+                            <td class="text-center" scope="row">{{ $user->firstname." ".$user->lastname }}</th>
                             <td  class="text-start" scope="row">{{ $user->email }}</td>
                             <td  class="text-center" scope="row">{{ $user->gender }}</td>
                             <td  class="text-center" scope="row">
@@ -386,118 +386,6 @@
                                                     <div class="modal-footer">
                                                         <button type="submit" class="btn btn-primary">{{ __('Update') }}</button>
                                                 </form>
-                                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td  class="text-center" scope="row">
-                                {{-- Modal Schedule Form --}}
-                                <button type="button" class=" btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter1{{ $user->id }}"><i class="fa fa-upload"></i></button>
-                                <div class="modal fade" id="exampleModalCenter1{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle1" aria-hidden="true">
-                                    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalCenterTitle1">Schedule Form</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form action="{{ url('/admin/store/schedule/'.$user->id) }}" method="POST">
-                                                    @csrf
-                                                    <div class="row text-center">
-                                                        <div class="col-md-12">
-                                                            <img src="{{asset('/storage/images/avatars.png')}}" alt="avatar" class="rounded-circle img-thumbnail" style="width: 100px;">
-                                                            <p class="h4">{{ __('Schedule Form') }}</p>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="table-responsive-sm ">
-                                                        <table>
-                                                            <thead>
-                                                                <tr>
-                                                                    <th class="header text-start filter-select filter-exact" scope="col">{{ ('Subjects') }}</th>
-                                                                    <th class="header text-start" scope="col">{{ __('Units') }}</th>
-                                                                    <th class="header filter-select filter-exact" scope="col">{{ __('Days') }}</th>
-                                                                    <th class="header text-start text-dark filter-select filter-exact" scope="col">{{ __('Time Start') }}</th>
-                                                                    <th class="header text-start text-dark filter-select filter-exact" scope="col">{{ __('Time End') }}</th>
-                                                                    <th class="header text-center" scope="col">{{ __('Room') }}</th>
-                                                                    <th class="header text-center" scope="col">{{ __('Instructor') }}</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                @for ($x=1; $x<11; $x++)
-                                                                <tr>
-                                                                <td class="text-center" scope="row">
-                                                                    <input name="sched[{{ $x }}][subjects]" type="text" placeholder="Subjects {{ $x }}" class="form-control @error('sched.'.$x.'.subjects') is-invalid @enderror">
-                                                                    @error('sched.'.$x.'.subjects')
-                                                                        <span class="invalid-feedback" role="alert">
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </span>
-                                                                    @enderror
-                                                                </td>
-                                                                <td class="text-center" scope="row">
-                                                                    <select name="sched[{{ $x }}][units]" type="text" placeholder="Unit {{ $x }}" class="form-select my-select @error('sched.'.$x.'.units') is-invalid @enderror">
-                                                                        <option disabled selected>{{ __('Choose...') }}</option>
-                                                                        <option value="1">{{ __('1') }}</option>
-                                                                        <option value="2">{{ __('2') }}</option>
-                                                                        <option value="3">{{ __('3') }}</option>
-                                                                    </select>
-                                                                    @error('sched.'.$x.'.units')
-                                                                        <span class="invalid-feedback" role="alert">
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </span>
-                                                                    @enderror
-                                                                </td>
-                                                                <td class="text-center" scope="row">
-                                                                    <input name="sched[{{ $x }}][days]"type="text" placeholder="Day {{ $x }}" class="form-control @error('sched.'.$x.'.days') is-invalid @enderror">
-                                                                    @error('sched.'.$x.'.days')
-                                                                        <span class="invalid-feedback" role="alert">
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </span>
-                                                                    @enderror
-                                                                </td>
-                                                                <td class="text-center" scope="row">
-                                                                    <input name="sched[{{ $x }}][timeStart]" type="time" class="form-control @error('sched.'.$x.'.timeStart') is-invalid @enderror">
-                                                                    @error('sched.'.$x.'.timeStart')
-                                                                        <span class="invalid-feedback" role="alert">
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </span>
-                                                                    @enderror
-                                                                </td>
-                                                                <td class="text-center" scope="row">
-                                                                    <input name="sched[{{ $x }}][timeEnd]" type="time" class="form-control @error('sched.'.$x.'.timeEnd') is-invalid @enderror">
-                                                                    @error('sched.'.$x.'.timeEnd')
-                                                                        <span class="invalid-feedback" role="alert">
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </span>
-                                                                    @enderror
-                                                                </td>
-                                                                <td class="text-center" scope="row">
-                                                                    <input name="sched[{{ $x }}][room]" type="text" placeholder="Room {{ $x }}" class="form-control @error('sched.'.$x.'.room') is-invalid @enderror">
-                                                                    @error('sched.'.$x.'.room')
-                                                                        <span class="invalid-feedback" role="alert">
-                                                                            <strong>{{ $message }}</strong>
-                                                                        </span>
-                                                                    @enderror
-                                                                </td>
-                                                                <td class="text-center" scope="row">
-                                                                    <select name="sched[{{ $x }}][proffessor]" id="" class="form-select my-select @error('sched.'.$x.'.proffessor') is-invalid @enderror">
-                                                                        <option disabled selected>{{ __('Professor '. $x ) }}</option>
-                                                                        @foreach ($teachers as $teach)
-                                                                        <option value="{{ $teach->name }}">{{ $teach->name }}</option>
-                                                                        @endforeach
-                                                                    </select>
-                                                                    </td>
-                                                                </tr>
-                                                                @endfor
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                            <div class="modal-footer">
-                                                <button type="submit" class="btn btn-primary">Upload</button>
-                                            </form>
                                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                                             </div>
                                         </div>

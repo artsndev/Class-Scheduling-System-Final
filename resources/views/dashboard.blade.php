@@ -186,7 +186,7 @@
             <td style="text-align: center; font-weight: bold;">{{ $sched->room }}</td>
             <td style="text-align: center; font-weight: bold;">{{ __(' ') }}</td>
             <td style="text-align: center; font-weight: bold;">{{ __(' ') }}</td>
-            <td style="text-align: center; font-weight: bold;">{{ $sched->admin->name }}</td>
+            <td style="text-align: center; font-weight: bold;">{{ $sched->teacher->name }}</td>
             <td style="text-align: center; font-weight: bold;">{{ $sched->proffessor }}</td>
         </tr>
         @endforeach

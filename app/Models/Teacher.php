@@ -61,4 +61,8 @@ class Teacher extends Authenticatable
     protected $dates = [
         'deleted_at',
     ];
+    public function uploadSched()
+    {
+        return $this->hasMany(Schedule::class, 'teacher_id');
+    }
 }

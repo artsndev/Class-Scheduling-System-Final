@@ -53,7 +53,4 @@ class Admin extends Authenticatable
     {
         $this->notify(new ResetPasswordNotification($token));
     }
-    public function uploadSched(){
-        return $this->hasMany(Admin::class, 'admin_id');
-    }
 }
